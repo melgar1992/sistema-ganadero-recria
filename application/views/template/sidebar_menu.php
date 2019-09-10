@@ -20,10 +20,10 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url(); ?>Formulario_Generales/Ganadero"><i class="fa fa-circle-o"></i> Ganadero</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Generales/Tipo_transporte"><i class="fa fa-circle-o"></i> Tipo de Transporte</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Generales/Transportista"><i class="fa fa-circle-o"></i> Transportista</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Generales/Intermediario"><i class="fa fa-circle-o"></i> Intermediario</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formularios_Generales/Ganadero"><i class="fa fa-circle-o"></i> Ganadero</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formularios_Generales/Tipo_transporte"><i class="fa fa-circle-o"></i> Tipo de Transporte</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formularios_Generales/Transportista"><i class="fa fa-circle-o"></i> Transportista</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formularios_Generales/Intermediario"><i class="fa fa-circle-o"></i> Intermediario</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
