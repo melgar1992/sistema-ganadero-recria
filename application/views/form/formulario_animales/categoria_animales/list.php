@@ -36,7 +36,7 @@
 
 
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales/guardarCategoriaAnimal" id="categoria_animal" class="form-horizontal form-label-left">
-                    <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
+                    <div class="form-group">
                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select type="text" name="nombre" required="required" class="form-group col-md-7 col-xs-12">
@@ -48,11 +48,11 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group <?php echo !empty(form_error("raza")) ? 'has-error' : ''; ?>">
                         <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" name="raza" id="raza" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba la raza del animal">
-
+                            <?php echo form_error("raza","<span class='help-block col-md-4 cols-xs-12 '>","</span>");?>
                         </div>
                     </div>
 
