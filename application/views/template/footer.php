@@ -36,7 +36,7 @@
 <script src="<?php echo base_url(); ?>assets/template/datatables-export/js/pdfmake.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/template/datatables-export/js/vfs_fonts.js"></script>
 
-<input type="hidden" value="<?php echo base_url() ?>" id="base_url">
+<<input type="hidden" value="<?php echo base_url() ?>" id="base_url">
 <script>
   $('#example1').DataTable();
     $('.sidebar-menu').tree();
@@ -54,7 +54,6 @@ if (isset($pagina)) { ?>
 }
 
 ?>
-
 
 </body>
 
