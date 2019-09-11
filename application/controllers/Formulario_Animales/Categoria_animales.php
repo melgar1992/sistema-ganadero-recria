@@ -13,6 +13,8 @@ class Categoria_animales extends BaseController
     {
         $data = array(
             'categoria_animal' => $this->Categoria_animales_model->getCategoriaAnimal(),
+            
+        
         );
 
         $this->loadView('Categoria_animales', '/form/formulario_animales/categoria_animales/list', $data);
@@ -45,13 +47,19 @@ class Categoria_animales extends BaseController
    
     public function editar($id_tipo_animal)
     {
+      
 
         $data = array(
             'categorias' => $this->Categoria_animales_model->getCategoria($id_tipo_animal),
+            
+    
            
         );
+        
         $this->loadView('Categoria_animales', '/form/formulario_animales/categoria_animales/editar', $data);
+       
     }
+
     public function actualizarCategoriaAnimal()
     {
         $id_tipo_animal = $this->input->post("id_tipo_animal");
@@ -96,5 +104,6 @@ class Categoria_animales extends BaseController
         $this->Categoria_animales_model->actualizar($id_tipo_animal, $data);
         echo "Formulario_Animales/Categoria_animales";
     }
+
     
 }
