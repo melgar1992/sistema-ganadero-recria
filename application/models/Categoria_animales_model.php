@@ -23,4 +23,8 @@ class Categoria_animales_model extends CI_Model
         $this->db->where("id_tipo_animal", $id_tipo_animal);
         return $this->db->update("tipo_animal", $data);
     }
+  
+    
+
+    
 }
