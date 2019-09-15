@@ -3,7 +3,7 @@
      <!-- Content Header (Page header) -->
      <section class="content-header">
          <h1>
-             Transporte
+             Ganaderos
              <small>Listado</small>
          </h1>
 
@@ -15,7 +15,7 @@
          <!-- Default box -->
          <div class="box">
              <div class="box-header with-border">
-                 <h3 class="box-title">Formulario de Transporte</h3>
+                 <h3 class="box-title">Formulario de Ganadero</h3>
 
                  <div class="box-tools pull-right">
                      <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -25,6 +25,7 @@
                  </div>
              </div>
              <div class="box-body">
+                 <h4>Los campos con * son obligatorios</h4>
 
                  <?php if ($this->session->flashdata("error")) : ?>
                      <div class="alert alert-danger alert-dismissable">
@@ -63,24 +64,58 @@
                              <?php echo form_error("telefono", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
-                     <div class="form-group <?php echo !empty(form_error("trayecto")) ? 'has-error' : ''; ?>">
-                         <label for="trayecto" class="control-label col-md-3 col-sm-3 col-xs-12">Trayecto de trabajo <span class="required">*</span></label>
+                     <div class="form-group ">
+                         <label for="marca" class="control-label col-md-3 col-sm-3 col-xs-12">marca </label>
                          <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="trayecto" value="<?php echo set_value('trayecto') ?>" id=trayecto required="required" class="form-group col-md-7 col-xs-12" placeholder="Beni-Sc, San Ramon, Rio mamore.">
-                             <?php echo form_error("trayecto", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                             <input type="text" name="marca" value="<?php echo set_value('marca') ?>" id=marca required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                             <?php echo form_error("marca", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
-                     
-                     <div class="form-group <?php echo !empty(form_error("tipo_transporte")) ? 'has-error' : ''; ?>">
-                         <label for="tipo_transporte" class="control-label col-md-3 col-sm-3 col-xs-12">Tipos de Transporte <span class="required">*</span></label>
+
+                     <div class="form-group">
+                         <label for="nombre_estancia" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre de la estancia </label>
                          <div class="col-md-6 col-sm-6 col-xs-12">
-                             <select name="tipo_transporte" id="tipo_transporte" required class="form-group col-md-7 col-xs-12">
+                             <input type="text" name="nombre_estancia" value="<?php echo set_value('nombre_estancia') ?>" id=nombre_estancia class="form-group col-md-7 col-xs-12" placeholder="">
+                             <?php echo form_error("nombre_estancia", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <label for="departamento" class="control-label col-md-3 col-sm-3 col-xs-12">Departamento </label>
+                         <div class="col-md-6 col-sm-6 col-xs-12">
+                             <select id="departamento" name="departamento" class="form-group col-md-7 col-xs-12" required>
                                  <option value=""></option>
-                                 <?php foreach ($tipo_transportes as $tipo_transporte) : ?>
-                                     <option value="<?php echo $tipo_transporte->id_tipo_transporte; ?>"><?php echo $tipo_transporte->nombres; ?></option>
-                                 <?php endforeach; ?>
+                                 <option value="Pando">Pando</option>
+                                 <option value="Beni">Beni</option>
+                                 <option value="Santa Cruz">Santa Cruz</option>
+                                 <option value="Cochabamba">Cochabamba</option>
+                                 <option value="La Paz">La Paz</option>
+                                 <option value="Sucre">Sucre</option>
+                                 <option value="Potosi">Potosi</option>
+                                 <option value="Tarija">Tarija</option>
+                                 <option value="Oruro">Oruro</option>
                              </select>
-                             <?php echo form_error("tipo_transporte", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                             <?php echo form_error("departamento", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <label for="provincia" class="control-label col-md-3 col-sm-3 col-xs-12">Provincia </label>
+                         <div class="col-md-6 col-sm-6 col-xs-12">
+                             <input type="text" name="provincia" value="<?php echo set_value('provincia') ?>" id=provincia class="form-group col-md-7 col-xs-12" placeholder="">
+                             <?php echo form_error("provincia", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <label for="municipio" class="control-label col-md-3 col-sm-3 col-xs-12">Municipio </label>
+                         <div class="col-md-6 col-sm-6 col-xs-12">
+                             <input type="text" name="municipio" value="<?php echo set_value('municipio') ?>" id=municipio class="form-group col-md-7 col-xs-12" placeholder="">
+                             <?php echo form_error("municipio", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <label for="referencia" class="control-label col-md-3 col-sm-3 col-xs-12">Referencia </label>
+                         <div class="col-md-6 col-sm-6 col-xs-12">
+                             <input type="text" name="referencia" value="<?php echo set_value('referencia') ?>" id=referencia class="form-group col-md-7 col-xs-12" placeholder="">
+                             <?php echo form_error("referencia", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
 
@@ -101,48 +136,7 @@
 
                  </form>
                  <!-- /.box -->
-                 <div class="row">
-                     <div class="col-md-12">
-                         <table id="example1" class="table table-bordered btn-hover">
-                             <thead>
-                                 <tr>
-                                     <th>#</th>
-                                     <th>Nombres</th>
-                                     <th>Apellidos</th>
-                                     <th>Carnet de Indentidad</th>
-                                     <th>Telefono</th>
-                                     <th>Tipo de Transporte</th>
-                                     <th>Trayecto</th>
-                                     <th>Opciones</th>
-                                 </tr>
-                             </thead>
-                             <tbody>
-                             <?php if (!empty($transportistas)) : ?>
-                                 <?php foreach ($transportistas as $transportista) : ?>
 
-                                     <tr>
-                                         <td><?php echo $transportista->id_transportista; ?></td>
-                                         <td><?php echo $transportista->nombres; ?></td>
-                                         <td><?php echo $transportista->apellidos; ?></td>
-                                         <td><?php echo $transportista->carnet_identidad; ?></td>
-                                         <td><?php echo $transportista->telefono; ?></td>
-                                         <td><?php echo $transportista->tipotransporte; ?></td>
-                                         <td><?php echo $transportista->trayecto; ?></td>
-                                         
-                                         <td>
-                                             <div class="btn-group">
-                                                 <a href="<?php echo base_url() ?>Formularios_Generales/Transportista/editar/<?php echo $transportista->id_transportista; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                 <a href="<?php echo base_url(); ?>Formularios_Generales/Transportista/borrar/<?php echo $transportista->id_transportista; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
-                                             </div>
-                                         </td>
-                                     </tr>
-                                 <?php endforeach; ?>
-                             <?php endif; ?>
-                                 
-                             </tbody>
-                         </table>
-                     </div>
-                 </div>
 
      </section>
      <!-- /.content -->
