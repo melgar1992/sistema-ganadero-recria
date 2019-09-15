@@ -52,7 +52,7 @@
                         <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" name="raza" id="raza" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba la raza del animal">
-                            <?php echo form_error("raza","<span class='help-block col-md-4 cols-xs-12 '>","</span>");?>
+                            <?php echo form_error("raza", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
 
@@ -91,7 +91,7 @@
                                             <td><?php echo $categoria->raza; ?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    
+
                                                     <a href="<?php echo base_url() ?>Formulario_Animales/Categoria_animales/editar/<?php echo $categoria->id_tipo_animal; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                     <a href="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales/borrar/<?php echo $categoria->id_tipo_animal; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
                                                 </div>

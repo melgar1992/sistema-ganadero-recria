@@ -37,38 +37,24 @@
 
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales/actualizarCategoriaAnimal" id="categorias" class="form-horizontal form-label-left">
                     <input type="hidden" value="<?php echo $categorias->id_tipo_animal; ?>" name="id_tipo_animal">
-                    <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
+                    <div class="form-group">
                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                       
-                         
-                        <select name="animales[]" id="animales"  required="required" class="form-group col-md-7 col-xs-12">  
-                        <option value="Bovino">Bovino</option>
-                                <option value="Equino">Equino</option>
-                                <option value="Familia Cerdos">Familia Cerdos </option>
-                                <option value="Aves">Aves </option>
-                              
-                                <?php $animal= $_POST['animales[]']?>
-                                </select>
-                                <?php foreach ($categorias as $categoria) : ?>
-                                    <?php if ($categoria->nombre == $animal) : ?>
-                                        <option value="<?php echo $categoria->nombre; ?>" selected><?php echo $categoria->nombre; ?></option>
+                            <select name="nombre" id="nombre" required="required" class="form-group col-md-7 col-xs-12">
+                                <?php foreach ($animales as $animal) : ?>
+                                    <?php if ($animal == $categorias->nombre) : ?>
+                                        <option value="<?php echo $animal ?>" selected><?php echo $animal?></option>
                                     <?php else : ?>
-                                        <option value="<?php echo $categoria->nombre; ?>"><?php echo $categoria->nombre; ?></option>
+                                        <option value="<?php echo $animal ?>"><?php echo $animal?></option>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
-                             
-                            
-
-
-
-
+                            </select>
                         </div>
                     </div>
 
 
                     <div class="form-group">
-                    <?php echo form_error("raza","<span class='help-block col-md-4 cols-xs-12 '>","</span>");?>
+                        <?php echo form_error("raza", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" name="raza" id="raza" value="<?php echo $categorias->raza ?>" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba la raza">
