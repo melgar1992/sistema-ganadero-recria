@@ -60,7 +60,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url(); ?>Formulario_Empleados/Tipo_contrato"><i class="fa fa-circle-o"></i> Tipo Contrato</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Empleados/Tipo_cargo"><i class="fa fa-circle-o"></i> Tipo Cargo</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Empleados/Empleado"><i class="fa fa-circle-o"></i> Empleado</a></li>
                             
                         </ul>

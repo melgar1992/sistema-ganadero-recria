@@ -47,12 +47,18 @@ class Categoria_animales extends BaseController
    
     public function editar($id_tipo_animal)
     {
+        $animales = array(  
+             'Bovino', 
+             'Equino', 
+             'Familia_Cerdos', 
+             'Aves', 
+            
+        
+        );
       
-
         $data = array(
             'categorias' => $this->Categoria_animales_model->getCategoria($id_tipo_animal),
-            
-    
+            'animales'=> $animales,
            
         );
         
