@@ -92,7 +92,7 @@ class Tipo_cargo extends BaseController
 
         );
         $this->Tipo_cargo_model->actualizar($id_tipo_cargo, $data);
-        echo "Formulario_Empleados/Tipo_cargo";
+        redirect(base_url() . "Formulario_Empleados/Tipo_cargo");
     }
 
 
