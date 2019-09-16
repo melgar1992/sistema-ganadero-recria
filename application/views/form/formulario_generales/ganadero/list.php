@@ -25,7 +25,7 @@
                  </div>
              </div>
              <div class="box-body">
-                 <h4>Los campos con * son obligatorios</h4>
+                 <h4>Los campos con * son obligatorios, despues podran agregar mas estancia de ser necesario.</h4>
 
                  <?php if ($this->session->flashdata("error")) : ?>
                      <div class="alert alert-danger alert-dismissable">
@@ -34,7 +34,8 @@
 
                      </div>
                  <?php endif; ?>
-                 <form method="POST" action="<?php echo base_url(); ?>Formularios_Generales/Transportista/guardarTransportista" id="transportista" class="form-horizontal form-label-left">
+                 <form method="POST" action="<?php echo base_url(); ?>Formularios_Generales/Ganadero/guardarGanadero" id="ganadero" class="form-horizontal form-label-left">
+                 <input type="hidden" name="tipo_ganadero" value="externo" id="tipo_ganadero">
 
                      <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
                          <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombres <span class="required">*</span></label>
@@ -64,14 +65,6 @@
                              <?php echo form_error("telefono", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
-                     <div class="form-group ">
-                         <label for="marca" class="control-label col-md-3 col-sm-3 col-xs-12">marca </label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="marca" value="<?php echo set_value('marca') ?>" id=marca required="required" class="form-group col-md-7 col-xs-12" placeholder="">
-                             <?php echo form_error("marca", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                         </div>
-                     </div>
-
                      <div class="form-group">
                          <label for="nombre_estancia" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre de la estancia </label>
                          <div class="col-md-6 col-sm-6 col-xs-12">
@@ -82,7 +75,7 @@
                      <div class="form-group">
                          <label for="departamento" class="control-label col-md-3 col-sm-3 col-xs-12">Departamento </label>
                          <div class="col-md-6 col-sm-6 col-xs-12">
-                             <select id="departamento" name="departamento" class="form-group col-md-7 col-xs-12" required>
+                             <select id="departamento" name="departamento" class="form-group col-md-7 col-xs-12" >
                                  <option value=""></option>
                                  <option value="Pando">Pando</option>
                                  <option value="Beni">Beni</option>
@@ -114,7 +107,7 @@
                      <div class="form-group">
                          <label for="referencia" class="control-label col-md-3 col-sm-3 col-xs-12">Referencia </label>
                          <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="referencia" value="<?php echo set_value('referencia') ?>" id=referencia class="form-group col-md-7 col-xs-12" placeholder="">
+                             <textarea rows="3" type="text" name="referencia" value="<?php echo set_value('referencia') ?>" id=referencia class="form-group col-md-7 col-xs-12" placeholder=""></textarea>
                              <?php echo form_error("referencia", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
@@ -136,6 +129,47 @@
 
                  </form>
                  <!-- /.box -->
+                 <div class="row">
+                     <div class="col-md-12">
+                         <h4>Listado de Ganaderos</h4>
+                         <table id="example1" class="table table-bordered btn-hover">
+                             <thead>
+                                 <tr>
+                                     <th>#</th>
+                                     <th>Nombres</th>
+                                     <th>Apellidos</th>
+                                     <th>Carnet de Indentidad</th>
+                                     <th>Telefono</th>
+                                     <th>Opciones</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                             <?php if (!empty($ganaderos)) : ?>
+                                 <?php foreach ($ganaderos as $ganadero) : ?>
+
+                                     <tr>
+                                         <td><?php echo $ganadero->id_ganadero; ?></td>
+                                         <td><?php echo $ganadero->nombres; ?></td>
+                                         <td><?php echo $ganadero->apellidos; ?></td>
+                                         <td><?php echo $ganadero->carnet_identidad; ?></td>
+                                         <td><?php echo $ganadero->telefono; ?></td>
+
+                                         
+                                         <td>
+                                             <div class="btn-group">
+                                                 <button type="button" class="btn btn-info btn-vista" data-toggle="modal" data-target="modal-default" value="<?php echo $ganadero->id_ganadero ?>"><span class="fa fa-search"></span></button>
+                                                 <a href="<?php echo base_url() ?>Formularios_Generales/Ganadero/editar/<?php echo $ganadero->id_ganadero; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                 <a href="<?php echo base_url(); ?>Formularios_Generales/Ganadero/borrar/<?php echo $ganadero->id_ganadero; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                             </div>
+                                         </td>
+                                     </tr>
+                                 <?php endforeach; ?>
+                             <?php endif; ?>
+                                 
+                             </tbody>
+                         </table>
+                     </div>
+                 </div>
 
 
      </section>
