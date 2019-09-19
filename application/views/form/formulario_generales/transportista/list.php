@@ -16,7 +16,6 @@
          <div class="box">
              <div class="box-header with-border">
                  <h3 class="box-title">Formulario de Transporte</h3>
-
                  <div class="box-tools pull-right">
                      <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                          <i class="fa fa-minus"></i></button>
@@ -26,6 +25,9 @@
              </div>
              <div class="box-body">
 
+             <h4>Es necesario tener al menos 1 tipo de transporte registrado, de no tener registrado uno hacer click <a href="<?php echo base_url();?>Formularios_Generales/Tipo_transporte">aqui</a></h4>
+           <br/>
+           <br/>
                  <?php if ($this->session->flashdata("error")) : ?>
                      <div class="alert alert-danger alert-dismissable">
                          <button type="button" class="close" data-dissmiss="alert" aria-hidden="true">$times;</button>
@@ -70,7 +72,7 @@
                              <?php echo form_error("trayecto", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
-                     
+
                      <div class="form-group <?php echo !empty(form_error("tipo_transporte")) ? 'has-error' : ''; ?>">
                          <label for="tipo_transporte" class="control-label col-md-3 col-sm-3 col-xs-12">Tipos de Transporte <span class="required">*</span></label>
                          <div class="col-md-6 col-sm-6 col-xs-12">
@@ -117,28 +119,28 @@
                                  </tr>
                              </thead>
                              <tbody>
-                             <?php if (!empty($transportistas)) : ?>
-                                 <?php foreach ($transportistas as $transportista) : ?>
+                                 <?php if (!empty($transportistas)) : ?>
+                                     <?php foreach ($transportistas as $transportista) : ?>
 
-                                     <tr>
-                                         <td><?php echo $transportista->id_transportista; ?></td>
-                                         <td><?php echo $transportista->nombres; ?></td>
-                                         <td><?php echo $transportista->apellidos; ?></td>
-                                         <td><?php echo $transportista->carnet_identidad; ?></td>
-                                         <td><?php echo $transportista->telefono; ?></td>
-                                         <td><?php echo $transportista->tipotransporte; ?></td>
-                                         <td><?php echo $transportista->trayecto; ?></td>
-                                         
-                                         <td>
-                                             <div class="btn-group">
-                                                 <a href="<?php echo base_url() ?>Formularios_Generales/Transportista/editar/<?php echo $transportista->id_transportista; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                 <a href="<?php echo base_url(); ?>Formularios_Generales/Transportista/borrar/<?php echo $transportista->id_transportista; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
-                                             </div>
-                                         </td>
-                                     </tr>
-                                 <?php endforeach; ?>
-                             <?php endif; ?>
-                                 
+                                         <tr>
+                                             <td><?php echo $transportista->id_transportista; ?></td>
+                                             <td><?php echo $transportista->nombres; ?></td>
+                                             <td><?php echo $transportista->apellidos; ?></td>
+                                             <td><?php echo $transportista->carnet_identidad; ?></td>
+                                             <td><?php echo $transportista->telefono; ?></td>
+                                             <td><?php echo $transportista->tipotransporte; ?></td>
+                                             <td><?php echo $transportista->trayecto; ?></td>
+
+                                             <td>
+                                                 <div class="btn-group">
+                                                     <a href="<?php echo base_url() ?>Formularios_Generales/Transportista/editar/<?php echo $transportista->id_transportista; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                     <a href="<?php echo base_url(); ?>Formularios_Generales/Transportista/borrar/<?php echo $transportista->id_transportista; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                 </div>
+                                             </td>
+                                         </tr>
+                                     <?php endforeach; ?>
+                                 <?php endif; ?>
+
                              </tbody>
                          </table>
                      </div>

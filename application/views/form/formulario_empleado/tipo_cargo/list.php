@@ -82,14 +82,14 @@
                                      <?php foreach ($tipo_cargos as $tipo_cargo) : ?>
 
                                          <tr>
-                                             <td><?php echo $tipo_cargo->id_tipo_cargo; ?></td>
+                                             <td><?php echo $tipo_cargo->id_tipos_cargos; ?></td>
                                              <td><?php echo $tipo_cargo->cargo; ?></td>
                                              <td><?php echo $tipo_cargo->area; ?></td>
                                              <td>
                                                  <div class="btn-group">
                                                     
-                                                     <a href="<?php echo base_url() ?>Formulario_Empleados/Tipo_cargo/editar/<?php echo $tipo_cargo->id_tipo_cargo; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                     <a href="<?php echo base_url();?>Formulario_Empleados/Tipo_cargo/borrar/<?php echo $tipo_cargo->id_tipo_cargo;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                     <a href="<?php echo base_url() ?>Formulario_Empleados/Tipo_cargo/editar/<?php echo $tipo_cargo->id_tipos_cargos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                     <a href="<?php echo base_url();?>Formulario_Empleados/Tipo_cargo/borrar/<?php echo $tipo_cargo->id_tipos_cargos;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
                                                  </div>
                                              </td>
                                          </tr>
