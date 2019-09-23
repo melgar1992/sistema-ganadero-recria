@@ -37,7 +37,7 @@ class BaseController extends CI_Controller {
 			 );
 
 			 $this->session->set_userdata($data);
-			 redirect(base_url().'Dashboard');
+			 redirect(base_url().'');
 			
 		}
 		

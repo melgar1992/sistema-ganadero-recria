@@ -88,10 +88,11 @@ class Tipo_cargo extends BaseController
     public function borrar($id_tipo_cargo)
     {
         $data = array(
+            'cargo'=>'',
             'estado' => "0",
-
         );
-        $this->Tipo_cargo_model->actualizar($id_tipo_cargo, $data);
+       
+        $this->Tipo_cargo_model->actualizar($id_tipo_cargo,$data);
         redirect(base_url() . "Formulario_Empleados/Tipo_cargo");
     }
 

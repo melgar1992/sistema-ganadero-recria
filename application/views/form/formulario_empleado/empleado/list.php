@@ -35,7 +35,7 @@
 
                     </div>
                 <?php endif; ?>
-                <form method="POST" action="<?php echo base_url(); ?>Formularios_Generales/Empleado/guardarEmpleado" id="empleado" class="form-horizontal form-label-left">
+                <form method="POST" action="<?php echo base_url(); ?>Formulario_Empleados/Empleado/guardarEmpleado" id="empleado" class="form-horizontal form-label-left">
                     <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombres <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("tipo_cargo")) ? 'has-error' : ''; ?>">
-                         <label for="tipo_cargo" class="control-label col-md-3 col-sm-3 col-xs-12">Tipos de Transporte <span class="required">*</span></label>
+                         <label for="tipo_cargo" class="control-label col-md-3 col-sm-3 col-xs-12">Cargo del empleado <span class="required">*</span></label>
                          <div class="col-md-6 col-sm-6 col-xs-12">
                              <select name="tipo_cargo" id="tipo_cargo" required class="form-group col-md-7 col-xs-12">
                                  <option value=""></option>
@@ -98,17 +98,17 @@
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("sueldo")) ? 'has-error' : ''; ?>">
-                        <label for="sueldo" class="control-label col-md-3 col-sm-3 col-xs-12">Sueldo del Empleado<span class="required">*</span></label>
+                        <label for="sueldo" class="control-label col-md-3 col-sm-3 col-xs-12">Sueldo base<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="number" name="sueldo" value="<?php echo set_value('sueldo') ?>" id=sueldo required="required" class="form-group col-md-7 col-xs-12" placeholder="">
                             <?php echo form_error("sueldo", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
-                    <div class="form-group <?php echo !empty(form_error("afp")) ? 'has-error' : ''; ?>">
-                        <label for="afp" class="control-label col-md-3 col-sm-3 col-xs-12">Afp </label>
+                    <div class="form-group <?php echo !empty(form_error("afp_empleado")) ? 'has-error' : ''; ?>">
+                        <label for="afp_empleado" class="control-label col-md-3 col-sm-3 col-xs-12">Afp empleado </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" readonly  name="afp" value="<?php echo set_value('afp') ?>" id=afp required="required" class="form-group col-md-7 col-xs-12" placeholder="">
-                            <?php echo form_error("afp", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                            <input type="number" readonly  name="afp_empleado" value="<?php echo set_value('afp_empleado') ?>" id=afp_empleado required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                            <?php echo form_error("afp_empleado", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("afp_empleador")) ? 'has-error' : ''; ?>">
@@ -118,18 +118,25 @@
                             <?php echo form_error("afp_empleador", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
-                    <div class="form-group <?php echo !empty(form_error("seguro_medico")) ? 'has-error' : ''; ?>">
-                        <label for="seguro_medico" class="control-label col-md-3 col-sm-3 col-xs-12">Seguro medico</label>
+                    <div class="form-group <?php echo !empty(form_error("caja_nacional")) ? 'has-error' : ''; ?>">
+                        <label for="caja_nacional" class="control-label col-md-3 col-sm-3 col-xs-12">Seguro medico</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number"  readonly name="seguro_medico" value="<?php echo set_value('seguro_medico') ?>" id=seguro_medico required="required" class="form-group col-md-7 col-xs-12" placeholder="">
-                            <?php echo form_error("seguro_medico", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                            <input type="number"  readonly name="caja_nacional" value="<?php echo set_value('caja_nacional') ?>" id=caja_nacional required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                            <?php echo form_error("caja_nacional", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
-                    <div class="form-group <?php echo !empty(form_error("seguro_medico")) ? 'has-error' : ''; ?>">
-                        <label for="seguro_medico" class="control-label col-md-3 col-sm-3 col-xs-12"> </label>
+                    <div class="form-group <?php echo !empty(form_error("sueldo_liquido")) ? 'has-error' : ''; ?>">
+                        <label for="sueldo_liquido" class="control-label col-md-3 col-sm-3 col-xs-12">Liquido Pagable </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number"  readonly name="seguro_medico" value="<?php echo set_value('seguro_medico') ?>" id=seguro_medico required="required" class="form-group col-md-7 col-xs-12" placeholder="">
-                            <?php echo form_error("seguro_medico", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                            <input type="number"  readonly name="sueldo_liquido" value="<?php echo set_value('sueldo_liquido') ?>" id=sueldo_liquido required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                            <?php echo form_error("sueldo_liquido", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                        </div>
+                    </div>
+                    <div class="form-group <?php echo !empty(form_error("sueldo_total")) ? 'has-error' : ''; ?>">
+                        <label for="sueldo_total" class="control-label col-md-3 col-sm-3 col-xs-12">Sueldo total empleador</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="number"  readonly name="sueldo_total" value="<?php echo set_value('sueldo_total') ?>" id=sueldo_total required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                            <?php echo form_error("sueldo_total", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
                     
@@ -151,7 +158,58 @@
 
                 </form>
                 <!-- /.box -->
-                
+                <div class="row">
+                     <div class="col-md-12">
+                         <h4>Listado de Empleados</h4>
+                         <table id="example1" class="table table-bordered btn-hover">
+                             <thead>
+                                 <tr>
+                                     <th>#</th>
+                                     <th>Nombres</th>
+                                     <th>Apellidos</th>
+                                     <th>Carnet de Indentidad</th>
+                                     <th>Telefono</th>
+                                     <th>Sueldo Base</th>
+                                     <th>Afp Empleado</th>
+                                     <th>Afp Empleador</th>
+                                     <th>Seguro de salud</th>
+                                     <th>Sueldo Liquido</th>
+                                     <th>Sueldo Total</th>
+                                     <th>Opciones</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                             <?php if (!empty($empleados)) : ?>
+                                 <?php foreach ($empleados as $empleado) : ?>
+
+                                     <tr>
+                                         <td><?php echo $empleado->id_empleado; ?></td>
+                                         <td><?php echo $empleado->nombres; ?></td>
+                                         <td><?php echo $empleado->apellidos; ?></td>
+                                         <td><?php echo $empleado->carnet_identidad; ?></td>
+                                         <td><?php echo $empleado->telefono; ?></td>
+                                         <td><?php echo $empleado->sueldo; ?></td>
+                                         <td><?php echo $empleado->afp_empleado; ?></td>
+                                         <td><?php echo $empleado->afp_empleador; ?></td>
+                                         <td><?php echo $empleado->caja_nacional; ?></td>
+                                         <td><?php echo $empleado->sueldo_liquido; ?></td>
+                                         <td><?php echo $empleado->sueldo_total; ?></td>
+
+                                         
+                                         <td>
+                                             <div class="btn-group">
+                                                 <a href="<?php echo base_url() ?>Formulario_Empleados/Empleado/editar/<?php echo $empleado->id_contrato_empleado; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                 <a href="<?php echo base_url(); ?>Formulario_Empleados/Empleado/borrar/<?php echo $empleado->id_contrato_empleado; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                             </div>
+                                         </td>
+                                     </tr>
+                                 <?php endforeach; ?>
+                             <?php endif; ?>
+                                 
+                             </tbody>
+                         </table>
+                     </div>
+                 </div>
 
 
     </section>
