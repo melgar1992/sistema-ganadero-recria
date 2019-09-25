@@ -108,6 +108,7 @@ class Intermediario extends BaseController
     public function borrar($id_intermediario)
     {
         $data = array(
+            'carnet_identidad'=>'',
             'estado' => "0",
         );
         $this->Intermediario_model->borrar($id_intermediario, $data);
