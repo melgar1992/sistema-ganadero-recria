@@ -35,6 +35,9 @@
 <script src="<?php echo base_url(); ?>assets/template/datatables-export/js/jszip.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/template/datatables-export/js/pdfmake.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/template/datatables-export/js/vfs_fonts.js"></script>
+<!-- Sweet Alert -->
+<script src="<?php echo base_url(); ?>assets/template/sweetalert2/sweetalert2.all.min.js"></script>
+
 
 <<input type="hidden" value="<?php echo base_url() ?>" id="base_url">
 <script>

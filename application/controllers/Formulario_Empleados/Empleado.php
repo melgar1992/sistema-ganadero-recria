@@ -33,7 +33,7 @@ class Empleado extends BaseController
 
         $this->form_validation->set_rules("nombre", "Nombre", "required");
         $this->form_validation->set_rules("apellidos", "Apellidos", "required");
-        $this->form_validation->set_rules("ci", "CI", "required|is_unique[persona.carnet_identidad]");
+        $this->form_validation->set_rules("ci", "CI", "required");
         $this->form_validation->set_rules("telefono", "Telefono", "required");
         $this->form_validation->set_rules("tipo_cargo", "Tipo Cargo", "required");
         $this->form_validation->set_rules("fecha_ingreso", "Fecha ingreso", "required");
@@ -116,16 +116,9 @@ class Empleado extends BaseController
 
 
 
-        $empleadoActual = $this->Empleado_model->getEmpleado($id_contrato_empleado);
-        if ($ci == $empleadoActual->carnet_identidad) {
-            $unique = '';
-        } else {
-            $unique = '|is_unique[persona.carnet_identidad]';
-        }
-
         $this->form_validation->set_rules("nombre", "Nombre", "required");
         $this->form_validation->set_rules("apellidos", "Apellidos", "required");
-        $this->form_validation->set_rules("ci", "CI", "required" . $unique);
+        $this->form_validation->set_rules("ci", "CI", "required" . required);
         $this->form_validation->set_rules("telefono", "Telefono", "required");
         $this->form_validation->set_rules("tipo_cargo", "Tipo Cargo", "required");
         $this->form_validation->set_rules("fecha_ingreso", "Fecha ingreso", "required");

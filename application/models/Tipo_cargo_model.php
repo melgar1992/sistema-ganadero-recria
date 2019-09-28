@@ -23,9 +23,9 @@ class Tipo_cargo_model extends CI_Model
         $this->db->where("id_tipos_cargos", $id_tipo_cargo);
         return $this->db->update("tipos_cargos", $data);
     }
-    public function borrar($id_tipos_cargos)
+    public function borrar($id_tipos_cargos,$data)
     {
         $this->db->where('id_tipos_cargos', $id_tipos_cargos);
-        $this->db->delete('tipos_cargos');
+        $this->db->update('tipos_cargos',$data);
     }
 }

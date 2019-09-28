@@ -7,7 +7,7 @@ $(document).ready(function () {
    
         Swal.fire({
             title: 'Esta seguro de elimar?',
-            text: "Una vez elimina el tipo de transporte tambien se eliminaran todos los transportistas relacionado con este tipo de transporte!",
+            text: "Una vez elimina el transportista tambien se eliminaran todos los datos relacionados con el transportista!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -20,7 +20,7 @@ $(document).ready(function () {
                 var id = $(this).val();
 
                 $.ajax({
-                    url: base_url + 'Formularios_Generales/Tipo_transporte/borrar/' + id,
+                    url: base_url + 'Formularios_Generales/Transportista/borrar/' + id,
                     type: 'POST',
                     success: function (resp) {
 
