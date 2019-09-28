@@ -78,7 +78,7 @@
                                             <td>
                                                 <div class="btn-group">
 
-                                                    <a href="<?php echo base_url() ?>Formulario_Ingresos/Categoria_otros_ingresos/editar/<?php echo $categoria->id_categoria_ingresos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                    <a href="<?php echo base_url(); ?>Formulario_Ingresos/Categoria_otros_ingresos/editar/<?php echo $categoria->id_categoria_ingresos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                     <a href="<?php echo base_url(); ?>Formulario_Ingresos/Categoria_otros_ingresos/borrar/<?php echo $categoria->id_categoria_ingresos; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
                                                 </div>
                                             </td>
