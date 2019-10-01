@@ -33,7 +33,15 @@ class Empleado extends BaseController
 
         $this->form_validation->set_rules("nombre", "Nombre", "required");
         $this->form_validation->set_rules("apellidos", "Apellidos", "required");
-        $this->form_validation->set_rules("ci", "CI", "required");
+        $this->form_validation->set_rules(
+            'ci',
+            'ci',
+            array(
+                'required',
+                array('validarCi', array($this->Empleado_model, 'validarCi'))
+            ),
+            array('validarCi' => 'Carnet de identidad ya esta siendo ocupado')
+        );
         $this->form_validation->set_rules("telefono", "Telefono", "required");
         $this->form_validation->set_rules("tipo_cargo", "Tipo Cargo", "required");
         $this->form_validation->set_rules("fecha_ingreso", "Fecha ingreso", "required");
@@ -112,22 +120,49 @@ class Empleado extends BaseController
         $caja_nacional = $this->input->post('caja_nacional');
         $sueldo_liquido = $this->input->post('sueldo_liquido');
         $sueldo_total = $this->input->post('sueldo_total');
+        $empleadoActual = $this->Empleado_model->getEmpleado($id_contrato_empleado);
+
+        if ($ci == $empleadoActual->carnet_identidad) {
+
+            $this->form_validation->set_rules("nombre", "Nombre", "required");
+            $this->form_validation->set_rules("apellidos", "Apellidos", "required");
+            $this->form_validation->set_rules("ci", "CI", "required");
+            $this->form_validation->set_rules("telefono", "Telefono", "required");
+            $this->form_validation->set_rules("tipo_cargo", "Tipo Cargo", "required");
+            $this->form_validation->set_rules("fecha_ingreso", "Fecha ingreso", "required");
+            $this->form_validation->set_rules("sueldo", "Sueldo", "required");
+            $this->form_validation->set_rules("afp_empleado", "Afp del empleado", "required");
+            $this->form_validation->set_rules("afp_empleador", "afp del empleador", "required");
+            $this->form_validation->set_rules("caja_nacional", "Caja Nacional seguro", "required");
+            $this->form_validation->set_rules("sueldo_liquido", "Sueldo Liquido", "required");
+            $this->form_validation->set_rules("sueldo_total", "Sueldo total", "required");
+        } else {
+
+            $this->form_validation->set_rules("nombre", "Nombre", "required");
+            $this->form_validation->set_rules("apellidos", "Apellidos", "required");
+            $this->form_validation->set_rules(
+                'ci',
+                'ci',
+                array(
+                    'required',
+                    array('validarCi', array($this->Empleado_model, 'validarCi'))
+                ),
+                array('validarCi' => 'Carnet de identidad ya esta siendo ocupado')
+            );
+            $this->form_validation->set_rules("telefono", "Telefono", "required");
+            $this->form_validation->set_rules("tipo_cargo", "Tipo Cargo", "required");
+            $this->form_validation->set_rules("fecha_ingreso", "Fecha ingreso", "required");
+            $this->form_validation->set_rules("sueldo", "Sueldo", "required");
+            $this->form_validation->set_rules("afp_empleado", "Afp del empleado", "required");
+            $this->form_validation->set_rules("afp_empleador", "afp del empleador", "required");
+            $this->form_validation->set_rules("caja_nacional", "Caja Nacional seguro", "required");
+            $this->form_validation->set_rules("sueldo_liquido", "Sueldo Liquido", "required");
+            $this->form_validation->set_rules("sueldo_total", "Sueldo total", "required");
+        }
 
 
 
 
-        $this->form_validation->set_rules("nombre", "Nombre", "required");
-        $this->form_validation->set_rules("apellidos", "Apellidos", "required");
-        $this->form_validation->set_rules("ci", "CI", "required" . required);
-        $this->form_validation->set_rules("telefono", "Telefono", "required");
-        $this->form_validation->set_rules("tipo_cargo", "Tipo Cargo", "required");
-        $this->form_validation->set_rules("fecha_ingreso", "Fecha ingreso", "required");
-        $this->form_validation->set_rules("sueldo", "Sueldo", "required");
-        $this->form_validation->set_rules("afp_empleado", "Afp del empleado", "required");
-        $this->form_validation->set_rules("afp_empleador", "afp del empleador", "required");
-        $this->form_validation->set_rules("caja_nacional", "Caja Nacional seguro", "required");
-        $this->form_validation->set_rules("sueldo_liquido", "Sueldo Liquido", "required");
-        $this->form_validation->set_rules("sueldo_total", "Sueldo total", "required");
 
         if ($this->form_validation->run()) {
 
@@ -142,7 +177,7 @@ class Empleado extends BaseController
             $datosEmpleado = array(
 
                 'direccion' => $direccion,
-               
+
             );
             $datosContrato = array(
 
@@ -157,7 +192,7 @@ class Empleado extends BaseController
                 'sueldo_liquido' => $sueldo_liquido,
                 'sueldo_total' => $sueldo_total,
                 'estado' => '1',
-               
+
             );
 
 
@@ -170,16 +205,14 @@ class Empleado extends BaseController
         } else {
             $this->Editar($id_contrato_empleado);
         }
-    
     }
     public function borrar($id_contrato_empleado)
     {
-         $empleado = $this->Empleado_model->getEmpleado($id_contrato_empleado);
-        
+
         $datosborrar = array(
-            'estado' =>'0' ,
-             );
-            $this->Empleado_model->borrar($empleado,$datosborrar);
-            $this->index();
+            'estado' => '0',
+        );
+        $this->Empleado_model->borrar($id_contrato_empleado, $datosborrar);
+        $this->index();
     }
 }

@@ -111,7 +111,7 @@
                                          <td>
                                              <div class="btn-group">
                                                  <a href="<?php echo base_url() ?>Formularios_Generales/Intermediario/editar/<?php echo $intermediario->id_intermediario; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                 <a href="<?php echo base_url(); ?>Formularios_Generales/Intermediario/borrar/<?php echo $intermediario->id_intermediario; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                 <button type="button" value="<?php echo $intermediario->id_intermediario;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                              </div>
                                          </td>
                                      </tr>

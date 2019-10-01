@@ -54,11 +54,10 @@
 
 
                     <div class="form-group">
-                        <?php echo form_error("raza", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="raza" id="raza" value="<?php echo $categorias->raza ?>" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba la raza">
-
+                            <input type="text" name="raza" id="raza" value="<?php echo !empty(form_error("raza")) ? set_value("raza") : $categorias->raza ?>" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba la raza">
+                            <?php echo form_error("raza", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
 

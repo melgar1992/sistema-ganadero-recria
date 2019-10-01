@@ -105,7 +105,7 @@ class Transportista extends BaseController
             $this->form_validation->set_rules("trayecto", "trayecto", "required");
             $this->form_validation->set_rules("tipo_transporte", "Tipo transporte", "required");
         }
-
+       
 
 
         if ($this->form_validation->run()) {

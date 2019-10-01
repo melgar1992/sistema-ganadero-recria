@@ -50,5 +50,22 @@ class Intermediario_model extends CI_Model
         $this->db->where("id_intermediario",$id_intermediario);
         return $this->db->update("intermediario",$data);
     }
+    public function validarCi($ci)
+    {
+        $this->db->select('i.estado, p.carnet_identidad');
+        $this->db->from('intermediario i');
+        $this->db->join('persona p', 'i.id_persona = p.id_persona');
+        $this->db->where('p.carnet_identidad',$ci);
+        $this->db->where('i.estado','1');
+        $resultado = $this->db->get();
+
+        $row = $resultado->row();
+
+        if (isset($row)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 }

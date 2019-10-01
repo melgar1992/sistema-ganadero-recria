@@ -37,7 +37,7 @@
 
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales/guardarCategoriaAnimal" id="categoria_animal" class="form-horizontal form-label-left">
                     <div class="form-group">
-                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span></label>
+                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Familia de animal<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <select type="text" name="nombre" required="required" class="form-group col-md-7 col-xs-12">
                                 <option value="Bovino">Bovino</option>
@@ -93,7 +93,7 @@
                                                 <div class="btn-group">
 
                                                     <a href="<?php echo base_url() ?>Formulario_Animales/Categoria_animales/editar/<?php echo $categoria->id_tipo_animal; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                    <a href="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales/borrar/<?php echo $categoria->id_tipo_animal; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                    <button type="button" value="<?php echo $categoria->id_tipo_animal;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                 </div>
                                             </td>
                                         </tr>
