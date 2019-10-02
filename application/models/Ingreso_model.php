@@ -1,5 +1,72 @@
 <?php
 class Ingreso_model extends CI_Model
 {
+    public function getIngresos()
+    {
+        $this->db->select('oi.*, ci.id_categoria_ingresos,e.id_empleado, ,u.id_usuarios');
+        $this->db->from('otros_ingresos oi');
+        $this->db->join('categoria_ingresos ci', 'oi.id_categoria_ingresos = ci.id_categoria_ingresos');
+       
+        $this->db->join('empleado e', 'oi.id_empleado = e.id_empleado');
+       
+       
+       
+        $this->db->join('usuarios u', 'oi.id_usuarios = u.id_usuarios');
+        
 
+     
+        $resultado = $this->db->get();
+
+        if ($resultado->num_rows() > 0) {
+
+            return $resultado->result();
+        } else {
+            return false;
+        }
+    }
+      
+
+public function getCategoriaIngresos()
+    {
+        $resultados = $this->db->get("categoria_ingresos");
+        return $resultados->result();
+    }
+    public function getCategoriaIngreso($id_categoria_ingresos)
+    {
+        $this->db->where('id_categoria_ingresos', $id_categoria_ingresos);
+        $resultado = $this->db->get('categoria_ingresos');
+        return $resultado->row();
+    }
+    public function getEmpleados()
+    {
+        $this->db->select('e.*, p.nombres, p.apellidos, p.carnet_identidad, p.telefono');
+        $this->db->from('empleado e');
+        $this->db->join('persona p', 'p.id_persona = e.id_persona');
+      
+      
+        $resultado = $this->db->get();
+
+        return $resultado->result();
+    }
+    public function guardarIngresos($data)
+    {
+        return $this->db->insert('otros_ingresos', $data);
+    }
+    public function ultimoID()
+    {
+        return $this->db->insert_id();
+    }
+    public function guardar_detalle($id_otros_ingresos)
+    {
+        $this->db->insert('detalle_ingresos', $id_otros_ingresos);
+    }
+    public function getDetalle()
+    {
+        $this->db->select('di.*,oi.id_otros_ingresos ');
+        $this->db->from('detalle_ingresos di');
+        $this->db->join('otros_ingresos oi', 'di.id_otros_ingresos=oi.id_otros_ingresos');
+   
+        $resultados = $this->db->get();
+        return $resultados->result();
+    }
 }
