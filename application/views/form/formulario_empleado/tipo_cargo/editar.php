@@ -36,7 +36,7 @@
 
                 
                  <form method="POST" action="<?php echo base_url();?>Formulario_Empleados/Tipo_Cargo/actualizarTipoCargo" id="tipo_cargo" class="form-horizontal form-label-left">
-                     <input type="hidden" value="<?php echo $tipo_cargo->id_tipo_cargo;?>" name= "id_tipo_cargo">
+                     <input type="hidden" value="<?php echo $tipo_cargo->id_tipos_cargos;?>" name= "id_tipo_cargo">
                     <div class="form-group <?php echo !empty(form_error("cargo"))?'has-error':'';?>">
                          <label for="cargo" class="control-label col-md-3 col-sm-3 col-xs-12">Cargo<span class="required">*</span></label>
                          <div class="col-md-6 col-sm-6 col-xs-12">

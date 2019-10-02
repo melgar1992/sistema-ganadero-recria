@@ -9,7 +9,6 @@ class Ganadero extends BaseController
         );
 
         $this->loadView('Ganadero', '/form/formulario_generales/ganadero/list', $data);
-    
     }
     public function guardarGanadero()
     {
@@ -26,9 +25,17 @@ class Ganadero extends BaseController
 
         $this->form_validation->set_rules("nombre", "Nombre", "required");
         $this->form_validation->set_rules("apellidos", "Apellidos", "required");
-        $this->form_validation->set_rules("ci", "CI", "required|is_unique[persona.carnet_identidad]");
+        $this->form_validation->set_rules(
+            'ci',
+            'ci',
+            array(
+                'required',
+                array('validarCi', array($this->Ganadero_model, 'validarCi'))
+            ),
+            array('validarCi' => 'Carnet de identidad ya esta siendo ocupado')
+        );
         $this->form_validation->set_rules("telefono", "Telefono", "required");
-        
+
 
         if ($this->form_validation->run()) {
 
@@ -42,7 +49,7 @@ class Ganadero extends BaseController
             );
             $datosganadero = array(
                 'tipo_ganadero' => $tipo_ganadero,
-                'estado' => "1" 
+                'estado' => "1"
             );
             $datosestancia = array(
                 'nombre' => $nombre_estancia,
@@ -60,7 +67,6 @@ class Ganadero extends BaseController
         } else {
             $this->index();
         }
-        
     }
 
     public function editar($id_ganadero)
@@ -83,16 +89,25 @@ class Ganadero extends BaseController
 
         $ganaderoActual = $this->Ganadero_model->getGanadero($id_ganadero);
         if ($ci == $ganaderoActual->carnet_identidad) {
-            $unique = '';
+
+            $this->form_validation->set_rules("nombre", "Nombre", "required");
+            $this->form_validation->set_rules("apellidos", "Apellidos", "required");
+            $this->form_validation->set_rules("ci", "CI", "required");
+            $this->form_validation->set_rules("telefono", "Telefono", "required");
         } else {
-            $unique = '|is_unique[persona.carnet_identidad]';
+            $this->form_validation->set_rules("nombre", "Nombre", "required");
+            $this->form_validation->set_rules("apellidos", "Apellidos", "required");
+            $this->form_validation->set_rules(
+                'ci',
+                'ci',
+                array(
+                    'required',
+                    array('validarCi', array($this->Ganadero_model, 'validarCi'))
+                ),
+                array('validarCi' => 'Carnet de identidad ya esta siendo ocupado')
+            );
+            $this->form_validation->set_rules("telefono", "Telefono", "required");
         }
-
-        $this->form_validation->set_rules("nombre", "Nombre", "required");
-        $this->form_validation->set_rules("apellidos", "Apellidos", "required");
-        $this->form_validation->set_rules("ci", "CI", "required" . $unique);
-        $this->form_validation->set_rules("telefono", "Telefono", "required");
-
 
         if ($this->form_validation->run()) {
 
@@ -108,7 +123,7 @@ class Ganadero extends BaseController
                 'estado' => "1"
             );
 
-            if ($this->Transportista_model->actualizar($id_ganadero,$id_persona, $datospersona,$datosganadero)) {
+            if ($this->Transportista_model->actualizar($id_ganadero, $id_persona, $datospersona, $datosganadero)) {
                 redirect(base_url() . "Formularios_Generales/Ganadero");
             } else {
                 $this->session->set_flashdata("error", "No se pudo actualizar la informacion");
@@ -123,9 +138,7 @@ class Ganadero extends BaseController
         $data = array(
             'estado' => "0",
         );
-        $this->Transportista_model->borrar($id_ganadero, $data);
-        redirect(base_url() . "Formularios_Generales/Ganadero");
+        $this->Ganadero_model->borrar($id_ganadero, $data);
+        echo "Formularios_Generales/Ganadero";
     }
-
-
 }

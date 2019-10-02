@@ -55,13 +55,32 @@ class Empleado_model extends CI_Model
         $this->db->where('id_contrato_empleado', $id_contrato_empleado);
         return $this->db->update('contrato_empleado', $datoscontrato);
     }
-    public function borrar($empleado,$datosBorrar)
+    public function borrar($id_contrato_empleado,$datosBorrar)
     {
         
-        $this->db->where('id_contrato_empleado',$empleado->id_contrato_empleado);
+        $this->db->where('id_contrato_empleado',$id_contrato_empleado);
         $this->db->set('estado',$datosBorrar['estado']);
         return $this->db->update('contrato_empleado');
 
                
+    }
+    public function validarCi($ci)
+    {
+        $this->db->select('ce.estado,p.carnet_identidad');
+        $this->db->from('contrato_empleado ce');
+        $this->db->join('empleado e', 'e.id_empleado = ce.id_empleado');
+        $this->db->join('persona p', 'p.id_persona = e.id_persona');
+        $this->db->where('ce.estado', '1');
+        $this->db->where('carnet_identidad', $ci);
+        $resultado = $this->db->get();
+
+        $resultado->row();
+        $row = $resultado->row();
+
+        if (isset($row)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

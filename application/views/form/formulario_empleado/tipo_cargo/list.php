@@ -3,7 +3,7 @@
      <!-- Content Header (Page header) -->
      <section class="content-header">
          <h1>
-             Tipo_Cargo
+             Tipos de Cargos
              <small>Listado</small>
          </h1>
 
@@ -39,7 +39,7 @@
                      <div class="form-group <?php echo !empty(form_error("cargo"))?'has-error':'';?>">
                          <label for="cargo" class="control-label col-md-3 col-sm-3 col-xs-12">Cargo <span class="required">*</span></label>
                          <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="cargo" value="<?php echo set_value("cargo");?>"id="cargo" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba el Cargo ">
+                             <input type="text" name="cargo" value="<?php echo set_value("cargo");?>"id="cargo" required="required" class="form-group col-md-7 col-xs-12" placeholder="Gerente general, Administrador, contador, etc. ">
                              <?php echo form_error("cargo","<span class='help-block col-md-4 cols-xs-12 '>","</span>");?>
 
                          </div>
@@ -47,7 +47,7 @@
                      <div class="form-group">
                          <label for="area" class="control-label col-md-3 col-sm-3 col-xs-12">Area</label>
                          <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="area" id="area" class="form-group col-md-7 col-xs-12" placeholder="Escriba el area">
+                             <input type="text" name="area" id="area" class="form-group col-md-7 col-xs-12" placeholder="Administracion, contabilidad, campo, etc.">
 
                          </div>
                      </div>
@@ -89,7 +89,7 @@
                                                  <div class="btn-group">
                                                     
                                                      <a href="<?php echo base_url() ?>Formulario_Empleados/Tipo_cargo/editar/<?php echo $tipo_cargo->id_tipos_cargos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                     <a href="<?php echo base_url();?>Formulario_Empleados/Tipo_cargo/borrar/<?php echo $tipo_cargo->id_tipos_cargos;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                     <button type="button" value="<?php echo $tipo_cargo->id_tipos_cargos;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                  </div>
                                              </td>
                                          </tr>

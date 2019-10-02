@@ -13,7 +13,15 @@ class Tipo_transporte extends BaseController
     public function guardarTipoTransporte()
     {
         $nombre = $this->input->post('nombre');
-        $this->form_validation->set_rules("nombre", "Nombre", "required|is_unique[tipo_transporte.nombres]");
+        $this->form_validation->set_rules(
+            'nombre',
+            'nombre',
+            array(
+                'required',
+                array('validarNombre', array($this->Tipo_transporte_model, 'validarNombre'))
+            ),
+            array('validarNombre' => 'El tipo de transporte ya existe')
+        );
         if ($this->form_validation->run()) {
 
 
@@ -44,12 +52,20 @@ class Tipo_transporte extends BaseController
         $nombre = $this->input->post("nombre");
         $tipo_transporteActual = $this->Tipo_transporte_model->getTipo_transporte($id_tipo_transporte);
         if ($nombre == $tipo_transporteActual->nombres) {
-            $unique = '';
+            $this->form_validation->set_rules("nombre", "Nombre", "required");
         } else {
-            $unique = '|is_unique[tipo_transporte.nombres]';
+            $this->form_validation->set_rules(
+                'nombre',
+                'nombre',
+                array(
+                    'required',
+                    array('validarNombre', array($this->Tipo_transporte_model, 'validarNombre'))
+                ),
+                array('validarNombre' => 'El tipo de transporte ya existe')
+            );;
         }
 
-        $this->form_validation->set_rules("nombre", "Nombre", "required" . $unique);
+
         if ($this->form_validation->run()) {
 
             $data = array(
@@ -69,9 +85,9 @@ class Tipo_transporte extends BaseController
     public function borrar($id_tipo_transporte)
     {
         $data = array(
-            'estado' => "0",
+            'estado' => '0',
         );
-        $this->Tipo_transporte_model->actualizar($id_tipo_transporte, $data);
-        redirect(base_url() . "Formularios_Generales/Tipo_transporte");
+        $this->Tipo_transporte_model->borrar($id_tipo_transporte, $data);
+        echo 'Formularios_Generales/Tipo_transporte';
     }
 }

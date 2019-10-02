@@ -22,14 +22,20 @@ class Transportista extends BaseController
 
         $this->form_validation->set_rules("nombre", "Nombre", "required");
         $this->form_validation->set_rules("apellidos", "Apellidos", "required");
-        $this->form_validation->set_rules("ci", "CI", "required|is_unique[persona.carnet_identidad]");
+        $this->form_validation->set_rules(
+            'ci',
+            'ci',
+            array(
+                'required',
+                array('validarCi', array($this->Transportista_model, 'validarCi'))
+            ),
+            array('validarCi' => 'Carnet de identidad ya esta siendo ocupado')
+        );
         $this->form_validation->set_rules("telefono", "Telefono", "required");
         $this->form_validation->set_rules("trayecto", "trayecto", "required");
         $this->form_validation->set_rules("tipo_transporte", "Tipo transporte", "required");
 
         if ($this->form_validation->run()) {
-
-
             $datospersona = array(
                 'nombres' => $nombres,
                 'apellidos' => $apellidos,
@@ -54,6 +60,7 @@ class Transportista extends BaseController
     }
     public function editar($id_transportista)
     {
+
         $data = array(
             'transportista' => $this->Transportista_model->getTransportista($id_transportista),
             'tipo_transportes' => $this->Tipo_transporte_model->getTipoTransporte(),
@@ -76,17 +83,30 @@ class Transportista extends BaseController
 
         $transportistaActual = $this->Transportista_model->getTransportista($id_transportista);
         if ($ci == $transportistaActual->carnet_identidad) {
-            $unique = '';
+            $this->form_validation->set_rules("nombre", "Nombre", "required");
+            $this->form_validation->set_rules("apellidos", "Apellidos", "required");
+            $this->form_validation->set_rules("ci", "CI", "required");
+            $this->form_validation->set_rules("telefono", "Telefono", "required");
+            $this->form_validation->set_rules("trayecto", "trayecto", "required");
+            $this->form_validation->set_rules("tipo_transporte", "Tipo transporte", "required");
         } else {
-            $unique = '|is_unique[persona.carnet_identidad]';
+            $this->form_validation->set_rules("nombre", "Nombre", "required");
+            $this->form_validation->set_rules("apellidos", "Apellidos", "required");
+            $this->form_validation->set_rules(
+                'ci',
+                'ci',
+                array(
+                    'required',
+                    array('validarCi', array($this->Transportista_model, 'validarCi'))
+                ),
+                array('validarCi' => 'Carnet de identidad ya esta siendo ocupado')
+            );
+            $this->form_validation->set_rules("telefono", "Telefono", "required");
+            $this->form_validation->set_rules("trayecto", "trayecto", "required");
+            $this->form_validation->set_rules("tipo_transporte", "Tipo transporte", "required");
         }
+       
 
-        $this->form_validation->set_rules("nombre", "Nombre", "required");
-        $this->form_validation->set_rules("apellidos", "Apellidos", "required");
-        $this->form_validation->set_rules("ci", "CI", "required" . $unique);
-        $this->form_validation->set_rules("telefono", "Telefono", "required");
-        $this->form_validation->set_rules("trayecto", "trayecto", "required");
-        $this->form_validation->set_rules("tipo_transporte", "Tipo transporte", "required");
 
         if ($this->form_validation->run()) {
 
@@ -99,13 +119,13 @@ class Transportista extends BaseController
 
             );
             $datostransportista = array(
-                
+
                 'trayecto' => $trayecto,
                 'id_tipo_transporte' => $id_tipo_transporte,
                 'estado' => "1"
             );
 
-            if ($this->Transportista_model->actualizar($id_transportista,$id_persona, $datospersona,$datostransportista)) {
+            if ($this->Transportista_model->actualizar($id_transportista, $id_persona, $datospersona, $datostransportista)) {
                 redirect(base_url() . "Formularios_Generales/Transportista");
             } else {
                 $this->session->set_flashdata("error", "No se pudo actualizar la informacion");
@@ -121,6 +141,6 @@ class Transportista extends BaseController
             'estado' => "0",
         );
         $this->Transportista_model->borrar($id_transportista, $data);
-        redirect(base_url() . "Formularios_Generales/Transportista");
+        echo 'Formularios_Generales/Transportista';
     }
 }

@@ -134,7 +134,7 @@
                                              <td>
                                                  <div class="btn-group">
                                                      <a href="<?php echo base_url() ?>Formularios_Generales/Transportista/editar/<?php echo $transportista->id_transportista; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                     <a href="<?php echo base_url(); ?>Formularios_Generales/Transportista/borrar/<?php echo $transportista->id_transportista; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                     <button type="button" value="<?php echo $transportista->id_transportista;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                  </div>
                                              </td>
                                          </tr>

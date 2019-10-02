@@ -21,7 +21,15 @@ class Intermediario extends BaseController
 
         $this->form_validation->set_rules("nombre", "Nombre", "required");
         $this->form_validation->set_rules("apellidos", "Apellidos", "required");
-        $this->form_validation->set_rules("ci", "CI", "required|is_unique[persona.carnet_identidad]");
+        $this->form_validation->set_rules(
+            'ci',
+            'ci',
+            array(
+                'required',
+                array('validarCi', array($this->Intermediario_model, 'validarCi'))
+            ),
+            array('validarCi' => 'Carnet de identidad ya esta siendo ocupado')
+        );
         $this->form_validation->set_rules("telefono", "Telefono", "required");
         
 
@@ -69,16 +77,24 @@ class Intermediario extends BaseController
 
         $intermediarioActual = $this->Intermediario_model->getIntermediario($id_intermediario);
         if ($ci == $intermediarioActual->carnet_identidad) {
-            $unique = '';
-        } else {
-            $unique = '|is_unique[persona.carnet_identidad]';
-        }
 
-        $this->form_validation->set_rules("nombre", "Nombre", "required");
-        $this->form_validation->set_rules("apellidos", "Apellidos", "required");
-        $this->form_validation->set_rules("ci", "CI", "required" . $unique);
-        $this->form_validation->set_rules("telefono", "Telefono", "required");
-        
+            $this->form_validation->set_rules("nombre", "Nombre", "required");
+            $this->form_validation->set_rules("apellidos", "Apellidos", "required");
+            $this->form_validation->set_rules("ci", "CI", "required");
+            $this->form_validation->set_rules("telefono", "Telefono", "required");
+        } else {
+            $this->form_validation->set_rules("nombre", "Nombre", "required");
+            $this->form_validation->set_rules("apellidos", "Apellidos", "required");
+            $this->form_validation->set_rules(
+                'ci',
+                'ci',
+                array(
+                    'required',
+                    array('validarCi', array($this->Intermediario_model, 'validarCi'))
+                ),
+                array('validarCi' => 'Carnet de identidad ya esta siendo ocupado')
+            );
+            $this->form_validation->set_rules("telefono", "Telefono", "required");        }
 
         if ($this->form_validation->run()) {
 
@@ -108,11 +124,10 @@ class Intermediario extends BaseController
     public function borrar($id_intermediario)
     {
         $data = array(
-            'carnet_identidad'=>'',
             'estado' => "0",
         );
         $this->Intermediario_model->borrar($id_intermediario, $data);
-        redirect(base_url() . "Formularios_Generales/Intermediario");
+        echo "Formularios_Generales/Intermediario";
     }
     
     }

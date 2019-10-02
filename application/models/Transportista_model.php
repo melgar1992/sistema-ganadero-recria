@@ -3,11 +3,12 @@ class Transportista_model extends CI_Model
 {
     public function getTransportistas()
     {
-        $this->db->select('t.*, p.nombres, p.apellidos, p.carnet_identidad, p.telefono, tt.nombres as tipotransporte');
+        $this->db->select('t.*, p.nombres, p.apellidos, p.carnet_identidad, p.telefono, tt.nombres as tipotransporte, tt.estado');
         $this->db->from('transportista t');
         $this->db->join('persona p', 't.id_persona = p.id_persona');
         $this->db->join('tipo_transporte tt', 't.id_tipo_transporte = tt.id_tipo_transporte');
         $this->db->where('t.estado','1');
+        $this->db->where('tt.estado','1');
         $resultado = $this->db->get();
 
 
@@ -50,5 +51,24 @@ class Transportista_model extends CI_Model
     {
         $this->db->where("id_transportista",$id_transportista);
         return $this->db->update("transportista",$data);
+    }
+    public function validarCi($ci)
+    {
+        $this->db->select('t.estado, p.carnet_identidad', 'tt.estado');
+        $this->db->from('transportista t');
+        $this->db->join('persona p', 't.id_persona = p.id_persona');
+        $this->db->join('tipo_transporte tt', 't.id_tipo_transporte = tt.id_tipo_transporte');
+        $this->db->where('p.carnet_identidad',$ci);
+        $this->db->where('t.estado','1');
+        $this->db->where('tt.estado','1');
+        $resultado = $this->db->get();
+
+        $row = $resultado->row();
+
+        if (isset($row)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

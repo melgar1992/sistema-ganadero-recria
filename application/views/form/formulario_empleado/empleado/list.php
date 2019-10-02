@@ -199,7 +199,7 @@
                                          <td>
                                              <div class="btn-group">
                                                  <a href="<?php echo base_url() ?>Formulario_Empleados/Empleado/editar/<?php echo $empleado->id_contrato_empleado; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                 <a href="<?php echo base_url(); ?>Formulario_Empleados/Empleado/borrar/<?php echo $empleado->id_contrato_empleado; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></a>
+                                                 <button type="button" value="<?php echo $empleado->id_contrato_empleado;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                              </div>
                                          </td>
                                      </tr>
