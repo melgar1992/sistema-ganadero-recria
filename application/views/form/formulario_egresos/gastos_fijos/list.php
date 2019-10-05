@@ -35,24 +35,25 @@
                  <?php endif; ?>
 
 
-                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Empleados/Tipo_cargo/guardartipo_cargo" id="tipo_cargo" class="form-horizontal form-label-left">
-                     <div class="form-group <?php echo !empty(form_error("cargo"))?'has-error':'';?>">
-                         <label for="cargo" class="control-label col-md-3 col-sm-3 col-xs-12">Cargo <span class="required">*</span></label>
+                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Egresos/Gastos_fijo/guardarGastoFijo" id="gasto_fijo" class="form-horizontal form-label-left">
+                 <input type="hidden"class='form-group' value="<?php echo $this->session->userdata('id_usuarios');?>" name="id_usuario">
+                     <div class="form-group <?php echo !empty(form_error("nombre"))?'has-error':'';?>">
+                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre de la cuenta fija <span class="required">*</span></label>
                          <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="cargo" value="<?php echo set_value("cargo");?>"id="cargo" required="required" class="form-group col-md-7 col-xs-12" placeholder="Gerente general, Administrador, contador, etc. ">
-                             <?php echo form_error("cargo","<span class='help-block col-md-4 cols-xs-12 '>","</span>");?>
-
-                         </div>
-                     </div>
-                     <div class="form-group">
-                         <label for="area" class="control-label col-md-3 col-sm-3 col-xs-12">Area</label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="area" id="area" class="form-group col-md-7 col-xs-12" placeholder="Administracion, contabilidad, campo, etc.">
+                             <input type="text" name="nombre" value="<?php echo set_value("nombre");?>"id="nombre" required="required" class="form-group col-md-7 col-xs-12" placeholder="Telefono tigo, entel, etc">
+                             <?php echo form_error("nombre","<span class='help-block col-md-4 cols-xs-12 '>","</span>");?>
 
                          </div>
                      </div>
 
+                     <div class="form-group <?php echo !empty(form_error("total"))?'has-error':'';?>">
+                         <label for="total" class="control-label col-md-3 col-sm-3 col-xs-12">Total Bs <span class="required">*</span></label>
+                         <div class="col-md-6 col-sm-6 col-xs-12">
+                             <input type="number" name="total" value="<?php echo set_value("total");?>"id="total" required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                             <?php echo form_error("total","<span class='help-block col-md-4 cols-xs-12 '>","</span>");?>
 
+                         </div>
+                     </div>
 
                      <div class="form-group">
 
@@ -78,18 +79,18 @@
                                  </tr>
                              </thead>
                              <tbody>
-                                 <?php if (!empty($tipo_cargos)) : ?>
-                                     <?php foreach ($tipo_cargos as $tipo_cargo) : ?>
+                                 <?php if (!empty($gastos_fijos)) : ?>
+                                     <?php foreach ($gastos_fijos as $gasto_fijo) : ?>
 
                                          <tr>
-                                             <td><?php echo $tipo_cargo->id_tipos_cargos; ?></td>
-                                             <td><?php echo $tipo_cargo->cargo; ?></td>
-                                             <td><?php echo $tipo_cargo->area; ?></td>
+                                             <td><?php echo $gasto_fijo->id_gastos_fijos; ?></td>
+                                             <td><?php echo $gasto_fijo->nombre; ?></td>
+                                             <td><?php echo $gasto_fijo->total; ?></td>
                                              <td>
                                                  <div class="btn-group">
                                                     
-                                                     <a href="<?php echo base_url() ?>Formulario_Empleados/Tipo_cargo/editar/<?php echo $tipo_cargo->id_tipos_cargos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                     <button type="button" value="<?php echo $tipo_cargo->id_tipos_cargos;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+                                                     <a href="<?php echo base_url() ?>Formulario_Egresos/Gastos_fijo/editar/<?php echo $gasto_fijo->id_gastos_fijos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                     <button type="button" value="<?php echo $gasto_fijo->id_gastos_fijos;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                  </div>
                                              </td>
                                          </tr>
