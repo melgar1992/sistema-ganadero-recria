@@ -6,11 +6,7 @@ class Ingreso_model extends CI_Model
         $this->db->select('oi.*, ci.id_categoria_ingresos,e.id_empleado, ,u.id_usuarios');
         $this->db->from('otros_ingresos oi');
         $this->db->join('categoria_ingresos ci', 'oi.id_categoria_ingresos = ci.id_categoria_ingresos');
-       
         $this->db->join('empleado e', 'oi.id_empleado = e.id_empleado');
-       
-       
-       
         $this->db->join('usuarios u', 'oi.id_usuarios = u.id_usuarios');
         
 
@@ -56,9 +52,9 @@ public function getCategoriaIngresos()
     {
         return $this->db->insert_id();
     }
-    public function guardar_detalle($id_otros_ingresos)
+    public function guardar_detalle($data)
     {
-        $this->db->insert('detalle_ingresos', $id_otros_ingresos);
+        $this->db->insert('detalle_ingresos', $data);
     }
     public function getDetalle()
     {

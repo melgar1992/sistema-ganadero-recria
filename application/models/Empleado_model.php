@@ -3,7 +3,7 @@ class Empleado_model extends CI_Model
 {
     public function getEmpleados()
     {
-        $this->db->select('ce.*, tc.*, p.nombres, p.apellidos, p.carnet_identidad, p.telefono');
+        $this->db->select('ce.*, e.*, tc.*, p.nombres, p.apellidos, p.carnet_identidad, p.telefono');
         $this->db->from('contrato_empleado ce');
         $this->db->join('tipos_cargos tc', 'ce.id_tipos_cargos = tc.id_tipos_cargos');
         $this->db->join('empleado e', 'e.id_empleado = ce.id_empleado');
