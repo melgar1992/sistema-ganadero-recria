@@ -17,21 +17,21 @@
 
                         <form action="<?php echo base_url(); ?>Formulario_Ingresos/Ingreso/guardarIngresos" method="POST" class="form-horizontal">
                             <div class="form-group">
-                                <div class="col-md-3 <?php echo form_error("categoriaingresos") != false ? 'has-error': '';?>">
+                                <div class="col-md-3 <?php echo form_error("categoriaingresos") != false ? 'has-error' : ''; ?>">
                                     <label for="">Categoria_Ingreso:</label>
                                     <select name="categoriaingresos" id="categoriaingresos" class="form-control" required>
                                         <option value="">Seleccione...</option>
                                         <?php foreach ($categoriaingresos as $categoriaingreso) : ?>
-                                            <option value="<?php echo $categoriaingreso->id_categoria_ingresos;?>">
+                                            <option value="<?php echo $categoriaingreso->id_categoria_ingresos; ?>">
                                                 <?php echo $categoriaingreso->nombre ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <?php echo form_error('categoriaingresos', "<span class= 'help-block'>", '</span>'); ?>
                                 </div>
 
-                                <div class="col-md-3 <?php echo form_error("forma_pago") != false ? 'has-error': '';?>">
+                                <div class="col-md-3 <?php echo form_error("forma_pago") != false ? 'has-error' : ''; ?>">
                                     <label for="">Forma pago:</label>
-                                    <select  class="form-control" name="forma_pago" required>
+                                    <select class="form-control" name="forma_pago" required>
                                         <option value="Efectivo"> Efectivo </option>
                                         <option value="Deposito"> Deposito</option>
                                         <option value="Cheque">Cheque</option>
@@ -61,7 +61,7 @@
                                     <div>
                                         <label for="cantidad">Cantidad<span class="required">*</span></label>
 
-                                        <input type="number" value="" id="cantidad"  class="form-control col-md-3 " placeholder="">
+                                        <input type="number" value="" id="cantidad" class="form-control col-md-3 " placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
@@ -69,21 +69,21 @@
                                     <div>
                                         <label for="detalle">Detalle <span class="required">*</span></label>
 
-                                        <input type="text" value="" id="detalle"  class="form-control" placeholder="">
+                                        <input type="text" value="" id="detalle" class="form-control" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-4">
                                     <div>
                                         <label for="precio_unitario">Precio_unitario <span class="required">*</span></label>
 
-                                        <input type="number" value="" id="precio_unitario"  class="form-control" placeholder="">
+                                        <input type="number" value="" id="precio_unitario" class="form-control" placeholder="">
                                     </div>
                                 </div>
 
                                 <div class="col-md-2 col-sm-2 col-xs-4">
                                     <div>
                                         <label for="importe_total">Importe Total</label>
-                                        <input type="number" readonly  value="" id="importe_total"  class="form-control" placeholder="">
+                                        <input type="number" readonly value="" id="importe_total" class="form-control" placeholder="">
                                     </div>
                                 </div>
 
@@ -123,9 +123,10 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
                                 <div class="form-group">
                                     <div class="col-md-12">
+                                        <a class="btn btn-primary btn-flat" href="<?php echo site_url("Formulario_ingresos/Ingreso") ?>" type="button">Volver</a>
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                                     </div>
                                 </div>

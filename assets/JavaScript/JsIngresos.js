@@ -50,6 +50,12 @@ $(document).ready(function () {
             })
         }
     });
+    
+    $(document).on("click", ".btn-remove-producto", function() {
+
+        $(this).closest("tr").remove();
+        sumar();
+    });
 
 
 })
