@@ -3,14 +3,13 @@ class Ingreso_model extends CI_Model
 {
     public function getIngresos()
     {
-        $this->db->select('oi.*, ci.id_categoria_ingresos,e.id_empleado, ,u.id_usuarios');
+        $this->db->select('oi.*, ci.id_categoria_ingresos, ci.nombre as nombre_categoria_ingreso,e.id_empleado, p.nombres, p.apellidos');
         $this->db->from('otros_ingresos oi');
         $this->db->join('categoria_ingresos ci', 'oi.id_categoria_ingresos = ci.id_categoria_ingresos');
         $this->db->join('empleado e', 'oi.id_empleado = e.id_empleado');
-        $this->db->join('usuarios u', 'oi.id_usuarios = u.id_usuarios');
-        
+        $this->db->join('persona p', 'p.id_persona = e.id_persona');
+        $this->db->where('oi.estado','1');
 
-     
         $resultado = $this->db->get();
 
         if ($resultado->num_rows() > 0) {
@@ -20,9 +19,9 @@ class Ingreso_model extends CI_Model
             return false;
         }
     }
-      
 
-public function getCategoriaIngresos()
+
+    public function getCategoriaIngresos()
     {
         $resultados = $this->db->get("categoria_ingresos");
         return $resultados->result();
@@ -38,8 +37,8 @@ public function getCategoriaIngresos()
         $this->db->select('e.*, p.nombres, p.apellidos, p.carnet_identidad, p.telefono');
         $this->db->from('empleado e');
         $this->db->join('persona p', 'p.id_persona = e.id_persona');
-      
-      
+
+
         $resultado = $this->db->get();
 
         return $resultado->result();
@@ -61,7 +60,7 @@ public function getCategoriaIngresos()
         $this->db->select('di.*,oi.id_otros_ingresos ');
         $this->db->from('detalle_ingresos di');
         $this->db->join('otros_ingresos oi', 'di.id_otros_ingresos=oi.id_otros_ingresos');
-   
+
         $resultados = $this->db->get();
         return $resultados->result();
     }

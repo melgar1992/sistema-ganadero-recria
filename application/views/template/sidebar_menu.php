@@ -35,7 +35,8 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales"><i class="fa fa-circle-o"></i> Categoria Animales</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/Animales"><i class="fa fa-circle-o"></i> Animales</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/Animales"><i class="fa fa-circle-o"></i> Control animales bovinos</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/Animales"><i class="fa fa-circle-o"></i> Control animales otros</a></li>
                             
 
                         </ul>
