@@ -17,11 +17,7 @@ class Ganadero extends BaseController
         $ci = $this->input->post('ci');
         $telefono = $this->input->post('telefono');
         $tipo_ganadero = $this->input->post('tipo_ganadero');
-        $nombre_estancia = $this->input->post('nombre_estancia');
-        $departamento = $this->input->post('departamento');
-        $provincia = $this->input->post('provincia');
-        $municipio = $this->input->post('municipio');
-        $referencia = $this->input->post('referencia');
+      
 
         $this->form_validation->set_rules("nombre", "Nombre", "required");
         $this->form_validation->set_rules("apellidos", "Apellidos", "required");
@@ -51,15 +47,9 @@ class Ganadero extends BaseController
                 'tipo_ganadero' => $tipo_ganadero,
                 'estado' => "1"
             );
-            $datosestancia = array(
-                'nombre' => $nombre_estancia,
-                'departamento' => $departamento,
-                'provincia' => $provincia,
-                'municipio' => $municipio,
-                'referencia' => $referencia,
-            );
+           
 
-            if ($this->Ganadero_model->guardarGanadero($datospersona, $datosganadero, $datosestancia)) {
+            if ($this->Ganadero_model->guardarGanadero($datospersona, $datosganadero)) {
                 redirect(base_url() . "Formularios_Generales/ganadero");
             } else {
                 $this->session->set_flashdata("error", "No se pudo guardar la informacion");
