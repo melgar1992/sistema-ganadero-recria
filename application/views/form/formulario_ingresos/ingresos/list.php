@@ -71,7 +71,7 @@
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-info btn-vista-ingresos" data-toggle="modal" data-target="#modal-default" value="<?php echo $ingreso->id_otros_ingresos ?>"><span class="fa fa-search"></span></button>
-                                                <a href="<?php echo base_url() ?>Formulario_Empleados/Tipo_cargo/editar/<?php echo $ingreso->id_otros_ingresos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                <a href="<?php echo base_url() ?>Formulario_Ingresos/Ingreso/editar/<?php echo $ingreso->id_otros_ingresos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                 <button type="button" value="<?php echo $ingreso->id_otros_ingresos; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                             </div>
                                         </td>
