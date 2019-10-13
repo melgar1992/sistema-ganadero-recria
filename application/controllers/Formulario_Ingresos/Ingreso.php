@@ -87,4 +87,8 @@ class Ingreso extends BaseController
 
         $this->loadView('Ingresos', '/form/formulario_ingresos/ingresos/editar', $data);
     }
+    public function actualizarIngreso($id_otros_ingresos)
+    {
+        
+    }
 }
