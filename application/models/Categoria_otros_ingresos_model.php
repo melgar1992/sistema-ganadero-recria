@@ -25,6 +25,19 @@ class Categoria_otros_ingresos_model extends CI_Model
        
       
     }
+    public function validarNombre($nombre)
+    {
+        $this->db->where('estado','1');
+        $this->db->where('nombre',$nombre);
+        $resultado = $this->db->get('categoria_ingresos');
+
+        $row = $resultado->row();
+        if (isset($row)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
   
 
 }
