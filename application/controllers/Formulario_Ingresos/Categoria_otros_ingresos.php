@@ -13,7 +13,15 @@ class Categoria_otros_ingresos extends BaseController
     public function guardarCategoriaOtrosIngresos()
     {
         $nombre = $this->input->post('nombre');
-        $this->form_validation->set_rules("nombre", "Nombre", "required|is_unique[categoria_ingresos.nombre]");
+        $this->form_validation->set_rules(
+            'nombre',
+            'Nombre',
+            array(
+                'required',
+                array('validarNombre', array($this->Categoria_otros_ingresos_model, 'validarNombre'))
+            ),
+            array('validarNombre' => 'El nombre ya esta siendo ocupado')
+        );
         if ($this->form_validation->run()) {
 
 
@@ -44,12 +52,20 @@ class Categoria_otros_ingresos extends BaseController
         $nombre = $this->input->post("nombre");
         $categoria_ingresosActual = $this->Categoria_otros_ingresos_model->getCategoria_ingreso($id_categoria_ingresos);
         if ($nombre == $categoria_ingresosActual->nombre) {
-            $unique = '';
+            $this->form_validation->set_rules("nombre", "Nombre", "required");
         } else {
-            $unique = '|is_unique[categoria_ingresos.nombre]';
+            $this->form_validation->set_rules(
+                'nombre',
+                'Nombre',
+                array(
+                    'required',
+                    array('validarNombre', array($this->Categoria_otros_ingresos_model, 'validarNombre'))
+                ),
+                array('validarNombre' => 'El nombre ya esta siendo ocupado')
+            );
         }
 
-        $this->form_validation->set_rules("nombre", "Nombre", "required" . $unique);
+
         if ($this->form_validation->run()) {
 
             $data = array(
@@ -63,7 +79,7 @@ class Categoria_otros_ingresos extends BaseController
                 redirect(base_url() . "Formulario_Ingresos/Categoria_otros_ingresos/editar" . $id_categoria_ingresos);
             }
         } else {
-            $this->Editar($id_categoria_ingresos);
+            $this->editar($id_categoria_ingresos);
         }
     }
 
@@ -74,6 +90,6 @@ class Categoria_otros_ingresos extends BaseController
             'estado' => "0",
         );
         $this->Categoria_otros_ingresos_model->actualizarCategoriaIngresos($id_categoria_ingresos, $data);
-        redirect(base_url() . "Formulario_Ingresos/Categoria_otros_ingresos");
+       echo "Formulario_Ingresos/Categoria_otros_ingresos";
     }
 }

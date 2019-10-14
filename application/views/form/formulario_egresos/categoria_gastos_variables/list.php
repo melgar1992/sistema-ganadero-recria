@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Categoria Otros Ingresos
+            Categoria Gastos Variables
             <small>Listado</small>
         </h1>
 
@@ -35,11 +35,11 @@
                 <?php endif; ?>
 
 
-                <form method="POST" action="<?php echo base_url(); ?>Formulario_Ingresos/Categoria_otros_ingresos/guardarCategoriaOtrosIngresos" id="categoria_otros_ingresos" class="form-horizontal form-label-left">
+                <form method="POST" action="<?php echo base_url(); ?>Formulario_Egresos/Categoria_gastos_variable/guardarCategoriaGastosVariables" id="categoria_gastos_variables" class="form-horizontal form-label-left">
                     <div class="form-group">
                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="nombre" value="<?php echo set_value("nombre"); ?>" id="nombre" required="required" class="form-group col-md-7 col-xs-12" placeholder="Tractor,Comision,Queso,etc ">
+                            <input type="text" name="nombre" value="<?php echo set_value("nombre"); ?>" id="nombre" required="required" class="form-group col-md-7 col-xs-12" placeholder="">
                             <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
@@ -68,18 +68,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if (!empty($categoria_otros_ingresos)) : ?>
-                                    <?php foreach ($categoria_otros_ingresos as $categoria) : ?>
+                                <?php if (!empty($categoria_gastos_variables)) : ?>
+                                    <?php foreach ($categoria_gastos_variables as $categoria_gasto_variable) : ?>
 
                                         <tr>
-                                            <td><?php echo $categoria->id_categoria_ingresos; ?></td>
-                                            <td><?php echo $categoria->nombre; ?></td>
+                                            <td><?php echo $categoria_gasto_variable->id_tipo_gastos_variables; ?></td>
+                                            <td><?php echo $categoria_gasto_variable->nombre; ?></td>
                                             
                                             <td>
                                                 <div class="btn-group">
 
-                                                    <a href="<?php echo base_url(); ?>Formulario_Ingresos/Categoria_otros_ingresos/editar/<?php echo $categoria->id_categoria_ingresos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                    <button type="button" value="<?php echo $categoria->id_categoria_ingresos;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+                                                    <a href="<?php echo base_url(); ?>Formulario_Egresos/Categoria_gastos_variable/editar/<?php echo $categoria_gasto_variable->id_tipo_gastos_variables; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                    <button type="button" value="<?php echo $categoria_gasto_variable->id_tipo_gastos_variables;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -108,7 +108,7 @@
 
                     <span aria-hidden="true">&times;</span></button>
 
-                <h4 class="modal-title">Informacion del tipo de Animal</h4>
+                <h4 class="modal-title">Informacion de la categoria gastos variables</h4>
 
             </div>
 
