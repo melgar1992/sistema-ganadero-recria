@@ -81,4 +81,20 @@ class Ingreso_model extends CI_Model
         $resultados = $this->db->get();
         return $resultados->result();
     }
+    public function actualizarIngreso($id_otros_ingresos, $data)            
+    {
+        $this->db->where('id_otros_ingresos',$id_otros_ingresos);
+       return $this->db->update('otros_ingresos',$data);
+    }
+
+    public function actualizarDetalle($id_otros_ingresos, $cantidad, $detalle, $precio_unitario, $sub_total)
+    {
+        $this->db->where('id_otros_ingresos',$id_otros_ingresos);
+
+    }
+    public function borrarDetalleIngreso($id_otros_ingresos)
+    {
+        $this->db->where('id_otros_ingresos',$id_otros_ingresos);
+       return $this->db->delete('detalle_ingresos');
+    }
 }

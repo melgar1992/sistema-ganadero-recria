@@ -87,8 +87,49 @@ class Ingreso extends BaseController
 
         $this->loadView('Ingresos', '/form/formulario_ingresos/ingresos/editar', $data);
     }
-    public function actualizarIngreso($id_otros_ingresos)
+    public function actualizarIngreso()
     {
+        $id_otros_ingresos = $this->input->post('id_otros_ingresos');
+        $id_categoria_ingresos = $this->input->post("categoriaingresos");
+        $id_empleado = $this->input->post("id_empleado");
+        $usuarios = $this->session->userdata("id_usuarios");
+        $fecha = $this->input->post("fecha");
+        $forma_pago = $this->input->post("forma_pago");
+        $total = $this->input->post("total");
+
+        $cantidad = $this->input->post("cantidad");
+        $detalle = $this->input->post("detalle");
+        $precio_unitario = $this->input->post("precio_unitario");
+        $sub_total = $this->input->post("sub_total");
+
+
+        $data = array(
+            'id_categoria_ingresos' => $id_categoria_ingresos,
+            'id_empleado' => $id_empleado,
+            'id_usuarios' => $usuarios,
+            'fecha' => $fecha,
+            'forma_pago' => $forma_pago,
+            'total' => $total,
+            'estado' => '1'
+
+        );
+
+        if ($this->Ingreso_model->actualizarIngreso($id_otros_ingresos, $data)) {
+            $this->Ingreso_model->borrarDetalleIngreso($id_otros_ingresos);
+            $this->guardar_detalle($id_otros_ingresos, $cantidad, $detalle, $precio_unitario, $sub_total);
+            $this->index();
+        } else {
+            redirect(base_url() . 'Formulario_Ingresos/Ingreso/editar'.$id_otros_ingresos);
+        }
         
     }
+    public function borrar($id_otros_ingresos)
+    {
+        $data = array(
+        'estado' => '0'
+        );
+        $this->Ingreso_model->actualizarIngreso($id_otros_ingresos, $data);
+        echo 'Formulario_Ingresos/Ingreso' ;
+    }
+    
 }

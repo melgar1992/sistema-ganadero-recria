@@ -137,7 +137,8 @@
                                                             <input type='number' class='precio_unitario' name='precio_unitario[]' value='<?php echo $detalle_ingreso->precio_unitario; ?>'>
                                                         </td>
                                                         <td>
-                                                            <input type='hidden' name='sub_total[]' value='<?php echo $detalle_ingreso->sub_total; ?>'><p><?php echo $detalle_ingreso->sub_total ?></p>
+                                                            <input type='hidden' name='sub_total[]' value='<?php echo $detalle_ingreso->sub_total; ?>'>
+                                                            <p><?php echo $detalle_ingreso->sub_total ?></p>
                                                         </td>
                                                         <td>
                                                             <button type='button' class='btn btn-danger btn-remove-producto'><span class='fa fa-remove'></span></button>
@@ -159,9 +160,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-md-12">
-                                        <a class="btn btn-primary btn-flat" href="<?php echo site_url("Formulario_ingresos/Ingreso") ?>" type="button">Volver</a>
-                                        <button type="submit" class="btn btn-success btn-flat">Guardar</button>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <a class="btn btn-primary " href="<?php echo site_url("Formulario_ingresos/Ingreso") ?>" type="button">Volver</a>
+                                        <button type="submit" class="btn btn-warning ">Editar</button>
                                     </div>
                                 </div>
                         </form>
