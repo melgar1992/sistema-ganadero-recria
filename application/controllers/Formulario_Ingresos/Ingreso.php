@@ -17,7 +17,6 @@ class Ingreso extends BaseController
     {
         $data = array(
             'ingresos' => $this->Ingreso_model->getIngresos(),
-            'detalle_ingresos' => $this->Ingreso_model->getDetalle(),
             "categoriaingresos" => $this->Ingreso_model->getCategoriaIngresos(),
             "empleados" => $this->Empleado_model->getEmpleados(),
         );
@@ -61,7 +60,7 @@ class Ingreso extends BaseController
             redirect(base_url() . 'Formulario_Ingresos/Ingreso/add');
         }
     }
-
+    
     protected function guardar_detalle($id_otros_ingresos, $cantidad, $detalle, $precio_unitario, $sub_total)
     {
         for ($i = 0; $i < count($cantidad); $i++) {
@@ -75,5 +74,21 @@ class Ingreso extends BaseController
             );
             $this->Ingreso_model->guardar_detalle($data);
         }
+    }
+
+    public function editar($id_otros_ingresos)
+    {
+        $data = array(
+            'ingreso' => $this->Ingreso_model->getIngreso($id_otros_ingresos),
+            'detalle_ingresos' => $this->Ingreso_model->getDetalle($id_otros_ingresos),
+            "empleados" => $this->Empleado_model->getEmpleados(),
+            "categoriaingresos" => $this->Ingreso_model->getCategoriaIngresos(),
+        );
+
+        $this->loadView('Ingresos', '/form/formulario_ingresos/ingresos/editar', $data);
+    }
+    public function actualizarIngreso($id_otros_ingresos)
+    {
+        
     }
 }

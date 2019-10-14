@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var base_url = $("#base_url").val();
+   
 
     $(document).on("click", ".btn-check", function () {
 
@@ -21,7 +22,7 @@ $(document).ready(function () {
             });
         });
     });
-
+// Funcion para agregar el detalle a la tabla
     $("#btn-agregar").on("click", function () {
 
 
@@ -30,9 +31,9 @@ $(document).ready(function () {
             
             html = "<tr>";
             html += "<td><input type='hidden' name= 'detalle[]' value ='" + $('#detalle').val() + "'>" + $('#detalle').val(); +"</td>";
-            html += "<td><input type='number' name= 'cantidad[]' value ='" + $('#cantidad').val() + "'></td>";
+            html += "<td><input type='number' class='cantidad' name= 'cantidad[]' value ='" + $('#cantidad').val() + "'></td>";
             html += "<td><input type = 'number' class='precio_unitario' name = 'precio_unitario[]'  value ='" + $('#precio_unitario').val() + "'></td>";
-            html += "<td><input type ='hidden' name = 'sub_total[]' value ='" + $('#importe_total').val() +"'>" + $('#importe_total').val() +"</td>";
+            html += "<td><input type ='hidden' name = 'sub_total[]' value ='" + $('#importe_total').val() +"'><p>" + $('#importe_total').val() +"</p></td>";
             html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fa fa-remove'></span></button></td>";
             html += "</tr>";
             $("#tbingresos tbody").append(html);
@@ -56,10 +57,30 @@ $(document).ready(function () {
         $(this).closest("tr").remove();
         sumar();
     });
+    //Funcion para sumar en la tabla
+    $(document).on("keyup","#tbingresos input.cantidad",function () {
+   
+        cantidad = $(this).val();
+        precio = $(this).closest("tr").find("td:eq(2)").children("input").val();
+        importe = cantidad * precio;
+        $(this).closest("tr").find("td:eq(3)").children("p").text(importe.toFixed(2));
+        $(this).closest("tr").find("td:eq(3)").children("input").val(importe.toFixed(2));
+        sumar();
+    });
+    $(document).on("keyup","#tbingresos input.precio_unitario",function () {
+        
+        
+        precio = $(this).val();
+        cantidad = $(this).closest("tr").find("td:eq(1)").children("input").val();
+        importe = cantidad * precio;
+        $(this).closest("tr").find("td:eq(3)").children("p").text(importe.toFixed(2));
+        $(this).closest("tr").find("td:eq(3)").children("input").val(importe.toFixed(2));
+        sumar();
+    });
 
 
 })
-
+//Suma el subtotal de la tabla y lo ingresa al total de ingreso
 function sumar() {
     total = 0;
     $("#tbingresos  tbody tr").each(function(){

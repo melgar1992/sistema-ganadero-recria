@@ -75,10 +75,10 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Gastos_fijo"><i class="fa fa-circle-o"></i> Gastos Fijo</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Pago_empleado"><i class="fa fa-circle-o"></i> Pago Empleado</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Pago_empleado"><i class="fa fa-circle-o"></i> Pagos de Empleado</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Categoria_gastos_variable"><i class="fa fa-circle-o"></i> Categoria Gastos Variables</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Egreso_gasto_fijo"><i class="fa fa-circle-o"></i> Egreso gasto Fijo</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Egreso_gasto_variable"><i class="fa fa-circle-o"></i> Egreso gasto variable</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Egreso_gasto_fijo"><i class="fa fa-circle-o"></i> Egresos de gastos Fijo</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Egreso_gasto_variable"><i class="fa fa-circle-o"></i> Egresos de gasto variable</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -101,8 +101,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url(); ?>Movimiento_Animales/Venta_animales"><i class="fa fa-circle-o"></i> Venta de Animales</a></li>
-                            <li><a href="<?php echo base_url(); ?>Movimiento_Animales/Compra_animales"><i class="fa fa-circle-o"></i> Compra de Animales</a></li>
+                            <li><a href="<?php echo base_url(); ?>Movimiento_Animales/Venta_animales"><i class="fa fa-circle-o"></i> Egresos de Animales</a></li>
+                            <li><a href="<?php echo base_url(); ?>Movimiento_Animales/Compra_animales"><i class="fa fa-circle-o"></i> Ingresos de Animales</a></li>
                         </ul>
                     </li>
                     <li class="treeview">

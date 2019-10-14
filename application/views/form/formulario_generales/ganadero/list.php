@@ -65,52 +65,6 @@
                              <?php echo form_error("telefono", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
-                     <div class="form-group">
-                         <label for="nombre_estancia" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre de la estancia </label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="nombre_estancia" value="<?php echo set_value('nombre_estancia') ?>" id=nombre_estancia class="form-group col-md-7 col-xs-12" placeholder="">
-                             <?php echo form_error("nombre_estancia", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                         </div>
-                     </div>
-                     <div class="form-group">
-                         <label for="departamento" class="control-label col-md-3 col-sm-3 col-xs-12">Departamento </label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <select id="departamento" name="departamento" class="form-group col-md-7 col-xs-12" >
-                                 <option value=""></option>
-                                 <option value="Pando">Pando</option>
-                                 <option value="Beni">Beni</option>
-                                 <option value="Santa Cruz">Santa Cruz</option>
-                                 <option value="Cochabamba">Cochabamba</option>
-                                 <option value="La Paz">La Paz</option>
-                                 <option value="Sucre">Sucre</option>
-                                 <option value="Potosi">Potosi</option>
-                                 <option value="Tarija">Tarija</option>
-                                 <option value="Oruro">Oruro</option>
-                             </select>
-                             <?php echo form_error("departamento", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                         </div>
-                     </div>
-                     <div class="form-group">
-                         <label for="provincia" class="control-label col-md-3 col-sm-3 col-xs-12">Provincia </label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="provincia" value="<?php echo set_value('provincia') ?>" id=provincia class="form-group col-md-7 col-xs-12" placeholder="">
-                             <?php echo form_error("provincia", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                         </div>
-                     </div>
-                     <div class="form-group">
-                         <label for="municipio" class="control-label col-md-3 col-sm-3 col-xs-12">Municipio </label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="municipio" value="<?php echo set_value('municipio') ?>" id=municipio class="form-group col-md-7 col-xs-12" placeholder="">
-                             <?php echo form_error("municipio", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                         </div>
-                     </div>
-                     <div class="form-group">
-                         <label for="referencia" class="control-label col-md-3 col-sm-3 col-xs-12">Referencia </label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <textarea rows="3" type="text" name="referencia" value="<?php echo set_value('referencia') ?>" id=referencia class="form-group col-md-7 col-xs-12" placeholder=""></textarea>
-                             <?php echo form_error("referencia", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                         </div>
-                     </div>
 
                      <div class="in_solid"></div>
 

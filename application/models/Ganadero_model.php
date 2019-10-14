@@ -10,11 +10,9 @@ class Ganadero_model extends CI_Model
         $this->db->where('g.tipo_ganadero', 'externo');
         $resultado = $this->db->get();
 
-
-
         return $resultado->result();
     }
-    public function guardarGanadero($datosp, $datosg, $datose)
+    public function guardarGanadero($datosp, $datosg)
     {
         $this->db->insert('persona', $datosp);
 
@@ -22,13 +20,10 @@ class Ganadero_model extends CI_Model
 
         $datosg['id_persona'] = $id_persona;
 
-        $this->db->insert('ganadero', $datosg);
+       return $this->db->insert('ganadero', $datosg);
 
-        $id_ganadero = $this->db->insert_id();
+        
 
-        $datose['id_ganadero'] = $id_ganadero;
-
-        return $this->db->insert('estancias', $datose);
     }
     public function getGanadero($id_ganadero)
     {
