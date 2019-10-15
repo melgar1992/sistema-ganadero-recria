@@ -71,7 +71,7 @@
                             <div class="form-group">
                                 <div class="col-md-2 col-sm-2 col-xs-3 ">
                                     <div>
-                                        <label for="cantidad">Cantidad<span class="required">*</span></label>
+                                        <label for="cantidad">Cantidad</label>
 
                                         <input type="number" value="" id="cantidad" class="form-control col-md-3 " placeholder="">
                                     </div>
@@ -79,14 +79,14 @@
                                 <div class="col-md-4 col-sm-4 col-xs-12">
 
                                     <div>
-                                        <label for="detalle">Detalle <span class="required">*</span></label>
+                                        <label for="detalle">Detalle </label>
 
                                         <input type="text" value="" id="detalle" class="form-control" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-4">
                                     <div>
-                                        <label for="precio_unitario">Precio_unitario <span class="required">*</span></label>
+                                        <label for="precio_unitario">Precio_unitario </label>
 
                                         <input type="number" value="" id="precio_unitario" class="form-control" placeholder="">
                                     </div>

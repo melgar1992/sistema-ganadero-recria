@@ -49,6 +49,7 @@
                                             <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-default"><span class="fa fa-search"></span> Buscar</button>
                                         </span>
                                     </div>
+                                    <?php echo form_error('id_empleado', "<span class= 'help-block'>", '</span>'); ?>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="">Fecha:</label>
