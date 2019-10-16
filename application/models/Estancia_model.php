@@ -36,4 +36,10 @@ class Estancia_model extends CI_Model
             return false;
         }
     }
+    public function actualizarEstancia($id_estancia,$datos_estancia)
+    {
+        $this->db->where('id_estancia', $id_estancia);
+        return $this->db->update('estancias',$datos_estancia);
+        
+    }
 }

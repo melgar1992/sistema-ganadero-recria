@@ -34,8 +34,8 @@
 
                     </div>
                 <?php endif; ?>
-                <form method="POST" action="<?php echo base_url(); ?>Formulario_Estancia/Estancia/guardarEstancia" id="estancia" class="form-horizontal form-label-left">
-
+                <form method="POST" action="<?php echo base_url(); ?>Formulario_Estancia/Estancia/actualizarEstancia" id="estancia" class="form-horizontal form-label-left">
+                    <input type="text" hidden name="id_estancia" value="<?php echo $estancia->id_estancia ?>">
                 <div class="form-group <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
                         <label for="empelado" class="control-label col-md-3 col-sm-3 col-xs-12">Representante de la estancia <span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
