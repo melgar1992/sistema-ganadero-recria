@@ -39,7 +39,7 @@
 <script src="<?php echo base_url(); ?>assets/template/sweetalert2/sweetalert2.all.min.js"></script>
 
 
-<<input type="hidden" value="<?php echo base_url() ?>" id="base_url">
+<input type="hidden" value="<?php echo base_url() ?>" id="base_url">
 <script>
   $('#example1').DataTable();
     $('.sidebar-menu').tree();
@@ -52,7 +52,7 @@
 <!--Formulario de la pagina -->
 <?php
 if (isset($pagina)) { ?>
-  <script type="text/javascript" src="<?php echo base_url(); ?>assets/JavaScript/Js<?php echo $pagina; ?>.js"></script>;
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/JavaScript/Js<?php echo $pagina; ?>.js"></script>
 <?php
 }
 
