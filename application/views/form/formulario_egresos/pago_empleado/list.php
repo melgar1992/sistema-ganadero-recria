@@ -33,13 +33,14 @@
                         <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
                     </div>
                 <?php endif; ?>
-                <form method="POST" action="<?php echo base_url(); ?>Formulario_Egresos/Pago_empleado/guardarEmpleado" id="pago_empleado" class="form-horizontal form-label-left">
+                <form method="POST" action="<?php echo base_url(); ?>Formulario_Egresos/Pago_empleado/guardarBoletaPago" id="pago_empleado" class="form-horizontal form-label-left">
 
                     <div class="form-group <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
                         <label for="empelado" class="control-label col-md-3 col-sm-3 col-xs-12">Empleado <span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <input type="hidden" name="id_empleado" value="" id="id_empleado">
-                            <input type="text" class="form-control" readonly required='required' id="empleado">
+                            <input type="hidden" name="id_contrato_empleado" value="" id="id_contrato_empleado">
+                            <input type="text" class="form-control" readonly name="empleado" required='required' id="empleado">
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-default"><span class="fa fa-search"></span> Buscar</button>
                             </span>
@@ -54,17 +55,17 @@
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("tipo_pago")) ? 'has-error' : ''; ?>">
-                         <label for="tipo_pago" class="control-label col-md-3 col-sm-3 col-xs-12">Tipos de pago<span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <select name="tipo_pago" id="tipo_pago" required class="form-group col-md-7 col-xs-12">
-                                 <option value=""></option>
-                                 <?php foreach ($tipos_pagos as $tipo_pago) : ?>
-                                     <option value="<?php echo $tipo_pago->id_tipo_pago; ?>"><?php echo $tipo_pago->nombre; ?></option>
-                                 <?php endforeach; ?>
-                             </select>
-                             <?php echo form_error("tipo_pago", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                         </div>
-                     </div>
+                        <label for="tipo_pago" class="control-label col-md-3 col-sm-3 col-xs-12">Tipos de pago<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select name="tipo_pago" id="tipo_pago" required class="form-group col-md-7 col-xs-12">
+                                <option value=""></option>
+                                <?php foreach ($tipos_pagos as $tipo_pago) : ?>
+                                    <option value="<?php echo $tipo_pago->id_tipo_pago; ?>"><?php echo $tipo_pago->nombre; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <?php echo form_error("tipo_pago", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                        </div>
+                    </div>
                     <div class="form-group <?php echo !empty(form_error("pago")) ? 'has-error' : ''; ?>">
                         <label for="pago" class="control-label col-md-3 col-sm-3 col-xs-12">Pago Bs <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -72,7 +73,7 @@
                             <?php echo form_error("pago", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
-                    
+
                     <div class="in_solid"></div>
 
                     <br>
@@ -107,18 +108,18 @@
                             <tbody>
                                 <?php if (!empty($boletas_pagos)) : ?>
                                     <?php foreach ($boletas_pagos as $boletas_pago) : ?>
-boletas_pagos
+                                        boletas_pagos
                                         <tr>
-                                            <td><?php echo $boletas_pagos->id_boleta_pago; ?></td>
-                                            <td><?php echo $boletas_pagos->nombres; ?> <?php echo $estancia->apellidos; ?></td>
-                                            <td><?php echo $boletas_pagos->tipoPago; ?></td>
-                                            <td><?php echo $boletas_pagos->fecha; ?></td>
-                                            <td><?php echo $boletas_pagos->pago; ?></td>
+                                            <td><?php echo $boletas_pago->id_boleta_pago; ?></td>
+                                            <td><?php echo $boletas_pago->nombres; ?> <?php echo $boletas_pago->apellidos; ?></td>
+                                            <td><?php echo $boletas_pago->tipoPago; ?></td>
+                                            <td><?php echo $boletas_pago->fecha; ?></td>
+                                            <td><?php echo $boletas_pago->pago; ?></td>
 
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="<?php echo base_url() ?>Formulario_Estancia/Estancia/editar/<?php echo $boletas_pagos->id_estancia; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                    <button type="button" value="<?php echo $boletas_pagos->id_estancia; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+                                                    <a href="<?php echo base_url() ?>Formulario_Egresos/Pago_empleado/editar/<?php echo $boletas_pago->id_boleta_pago; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                    <button type="button" value="<?php echo $boletas_pago->id_boleta_pago; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -166,7 +167,7 @@ boletas_pagos
                                     <td><?php echo $empleado->apellidos; ?></td>
                                     <td><?php echo $empleado->carnet_identidad; ?></td>
 
-                                    <?php $dataEmpleado = $empleado->id_empleado . "*" . $empleado->nombres . "*" . $empleado->apellidos . "*" . $empleado->carnet_identidad . "*" . $empleado->telefono . "*" . $empleado->direccion; ?>
+                                    <?php $dataEmpleado = $empleado->id_empleado . "*" . $empleado->nombres . "*" . $empleado->apellidos . "*" . $empleado->carnet_identidad . "*" . $empleado->telefono . "*" . $empleado->direccion . "*" . $empleado->id_contrato_empleado; ?>
 
                                     <td>
                                         <button type="button" class="btn btn-success btn-check" value="<?php echo $dataEmpleado; ?>"><span class="fa fa-check"></span></button>
