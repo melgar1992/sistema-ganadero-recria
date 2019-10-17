@@ -1,9 +1,9 @@
 <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+<div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Ingresos
+                Egresos Gastos Variables
                 <small>Listado</small>
             </h1>
 
@@ -26,11 +26,11 @@
                 </div>
                 <div class="box-body">
                     <div class="form-group">
-                        <a href="<?php echo base_url(); ?>Formulario_Ingresos/Ingreso/add">
+                        <a href="<?php echo base_url(); ?>Formulario_Egresos/Egreso_gasto_variable/add">
 
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 
-                                <button type="submit" id="agregar" class="btn btn-success">Agregar Ingresos</button>
+                                <button type="submit" id="agregar" class="btn btn-success">Agregar Gastos Variables</button>
                         </a>
 
                     </div>
@@ -50,29 +50,27 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nombre empleado</th>
-                                <th>Categoria ingresos</th>
+                                <th>Categoria gastos variables</th>
                                 <th>Fecha</th>
-                                <th>Forma pago</th>
-                                <th>Ingreso total</th>
+                                <th>Egreso total</th>
                                 <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if (!empty($ingresos)) : ?>
-                                <?php foreach ($ingresos as $ingreso) : ?>
+                            <?php if (!empty($egresos_gastos_variables)) : ?>
+                                <?php foreach ($egresos_gastos_variables as $egreso_gasto_variable) : ?>
 
                                     <tr>
-                                        <td><?php echo $ingreso->id_otros_ingresos; ?></td>
-                                        <td><?php echo $ingreso->nombres; ?></td>
-                                        <td><?php echo $ingreso->nombre_categoria_ingreso; ?></td>
-                                        <td><?php echo $ingreso->fecha; ?></td>
-                                        <td><?php echo $ingreso->forma_pago; ?></td>
-                                        <td><?php echo $ingreso->total; ?></td>
+                                        <td><?php echo $egreso_gasto_variable->id_gastos_variables; ?></td>
+                                        <td><?php echo $egreso_gasto_variable->nombres; ?></td>
+                                        <td><?php echo $egreso_gasto_variable->nombre_tipo_gastos_variables; ?></td>
+                                        <td><?php echo $egreso_gasto_variable->fecha; ?></td>                                    
+                                        <td><?php echo $egreso_gasto_variable->total; ?></td>
                                         <td>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-info btn-vista-ingresos" data-toggle="modal" data-target="#modal-default" value="<?php echo $ingreso->id_otros_ingresos ?>"><span class="fa fa-search"></span></button>
-                                                <a href="<?php echo base_url() ?>Formulario_Ingresos/Ingreso/editar/<?php echo $ingreso->id_otros_ingresos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                <button type="button" value="<?php echo $ingreso->id_otros_ingresos; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+                                                <button type="button" class="btn btn-info btn-vista-egresos" data-toggle="modal" data-target="#modal-default" value="<?php echo $egreso_gasto_variable->id_gastos_variables ?>"><span class="fa fa-search"></span></button>
+                                                <a href="<?php echo base_url() ?>Formulario_Egresos/egreso_gasto_variable/editar/<?php echo $egreso_gasto_variable->id_gastos_variables; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                <button type="button" value="<?php echo $egreso_gasto_variable->id_gastos_variables; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                             </div>
                                         </td>
                                     </tr>
