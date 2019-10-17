@@ -35,8 +35,8 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales"><i class="fa fa-circle-o"></i> Categoria Animales</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/Animales"><i class="fa fa-circle-o"></i> Control animales bovinos</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/Animales"><i class="fa fa-circle-o"></i> Control animales otros</a></li>
+                            <li><a href="<?php echo base_url(); ?>Movimiento_Animales/Venta_animales"><i class="fa fa-circle-o"></i> Egresos de Animales</a></li>
+                            <li><a href="<?php echo base_url(); ?>Movimiento_Animales/Compra_animales"><i class="fa fa-circle-o"></i> Ingresos de Animales</a></li>
                             
 
                         </ul>
@@ -95,14 +95,15 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-print"></i> <span>Movimiento de Animales</span>
+                            <i class="fa fa-print"></i> <span>Control de Animales</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url(); ?>Movimiento_Animales/Venta_animales"><i class="fa fa-circle-o"></i> Egresos de Animales</a></li>
-                            <li><a href="<?php echo base_url(); ?>Movimiento_Animales/Compra_animales"><i class="fa fa-circle-o"></i> Ingresos de Animales</a></li>
+
+                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/Animales"><i class="fa fa-circle-o"></i>Animales bovinos</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/Animales"><i class="fa fa-circle-o"></i>Animales otros</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
