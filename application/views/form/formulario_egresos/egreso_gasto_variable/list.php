@@ -63,7 +63,7 @@
                                     <tr>
                                         <td><?php echo $egreso_gasto_variable->id_gastos_variables; ?></td>
                                         <td><?php echo $egreso_gasto_variable->nombres; ?></td>
-                                        <td><?php echo $egreso_gasto_variable->nombre_tipo_gastos_variables; ?></td>
+                                        <td><?php echo $egreso_gasto_variable->nombre_categoria_egreso_variable; ?></td>
                                         <td><?php echo $egreso_gasto_variable->fecha; ?></td>                                    
                                         <td><?php echo $egreso_gasto_variable->total; ?></td>
                                         <td>
@@ -100,7 +100,7 @@
 
                         <span aria-hidden="true">&times;</span></button>
 
-                    <h4 class="modal-title">Informacion del Ingreso</h4>
+                    <h4 class="modal-title"></h4>
 
                 </div>
 
