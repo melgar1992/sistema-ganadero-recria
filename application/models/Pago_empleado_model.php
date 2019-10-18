@@ -38,4 +38,9 @@ class Pago_empleado_model extends CI_Model
     {
         return $this->db->insert('boleta_pago',$datos);
     }
+    public function actualizarBoletaPago($id_boleta_pago,$datos)
+    {
+        $this->db->where('id_boleta_pago',$id_boleta_pago);
+        return $this->db->update('boleta_pago',$datos);
+    }
 }

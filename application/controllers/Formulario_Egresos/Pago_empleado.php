@@ -64,7 +64,7 @@ class Pago_empleado extends BaseController
 
     public function actualizarBoletaPago()
     {
-
+        $id_boleta_pago = $this->input->post("id_boleta_pago");
         $id_contrato_empleado = $this->input->post("id_contrato_empleado");
         $fecha = $this->input->post("fecha");
         $tipo_pago = $this->input->post("tipo_pago");
@@ -84,7 +84,7 @@ class Pago_empleado extends BaseController
                 'pago' => $pago,
                 'estado'=> '1'
             );
-            if ($this->Pago_empleado_model->guardarBoletaPago($data)) {
+            if ($this->Pago_empleado_model->actualizarBoletaPago($id_boleta_pago,$data)) {
                 $this->index();
             } else {
                 $this->session->set_flashdata("error", "No se pudo guardar la informacion");
@@ -95,5 +95,11 @@ class Pago_empleado extends BaseController
         } else {
             $this->index();
         }
+    }
+    public function borrar($id_boleta_pago)
+    {
+        $datos = array('estado' => '0', );
+        $this->Pago_empleado_model->actualizarBoletaPago($id_boleta_pago,$datos);
+        echo 'Formulario_Egresos/Pago_empleado';
     }
 }
