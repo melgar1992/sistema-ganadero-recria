@@ -18,7 +18,7 @@ class Egreso_gasto_variable extends BaseController
         $data = array(
             'egresos_gastos_variables' => $this->Egreso_gasto_variable_model->getEgresos(),
             "categoriaegresovariables" => $this->Egreso_gasto_variable_model->getCategoriaEgresos(),
-            "empleados" => $this->Empleado_model->getEmpleados(),
+            "empleados" => $this->Egreso_gasto_variable_model->getEmpleados(),
         );
         $this->loadView('Egreso_gastos_variable', '/form/formulario_egresos/egreso_gasto_variable/add', $data);
     }
@@ -26,14 +26,14 @@ class Egreso_gasto_variable extends BaseController
 
     public function guardarEgresos()
     {
-        $id_tipo_gastos_variables = $this->input->post("categoriagastosvariables");
+        $id_tipo_gastos_variables = $this->input->post("categoriaegresovariables");
         $id_empleado = $this->input->post("id_empleado");
         $usuarios = $this->session->userdata("id_usuarios");
         $fecha = $this->input->post("fecha");
       
         $total = $this->input->post("total");
 
-        $this->form_validation->set_rules("categoriagastosvariables", "categoriagastosvariables", "required");
+        $this->form_validation->set_rules("categoriaegresovariables", "categoriaegresovariables", "required");
         $this->form_validation->set_rules("id_empleado", "id_empleado", "required");
         $this->form_validation->set_rules("fecha", "fecha", "required");
        
@@ -48,14 +48,13 @@ class Egreso_gasto_variable extends BaseController
                 'id_tipo_gastos_variables' => $id_tipo_gastos_variables,
                 'id_empleado' => $id_empleado,
                 'id_usuarios' => $usuarios,
-                'fecha' => $fecha,
-               
+                'fecha' => $fecha, 
                 'total' => $total,
                 'estado' => '1'
 
             );
 
-            if ($this->Ingreso_model->guardarEgresos($data)) {
+            if ($this->Egreso_gasto_variable_model->guardarEgresos($data)) {
                 $id_gastos_variables = $this->Egreso_gasto_variable_model->ultimoID();
                 $this->guardar_detalle($id_gastos_variables, $cantidad, $detalle, $precio_unitario, $sub_total);
                 $this->index();
@@ -139,13 +138,13 @@ class Egreso_gasto_variable extends BaseController
             $this->editar($id_otros_ingresos);
         }
     }
-    public function borrar($id_otros_ingresos)
+    public function borrar($id_gastos_variables)
     {
         $data = array(
             'estado' => '0'
         );
-        $this->Ingreso_model->actualizarIngreso($id_otros_ingresos, $data);
-        echo 'Formulario_Ingresos/Ingreso';
+        $this->Egreso_gasto_variable_model->actualizarEgresos($id_gastos_variables, $data);
+        echo 'Formulario_Egresos/Egreso_gasto_variable';
     }
 
 }

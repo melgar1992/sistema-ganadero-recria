@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Egresos
+            Detalle_Egresos
             <small></small>
         </h1>
     </section>
@@ -18,7 +18,7 @@
                         <form action="<?php echo base_url(); ?>Formulario_Egresos/Egreso_gasto_variable/guardarEgresos" method="POST" class="form-horizontal">
                             <div class="form-group">
                             <div class="col-md-3 <?php echo form_error("categoriaegresovariables") != false ? 'has-error' : ''; ?>">
-                                    <label for="">Categoria_Ingreso:</label>
+                                    <label for="">Categoria_Gastos_Variables:</label>
                                     <select name="categoriaegresovariables" id="categoriaegresovariables" class="form-control" required>
                                         <option value="">Seleccione...</option>
                                         <?php foreach ($categoriaegresovariables as $categoriaegresovariable) : ?>
@@ -49,11 +49,11 @@
 
                             </div>
                             <div class="form-group">
-                                <div class="col-md-2 col-sm-2 col-xs-3 ">
+                                <div class="col-md-2 ">
                                     <div>
                                         <label for="cantidad">Cantidad<span class="required">*</span></label>
 
-                                        <input type="number" value="" id="cantidad" class="form-control col-md-3 " placeholder="">
+                                        <input type="number" value="" id="cantidad" class="form-control col-md-4 " placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
@@ -61,21 +61,21 @@
                                     <div>
                                         <label for="detalle">Detalle <span class="required">*</span></label>
 
-                                        <input type="text" value="" id="detalle" class="form-control" placeholder="">
+                                        <input type="text" value="" id="detalle" class="form-control col-md-4 " placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-4">
                                     <div>
                                         <label for="precio_unitario">Precio_unitario <span class="required">*</span></label>
 
-                                        <input type="number" value="" id="precio_unitario" class="form-control" placeholder="">
+                                        <input type="number" value="" id="precio_unitario" class="form-control col-md-4 " placeholder="">
                                     </div>
                                 </div>
 
-                                <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="col-md-2 col-sm-2 col-xs-3">
                                     <div>
                                         <label for="importe_total">Importe Total</label>
-                                        <input type="number" readonly value="" id="importe_total" class="form-control" placeholder="">
+                                        <input type="number" readonly value="" id="importe_total" class="form-control col-md-4 " placeholder="">
                                     </div>
                                 </div>
 
@@ -92,7 +92,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <table id="tbingresos" class="table table-bordered btn-hover">
+                                    <table id="tbegresos" class="table table-bordered btn-hover">
                                         <thead>
                                             <tr>
                                                 <th>Detalle</th>
@@ -108,16 +108,16 @@
                                     </table>
                                 </div>
                                 <div class='form-group'>
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <div class="input-group">
                                             <span class="input-group-addon">Importe total:</span>
-                                            <input type="number" class="form-control" placeholder="0.00" id="total" name="total" required readonly="readonly">
+                                            <input type="number" class="form-control  " placeholder="0.00" id="total" name="total" required readonly="readonly">
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-12">
+                                <div class="form-group ">
+                                    <div class="col-md-4">
                                         <a class="btn btn-primary btn-flat" href="<?php echo site_url("Formulario_Egresos/Egreso_gasto_variable") ?>" type="button">Volver</a>
                                         <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                                     </div>
