@@ -34,7 +34,7 @@
                     </div>
                 <?php endif; ?>
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Egresos/Pago_empleado/actualizarBoletaPago" id="pago_empleado" class="form-horizontal form-label-left">
-
+                            <input type="text" hidden name="id_boleta_pago" value="<?php echo $boleta_pago->id_boleta_pago; ?>">
                     <div class="form-group <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
                         <label for="empelado" class="control-label col-md-3 col-sm-3 col-xs-12">Empleado <span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
