@@ -17,12 +17,6 @@
              <div class="box-header with-border">
                  <h3 class="box-title">Formulario de Ganadero</h3>
 
-                 <div class="box-tools pull-right">
-                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                         <i class="fa fa-minus"></i></button>
-                     <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                         <i class="fa fa-times"></i></button>
-                 </div>
              </div>
              <div class="box-body">
                  <h4>Los campos con * son obligatorios, despues podran agregar mas estancia de ser necesario.</h4>
@@ -35,7 +29,7 @@
                      </div>
                  <?php endif; ?>
                  <form method="POST" action="<?php echo base_url(); ?>Formularios_Generales/Ganadero/guardarGanadero" id="ganadero" class="form-horizontal form-label-left">
-                 <input type="hidden" name="tipo_ganadero" value="externo" id="tipo_ganadero">
+                     <input type="hidden" name="tipo_ganadero" value="externo" id="tipo_ganadero">
 
                      <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
                          <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombres <span class="required">*</span></label>
@@ -98,28 +92,28 @@
                                  </tr>
                              </thead>
                              <tbody>
-                             <?php if (!empty($ganaderos)) : ?>
-                                 <?php foreach ($ganaderos as $ganadero) : ?>
+                                 <?php if (!empty($ganaderos)) : ?>
+                                     <?php foreach ($ganaderos as $ganadero) : ?>
 
-                                     <tr>
-                                         <td><?php echo $ganadero->id_ganadero; ?></td>
-                                         <td><?php echo $ganadero->nombres; ?></td>
-                                         <td><?php echo $ganadero->apellidos; ?></td>
-                                         <td><?php echo $ganadero->carnet_identidad; ?></td>
-                                         <td><?php echo $ganadero->telefono; ?></td>
+                                         <tr>
+                                             <td><?php echo $ganadero->id_ganadero; ?></td>
+                                             <td><?php echo $ganadero->nombres; ?></td>
+                                             <td><?php echo $ganadero->apellidos; ?></td>
+                                             <td><?php echo $ganadero->carnet_identidad; ?></td>
+                                             <td><?php echo $ganadero->telefono; ?></td>
 
-                                         
-                                         <td>
-                                             <div class="btn-group">
-                                                 <button type="button" class="btn btn-info btn-vista" data-toggle="modal" data-target="modal-default" value="<?php echo $ganadero->id_ganadero ?>"><span class="fa fa-search"></span></button>
-                                                 <a href="<?php echo base_url() ?>Formularios_Generales/Ganadero/editar/<?php echo $ganadero->id_ganadero; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                 <button type="button" value="<?php echo $ganadero->id_ganadero;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
-                                             </div>
-                                         </td>
-                                     </tr>
-                                 <?php endforeach; ?>
-                             <?php endif; ?>
-                                 
+
+                                             <td>
+                                                 <div class="btn-group">
+                                                     <button type="button" class="btn btn-info btn-vista" data-toggle="modal" data-target="modal-default" value="<?php echo $ganadero->id_ganadero ?>"><span class="fa fa-search"></span></button>
+                                                     <a href="<?php echo base_url() ?>Formularios_Generales/Ganadero/editar/<?php echo $ganadero->id_ganadero; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                     <button type="button" value="<?php echo $ganadero->id_ganadero; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+                                                 </div>
+                                             </td>
+                                         </tr>
+                                     <?php endforeach; ?>
+                                 <?php endif; ?>
+
                              </tbody>
                          </table>
                      </div>

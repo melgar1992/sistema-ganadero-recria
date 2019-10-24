@@ -116,21 +116,23 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class='form-group'>
-                                    <div class="col-md-3">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Importe total:</span>
-                                            <input type="number" class="form-control" placeholder="0.00" id="total" name="total" required readonly="readonly">
-                                        </div>
+                            </div>
+                            <!-- /.Tabla de detalle ingresos -->
+                            <div class='form-group'>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Importe total:</span>
+                                        <input type="number" class="form-control" placeholder="0.00" id="total" name="total" required readonly="readonly">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <a class="btn btn-primary btn-flat" href="<?php echo site_url("Formulario_ingresos/Ingreso") ?>" type="button">Volver</a>
-                                        <button type="submit" class="btn btn-success btn-flat">Guardar</button>
-                                    </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <a class="btn btn-primary btn-flat" href="<?php echo site_url("Formulario_ingresos/Ingreso") ?>" type="button">Volver</a>
+                                    <button type="submit" class="btn btn-success btn-flat">Guardar</button>
                                 </div>
+                            </div>
                         </form>
                     </div>
                     <!-- /.box-body -->

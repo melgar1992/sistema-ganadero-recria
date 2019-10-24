@@ -14,23 +14,11 @@
 
         <!-- Default box -->
         <div class="box">
-            <div class="box-header with-border">
-                <h3 class="box-title">Title</h3>
-
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fa fa-times"></i></button>
-                </div>
-            </div>
             <div class="box-body">
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 ">
-                        <a href="<?php echo site_url("Formulario_Egresos/Pago_empleado") ?>" class="btn btn-primary btn-flat">Volver</a>
-                        <a href="<?php echo site_url("Formulario_Egresos/Pago_empleado") ?>" class="btn btn-primary btn-flat">Volver</a>
-                        <a href="<?php echo site_url("Formulario_Egresos/Pago_empleado") ?>" class="btn btn-primary btn-flat">Volver</a>
-                        <a href="<?php echo site_url("Formulario_Egresos/Pago_empleado") ?>" class="btn btn-primary btn-flat">Volver</a>
+                        <a href="<?php echo site_url("Formulario_Animales/Compra_animales/addbovinos") ?>" class="btn btn-primary btn-flat">Compra animales bovinos</a>
+                        <a href="<?php echo site_url("Formulario_Animales/Compra_animales/addanimales") ?>" class="btn btn-primary btn-flat">Compra animales</a>
                     </div>
 
                 </div>
@@ -52,22 +40,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if (!empty($ingresos)) : ?>
-                                <?php foreach ($ingresos as $ingreso) : ?>
+                            <?php if (!empty($compra_animales)) : ?>
+                                <?php foreach ($compra_animales as $compra_animal) : ?>
 
                                     <tr>
-                                        <td><?php echo $ingreso->id_otros_ingresos; ?></td>
-                                        <td><?php echo $ingreso->nombres; ?></td>
-                                        <td><?php echo $ingreso->nombre_categoria_ingreso; ?></td>
-                                        <td><?php echo $ingreso->fecha; ?></td>
-                                        <td><?php echo $ingreso->forma_pago; ?></td>
-                                        <td><?php echo $ingreso->total; ?></td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-info btn-vista-ingresos" data-toggle="modal" data-target="#modal-default" value="<?php echo $ingreso->id_otros_ingresos ?>"><span class="fa fa-search"></span></button>
-                                                <a href="<?php echo base_url() ?>Formulario_Ingresos/Ingreso/editar/<?php echo $ingreso->id_otros_ingresos; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                <button type="button" value="<?php echo $ingreso->id_otros_ingresos; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
-                                            </div>
+                                        <td><?php echo $compra_animal->id_compra_animales ?></td>
+                                        <td><?php echo $compra_animal->nombres;
+                                                    echo $compra_animal->apellidos;  ?></td>
+                                        <td><?php echo $compra_animal->fecha; ?></td>
+                                        <td><?php echo $compra_animal->total; ?></td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-info btn-vista-ingresos" data-toggle="modal" data-target="#modal-default" value="<?php echo $compra_animal->id_compra_animales ?>"><span class="fa fa-search"></span></button>
+                                            <a href="<?php echo base_url() ?>Formulario_Ingresos/Ingreso/editar/<?php echo $compra_animal->id_compra_animales; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                            <button type="button" value="<?php echo $compra_animal->id_compra_animales; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+                                        </div>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

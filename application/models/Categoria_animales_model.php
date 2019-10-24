@@ -8,6 +8,13 @@ class Categoria_animales_model extends CI_Model
         $resultados = $this->db->get("tipo_animal");
         return $resultados->result();
     }
+    public function getCategoriaAnimalBovinos()
+    {
+        $this->db->where('estado','1');
+        $this->db->where('nombre','Bovino');
+        $resultados = $this->db->get("tipo_animal");
+        return $resultados->result();
+    }
     public function guardarCat($data)
     {
         return $this->db->insert("tipo_animal", $data);

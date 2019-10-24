@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','session','form_validation','Upload');
+$autoload['libraries'] = array('database', 'session', 'form_validation', 'Upload');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','codhtml_helper');
+$autoload['helper'] = array('url', 'codhtml_helper');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Usuario_model','Tipo_transporte_model','Ganadero_model','Transportista_model','Intermediario_model','Categoria_animales_model','Animales_model','Estancia_model','Tipo_cargo_model','Empleado_model','Gastos_fijo_model','Pago_empleado_model','Categoria_gastos_variable_model','Egreso_gasto_fijo_model','Egreso_gasto_variable_model','Categoria_otros_ingresos_model','Ingreso_model','Venta_animales_model','inventario_animales_model');
+$autoload['model'] = array('Usuario_model', 'Tipo_transporte_model', 'Ganadero_model', 'Transportista_model', 'Intermediario_model', 'Categoria_animales_model', 'Animales_model', 'Estancia_model', 'Tipo_cargo_model', 'Empleado_model', 'Gastos_fijo_model', 'Pago_empleado_model', 'Categoria_gastos_variable_model', 'Egreso_gasto_fijo_model', 'Egreso_gasto_variable_model', 'Categoria_otros_ingresos_model', 'Ingreso_model', 'Venta_animales_model', 'Compra_animales_model', 'inventario_animales_model');
