@@ -21,6 +21,25 @@ class Egreso_gasto_variable_model extends CI_Model
         }
 
     }
+    public function getEgreso($id_gastos_variables)
+    { 
+        $this->db->select('gv.*, tgv.id_tipo_gastos_variables, tgv.nombre as nombre_categoria_egreso_variable,e.id_empleado, p.nombres, p.apellidos');
+        $this->db->from('gastos_variables gv');
+        $this->db->join('tipo_gastos_variables tgv', 'gv.id_tipo_gastos_variables = tgv.id_tipo_gastos_variables');
+        $this->db->join('empleado e', 'gv.id_empleado = e.id_empleado');
+        $this->db->join('persona p', 'p.id_persona = e.id_persona');
+        $this->db->where('gv.estado', '1');
+        $this->db->where('id_gastos_variables', $id_gastos_variables);
+
+        $resultado = $this->db->get();
+
+        if ($resultado->num_rows() > 0) {
+
+            return $resultado->row();
+        } else {
+            return false;
+        } 
+    }
     public function getCategoriaEgresos()
     {
         $resultados = $this->db->get("tipo_gastos_variables");
@@ -63,7 +82,7 @@ class Egreso_gasto_variable_model extends CI_Model
         $resultados = $this->db->get();
         return $resultados->result();
     }
-    public function actualizarEgresos($id_gastos_variables, $data)            
+    public function actualizarEgreso($id_gastos_variables, $data)            
     {
         $this->db->where('id_gastos_variables',$id_gastos_variables);
        return $this->db->update('gastos_variables',$data);
@@ -74,7 +93,7 @@ class Egreso_gasto_variable_model extends CI_Model
         $this->db->where('id_gastos_variables',$id_gastos_variables);
 
     }
-    public function borrarDetalleEgresos($id_gastos_variables)
+    public function borrarDetalleEgreso($id_gastos_variables)
     {
         $this->db->where('id_gastos_variables',$id_gastos_variables);
        return $this->db->delete('detalle_gastos');
