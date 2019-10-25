@@ -50,11 +50,12 @@ $(document).ready(function () {
 
             html = "<tr>";
             html += "<td><input type='text' readonly class ='form-control' name= 'categoria[]' value ='" + $('#catego').val() + "'></td>";
-            html += "<td><input type='text' readonly class='raza form-control' name= 'raza[]' value ='" + $('#raz').val() + "'></td>";
+            html += "<td><input type='hidden' readonly class='raza form-control' name= 'raza[]' value ='" + $('#raz').val() + "'><p class= 'form-control'>" + $('select[name="raz"] option:selected').text() + "</p></td>";
             html += "<td><input type='text' readonly class='sexo form-control' name= 'sexo[]' value ='" + $('#sex').val() + "'></td>";
             html += "<td><input type = 'number' class='cantidad form-control' name = 'cantidad[]'  value =''></td>";
             html += "<td><input type = 'number' class='precio_unitario form-control' name = 'precio_unitario[]'  value =''></td>";
             html += "<td><input type = 'number' class='precio_transporte form-control' name = 'precio_transporte[]'  value =''></td>";
+            html += "<td><input type='text'  class='placa_camion form-control' name= 'placa_camion[]' value =''></td>";
             html += "<td><input type ='number' readonly class = 'form-control' name = 'sub_total[]' value =''></td>";
             html += "<td><button type='button' class='btn btn-danger btn-remove-compra'><span class='fa fa-remove'></span></button></td>";
             html += "</tr>";
@@ -73,36 +74,36 @@ $(document).ready(function () {
             })
         }
     });
-    $(document).on('change','#tbCompraBovinos input.cantidad', function () {
-        
-        
+    $(document).on('change', '#tbCompraBovinos input.cantidad', function () {
+
+
         cantidad = $(this).val();
         precio_unitario = $(this).closest('tr').find('td:eq(4)').children('input').val();
         if (precio_unitario != '') {
             sub_total = cantidad * precio_unitario;
-            $(this).closest('tr').find('td:eq(6)').children('input').val(sub_total.toFixed(2));
-            sumar(); 
-        } 
- 
+            $(this).closest('tr').find('td:eq(7)').children('input').val(sub_total.toFixed(2));
+            sumar();
+        }
+
     });
-    $(document).on('change','#tbCompraBovinos input.precio_unitario', function () {
-        
+    $(document).on('change', '#tbCompraBovinos input.precio_unitario', function () {
+
         precio_unitario = $(this).val();
         cantidad = $(this).closest('tr').find('td:eq(3)').children('input').val();
         if (cantidad != '') {
             sub_total = cantidad * precio_unitario;
-            $(this).closest('tr').find('td:eq(6)').children('input').val(sub_total.toFixed(2));
+            $(this).closest('tr').find('td:eq(7)').children('input').val(sub_total.toFixed(2));
             sumar();
         }
- 
+
     });
-    $(document).on('change','#tbCompraBovinos input.precio_transporte', function () {
+    $(document).on('change', '#tbCompraBovinos input.precio_transporte', function () {
         sumar();
     });
-    $(document).on("click", ".btn-remove-compra", function() {
+    $(document).on("click", ".btn-remove-compra", function () {
 
         $(this).closest("tr").remove();
-       
+
     });
 
 });
@@ -110,10 +111,10 @@ $(document).ready(function () {
 function sumar() {
     subtotalCompra = 0;
     subtotaltransporte = 0;
- 
-    $("#tbCompraBovinos  tbody tr").each(function(){
-        subtotalCompra =  subtotalCompra + Number($(this).find("td:eq(6)").children('input').val());
-        subtotaltransporte =  subtotaltransporte + Number($(this).find("td:eq(5)").children('input').val());
+
+    $("#tbCompraBovinos  tbody tr").each(function () {
+        subtotalCompra = subtotalCompra + Number($(this).find("td:eq(7)").children('input').val());
+        subtotaltransporte = subtotaltransporte + Number($(this).find("td:eq(5)").children('input').val());
     });
     total = 0;
     total = subtotalCompra + subtotaltransporte;

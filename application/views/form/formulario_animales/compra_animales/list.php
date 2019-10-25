@@ -45,10 +45,10 @@
 
                                     <tr>
                                         <td><?php echo $compra_animal->id_compra_animales ?></td>
-                                        <td><?php echo $compra_animal->nombres;
-                                                    echo $compra_animal->apellidos;  ?></td>
+                                        <td><?php echo $compra_animal->nombres;?> <?php echo $compra_animal->apellidos;  ?></td>
                                         <td><?php echo $compra_animal->fecha; ?></td>
                                         <td><?php echo $compra_animal->total; ?></td>
+                                        <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-info btn-vista-ingresos" data-toggle="modal" data-target="#modal-default" value="<?php echo $compra_animal->id_compra_animales ?>"><span class="fa fa-search"></span></button>
                                             <a href="<?php echo base_url() ?>Formulario_Ingresos/Ingreso/editar/<?php echo $compra_animal->id_compra_animales; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
