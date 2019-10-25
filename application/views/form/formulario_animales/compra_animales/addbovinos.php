@@ -11,7 +11,7 @@
 
       <!-- Main content -->
       <section class="content">
-          <form method="POST" action="<?php echo base_url(); ?>Formulario_Egresos/Pago_empleado/guardarBoletaPago" id="pago_empleado" class="form-horizontal form-label-left">
+          <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Compra_animales/guardarCompraBovinos" id="compra_animales_bovinos" class="form-horizontal form-label-left">
               <!-- Default box -->
               <div class="box">
                   <div class="box-header with-border ">
@@ -29,7 +29,7 @@
                                   <span class="input-group-btn">
                                       <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-ganaderos"><span class="fa fa-search"></span> Buscar</button>
                                   </span>
-                                  <?php echo form_error("empelado", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                                  <?php echo form_error("ganadero", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                               </div>
                           </div>
                           <div class='col-md-3 col-sm-6 col-xs-12'>
@@ -78,7 +78,7 @@
                           <div class='col-md-2 col-sm-6 col-xs-12'>
                               <div class='input-group'>
                                   <label for="comision" class="">Fecha compra*:</label>
-                                  <input type="date" class='form-control' name="fecha" id="fecha">
+                                  <input type="date" class='form-control' required='required' name="fecha" id="fecha">
                               </div>
                           </div>
                       </div>
@@ -100,7 +100,7 @@
                           <div class="col-md-2 col-sm-4 col-xs-12 ">
                               <div>
                                   <label for="catego">Categoria<span class="required">*</span></label>
-                                  <select id="catego" required class="form-control">
+                                  <select id="catego"  class="form-control">
                                       <option value=""></option>
                                       <option value="12">12</option>
                                       <option value="12 - 24 ">12 - 24</option>
@@ -116,7 +116,7 @@
 
                               <div>
                                   <label for="raz">Raza <span class="required">*</span></label>
-                                  <select  id="raz" required class="form-control">
+                                  <select id="raz" name='raz'  class="form-control">
                                       <option value=""></option>
                                       <?php foreach ($tipo_animales as $tipo_animale) : ?>
                                           <option value="<?php echo $tipo_animale->id_tipo_animal; ?>"><?php echo $tipo_animale->raza; ?></option>
@@ -127,7 +127,7 @@
                           <div class="col-md-2 col-sm-4 col-xs-12">
                               <div>
                                   <label for="sex">Sexo</label>
-                                  <select  class="form-control" id="sex">
+                                  <select class="form-control" id="sex">
                                       <option value="M">Macho</option>
                                       <option value="H">Hembra</option>
                                   </select>
@@ -154,6 +154,7 @@
                                           <th>Cantidad</th>
                                           <th>Precio unitario Bs</th>
                                           <th>Precio transporte Bs</th>
+                                          <th>Placa camion</th>
                                           <th>Sub total Bs</th>
                                           <th>Opciones</th>
                                       <tr>
@@ -195,7 +196,12 @@
                   </div>
                   <!-- /.box-body -->
                   <div class="box-footer">
-                      Footer
+                      <div class="form-group">
+                          <div class="col-md-12">
+                              <a class="btn btn-primary btn-flat" href="<?php echo site_url("Formulario_Animales/Compra_animales") ?>" type="button">Volver</a>
+                              <button type="submit" class="btn btn-success btn-flat">Guardar</button>
+                          </div>
+                      </div>
                   </div>
                   <!-- /.box-footer-->
               </div>

@@ -14,5 +14,17 @@ class Compra_animales_model extends CI_Model
 
         return $resultado->result();
     }
+    public function ultimoID()
+    {
+        return $this->db->insert_id();
+    }
+    public function guardarCompraBovinos($datos)
+    {
+        return $this->db->insert('compra_animales',$datos);
+    }
+    public function guardarDetalleBovinos($datos)
+    {   
+        return $this->db->insert('detalle_movimiento_animales',$datos);
+    }
 
 }
