@@ -9,4 +9,32 @@ $(document).ready(function() {
         $("#empleado").val(infoempleado[1]);
         $("#modal-default").modal("hide");
     });
+    $(document).on('click', '.btn-borrar', function() {
+
+        Swal.fire({
+            title: 'Esta seguro de elimar?',
+            text: "Una vez elimina el pago egreso gasto fijo no se podra recuperar!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, deseo elimniar!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.value) {
+
+                var id = $(this).val();
+
+                $.ajax({
+                    url: base_url + 'Formulario_Egresos/Egreso_gasto_fijo/borrar/' + id,
+                    type: 'POST',
+                    success: function(resp) {
+                        window.location.href = base_url + resp;
+                    }
+                })
+
+
+            }
+        })
+    })
 })
