@@ -131,4 +131,20 @@ class Compra_animales extends BaseController
             }
         }
     }
+    public function editarBovinos($id_compra_animales)
+    {
+        $data = array(
+            'compra_animal'=> $this->Compra_animales_model->getCompraAnimal($id_compra_animales),
+            'detalle_movimiento_animales' => $this->Compra_animales_model->getDetalleMovimientos($id_compra_animales),
+            'empleados' => $this->Empleado_model->getEmpleados(),
+            'ganaderos' => $this->Ganadero_model->getGanaderosExterno(),
+            'estancias' => $this->Estancia_model->getEstancias(),
+            'transportistas' => $this->Transportista_model->getTransportistas(),
+            'intermediarios' => $this->Intermediario_model->getIntermediarios(),
+            'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
+
+        );
+        $this->loadView('Compra_animales', 'form/formulario_animales/compra_animales/editarbovinos', $data);
+        
+    }
 }

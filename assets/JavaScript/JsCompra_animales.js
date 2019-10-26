@@ -1,5 +1,6 @@
 $(document).ready(function () {
     var base_url = $("#base_url").val();
+    sumar();
 
     $(document).on("click", ".btn-check-empleado", function () {
 
