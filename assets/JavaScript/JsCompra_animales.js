@@ -104,6 +104,7 @@ $(document).ready(function () {
     $(document).on("click", ".btn-remove-compra", function () {
 
         $(this).closest("tr").remove();
+        sumar();
 
     });
 

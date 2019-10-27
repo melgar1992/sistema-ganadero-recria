@@ -11,7 +11,9 @@
 
     <!-- Main content -->
     <section class="content">
-        <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Compra_animales/guardarCompraBovinos" id="compra_animales_bovinos" class="form-horizontal form-label-left">
+        <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Compra_animales/acutalizarBovinos" id="compra_animales_bovinos" class="form-horizontal form-label-left">
+            <input type="hidden" value="<?php echo $compra_animal->id_compra_animales; ?>" name="id_compra_animales">
+
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border ">
@@ -77,7 +79,7 @@
                         <div class='col-md-2 col-sm-6 col-xs-12'>
                             <div class='input-group'>
                                 <label for="comision" class="">Fecha compra*:</label>
-                                <input type="date" class='form-control' required='required' name="fecha" id="fecha">
+                                <input type="date" class='form-control' required='required' value="<?php echo !empty(form_error('fecha')) ? form_error('fecha') : $compra_animal->fecha ?>" name="fecha" id="fecha">
                             </div>
                         </div>
                     </div>
@@ -167,14 +169,14 @@
                                                     <input type='text' readonly class="form-control" name='categoria[]' value='<?php echo $detalle_movimiento_animal->categoria; ?>'>
                                                 </td>
                                                 <td>
-                                                    <input type='hidden'  name='raza[]' value='<?php echo $detalle_movimiento_animal->id_tipo_animal; ?>'>
+                                                    <input type='hidden' name='raza[]' value='<?php echo $detalle_movimiento_animal->id_tipo_animal; ?>'>
                                                     <p><?php echo $detalle_movimiento_animal->raza ?></p>
                                                 </td>
                                                 <td>
                                                     <input type='text' readonly class="form-control" name='sexo[]' value='<?php echo $detalle_movimiento_animal->sexo; ?>'>
                                                 </td>
                                                 <td>
-                                                    <input type='number'  class="cantidad form-control" name='cantidad[]' value='<?php echo $detalle_movimiento_animal->cantidad; ?>'>
+                                                    <input type='number' class="cantidad form-control" name='cantidad[]' value='<?php echo $detalle_movimiento_animal->cantidad; ?>'>
                                                 </td>
                                                 <td>
                                                     <input type='number' class='precio_unitario form-control' name='precio_unitario[]' value='<?php echo $detalle_movimiento_animal->precio_unitario; ?>'>
@@ -189,7 +191,7 @@
                                                     <input type='number' readonly class="sub_total form-control" name='sub_total[]' value='<?php echo $detalle_movimiento_animal->sub_total; ?>'>
                                                 </td>
                                                 <td>
-                                                    <button type='button' class='btn btn-danger btn-remove-producto'><span class='fa fa-remove'></span></button>
+                                                    <button type='button' class='btn btn-danger btn-remove-compra'><span class='fa fa-remove'></span></button>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
