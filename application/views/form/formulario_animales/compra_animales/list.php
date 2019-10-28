@@ -51,7 +51,7 @@
                                         <td>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-info btn-vista-ingresos" data-toggle="modal" data-target="#modal-default" value="<?php echo $compra_animal->id_compra_animales ?>"><span class="fa fa-search"></span></button>
-                                            <a href="<?php echo base_url() ?>Formulario_Ingresos/Ingreso/editar/<?php echo $compra_animal->id_compra_animales; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                            <a href="<?php echo base_url() ?>Formulario_Animales/Compra_animales/editarBovinos/<?php echo $compra_animal->id_compra_animales; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                             <button type="button" value="<?php echo $compra_animal->id_compra_animales; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                         </div>
                                         </td>
