@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Pago_Gasto_Fijo
+            Pago Gasto Fijo
             <small>Editar</small>
         </h1>
 
@@ -82,7 +82,7 @@
                     <div class="form-group <?php echo !empty(form_error("total")) ? 'has-error' : ''; ?>">
                         <label for="total" class="control-label col-md-3 col-sm-3 col-xs-12">Total Bs <span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" name="total" value="" id=total required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                            <input type="number" name="total" value="<?php echo $pago_gasto_fijo->total; ?>" id=total required="required" class="form-group col-md-7 col-xs-12" placeholder="">
                             <?php echo form_error("total", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
