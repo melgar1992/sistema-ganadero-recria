@@ -234,7 +234,7 @@
                     <div class="form-group">
                         <div class="col-md-12">
                             <a class="btn btn-primary btn-flat" href="<?php echo site_url("Formulario_Animales/Compra_animales") ?>" type="button">Volver</a>
-                            <button type="submit" class="btn btn-success btn-flat">Guardar</button>
+                            <button type="submit" class="btn btn-success btn-flat">Editar</button>
                         </div>
                     </div>
                 </div>

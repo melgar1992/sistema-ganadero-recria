@@ -251,6 +251,28 @@ class Compra_animales extends BaseController
                 $this->Compra_animales_model->borrarDetalleMovimientos($detalle_movimiento->id_detalle_venta_animales);
             }
         }
-      
+    }
+    public function borrar($id_compra_animales)
+    {
+        $datos = array(
+            'estado' => '0',
+        );
+        $compra_animal = $this->Compra_animales_model->getCompraAnimal($id_compra_animales);
+        $this->Compra_animales_model->actualizarCompraBovinos($id_compra_animales, $datos);
+        // Se borra los detalles de la compra de los animales y se lo disminuye del inventario
+        $detalle_movimiento_actual = $this->Compra_animales_model->getDetalleMovimientos($id_compra_animales);
+        foreach ($detalle_movimiento_actual as $detalle_movimiento) {
+            $animal = $this->inventario_animales_model->buscarInventarioAnimal($compra_animal->id_estancia, $detalle_movimiento->id_tipo_animal, $detalle_movimiento->sexo, $detalle_movimiento->categoria);
+            $id_animal = $animal->id_animal;
+            $restastock = $detalle_movimiento->cantidad;
+            $stock = $animal->stock - $restastock;
+            $datosAnimal = array(
+                'stock' => $stock,
+            );
+            $this->inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
+            $this->Compra_animales_model->borrarDetalleMovimientos($detalle_movimiento->id_detalle_venta_animales);
+        }
+
+        echo 'Formulario_Animales/Compra_animales';
     }
 }
