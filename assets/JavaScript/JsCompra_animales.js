@@ -127,15 +127,30 @@ $(document).ready(function () {
                     url: base_url + 'Formulario_Animales/Compra_animales/borrar/' + id,
                     type: 'POST',
                     success: function (resp) {
-                       window.location.href = base_url + resp;
+                        window.location.href = base_url + resp;
                     }
                 })
 
 
             }
-		})
-	})
-
+        })
+    })
+    $('.categ').on('change', function () {
+        var categoria = $(this).val();
+        $('#raz').empty();
+        $('#raz').prop('disabled', false);
+        $.ajax({
+            type: "POST",
+            url: base_url + "Formulario_Animales/Compra_animales/buscarRazas/",
+            data: { cat: categoria },
+            success: function (respuesta) {
+                respuesta2 = JSON.parse(respuesta);
+                jQuery.each(respuesta2, function (i, valoractual) {
+                    $('#raz').prepend("<option value='" + valoractual.id_tipo_animal + "' >" + valoractual.raza + "</option>");
+                });
+            }
+        });
+    });
 });
 
 function sumar() {
@@ -155,3 +170,7 @@ function sumar() {
     $("input[name=suma_ganado]").val(subtotalCompra.toFixed(2));
     $("input[name=importe_comision]").val(comision.toFixed(2));
 }
+$('#tabla_ganadero').DataTable();
+$('#tabla_estancias').DataTable();
+$('#tabla_ganaderos').DataTable();
+$('#tabla_intermediario').DataTable();

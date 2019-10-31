@@ -150,26 +150,30 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class='form-group'>
-                                    <div class="col-md-3">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Importe total:</span>
-                                            <input type="number" class="form-control" value="<?php echo !empty(form_error("total")) ? set_value("total") : $ingreso->total ?>" placeholder="0.00" id="total" name="total" required readonly="readonly">
-                                        </div>
+                            </div>
+                            <hr>
+                            <div class='form-group'>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Importe total:</span>
+                                        <input type="number" class="form-control" value="<?php echo !empty(form_error("total")) ? set_value("total") : $ingreso->total ?>" placeholder="0.00" id="total" name="total" required readonly="readonly">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <a class="btn btn-primary " href="<?php echo site_url("Formulario_ingresos/Ingreso") ?>" type="button">Volver</a>
-                                        <button type="submit" class="btn btn-warning ">Editar</button>
-                                    </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <a class="btn btn-primary " href="<?php echo site_url("Formulario_ingresos/Ingreso") ?>" type="button">Volver</a>
+                                    <button type="submit" class="btn btn-warning ">Editar</button>
                                 </div>
+                            </div>
                         </form>
                     </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
+            </div>
+        </div>
     </section>
     <!-- /.content -->
 </div>

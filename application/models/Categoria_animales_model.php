@@ -15,6 +15,20 @@ class Categoria_animales_model extends CI_Model
         $resultados = $this->db->get("tipo_animal");
         return $resultados->result();
     }
+    public function buscarRazas($categoria)
+    {
+        $this->db->where('nombre',$categoria);
+        $this->db->where('estado','1');
+        $resultado = $this->db->get('tipo_animal');
+        return $resultado->result();
+    }
+    public function getCategoriaAnimales()
+    {
+        $this->db->where('estado','1');
+        $this->db->where('nombre !=','Bovino');
+        $resultados = $this->db->get("tipo_animal");
+        return $resultados->result();
+    }
     public function guardarCat($data)
     {
         return $this->db->insert("tipo_animal", $data);
@@ -22,6 +36,7 @@ class Categoria_animales_model extends CI_Model
     public function getCategoria($id_tipo_animal)
     {
         $this->db->where("id_tipo_animal", $id_tipo_animal);
+        $this->db->where('estado','1');
         $resultado = $this->db->get("tipo_animal");
         return $resultado->row();
     }

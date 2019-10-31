@@ -3,7 +3,7 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
           <h1>
-              Compra de animales bovinos
+              Compra de animales
               <small></small>
           </h1>
 
@@ -11,7 +11,7 @@
 
       <!-- Main content -->
       <section class="content">
-          <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Compra_animales/guardarCompraBovinos" id="compra_animales_bovinos" class="form-horizontal form-label-left">
+          <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Compra_animales/guardarCompraOtros" id="compra_animales_bovinos" class="form-horizontal form-label-left">
               <!-- Default box -->
               <div class="box">
                   <div class="box-header with-border ">
@@ -19,13 +19,13 @@
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">
-                  <?php if ($this->session->flashdata("error")) : ?>
-                            <div class="alert alert-danger alert-dismissable">
-                                <button type="button" class="close" data-dissmiss="alert" aria-hidden="true">$times;</button>
-                                <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
+                      <?php if ($this->session->flashdata("error")) : ?>
+                          <div class="alert alert-danger alert-dismissable">
+                              <button type="button" class="close" data-dissmiss="alert" aria-hidden="true">$times;</button>
+                              <p><i class="icon fa fa-ban"></i><?php echo $this->session->flashdata("error"); ?></p>
 
-                            </div>
-                        <?php endif; ?>
+                          </div>
+                      <?php endif; ?>
 
                       <div class="form-group">
                           <div class='col-md-3 col-sm-6 col-xs-12'>
@@ -104,31 +104,25 @@
                       </div>
                       <hr>
                       <div class="form-group">
-                          <div class="col-md-2 col-sm-4 col-xs-12 ">
-                              <div>
-                                  <label for="catego">Categoria<span class="required">*</span></label>
-                                  <select id="catego"  class="form-control">
-                                      <option value=""></option>
-                                      <option value="12">12</option>
-                                      <option value="12 - 24 ">12 - 24</option>
-                                      <option value="24 - 36">24 - 36</option>
-                                      <option value="36">36</option>
-                                      <option value="Bueyes">Bueyes</option>
-                                  </select>
-                                  <?php echo form_error("catego", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                              </div>
-                          </div>
-
                           <div class="col-md-2 col-sm-4 col-xs-12">
 
                               <div>
-                                  <label for="raz">Raza <span class="required">*</span></label>
-                                  <select id="raz" name='raz'  class="form-control">
+                                  <label for="categ">Categoria <span class="required">*</span></label>
+                                  <select id="catego" name='categ' class="form-control categ">
                                       <option value=""></option>
-                                      <?php foreach ($tipo_animales as $tipo_animale) : ?>
-                                          <option value="<?php echo $tipo_animale->id_tipo_animal; ?>"><?php echo $tipo_animale->raza; ?></option>
-                                      <?php endforeach; ?>
+                                      <option value="Equino">Equino</option>
+                                      <option value="Familia Cerdos">Familia Cerdos </option>
+                                      <option value="Aves">Aves </option>
                                   </select>
+                              </div>
+                          </div>
+                          <div class="col-md-2 col-sm-4 col-xs-12 ">
+                              <div>
+                                  <label for="raz">Raza<span class="required">*</span></label>
+                                  <select id="raz" name="raz" disabled class="form-control">
+                                      <option value=""></option>
+                                  </select>
+                                  <?php echo form_error("raz", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                               </div>
                           </div>
                           <div class="col-md-2 col-sm-4 col-xs-12">

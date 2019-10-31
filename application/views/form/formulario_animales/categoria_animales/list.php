@@ -76,7 +76,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nombres</th>
+                                    <th>Faminia animal</th>
                                     <th>Raza</th>
                                     <th>Opciones</th>
                                 </tr>

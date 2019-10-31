@@ -43,15 +43,15 @@
 
                     <div class="form-group <?php echo !empty(form_error("fecha")) ? 'has-error' : ''; ?>">
                         <label for="fecha" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha del pago <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="date" name="fecha" value="" id=fecha required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                        <div class="input-group col-md-4 col-sm-6 col-xs-11">
+                            <input type="date" name="fecha" value="" id=fecha required="required" class="form-control col-md-7 col-xs-12" placeholder="">
                             <?php echo form_error("fecha", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("gastos_fijos")) ? 'has-error' : ''; ?>">
                         <label for="gastos_fijos" class="control-label col-md-3 col-sm-3 col-xs-12">Gastos_Fijos<span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select name="gastos_fijos" id="gastos_fijos" required class="form-group col-md-7 col-xs-12">
+                        <div class="input-group col-md-4 col-sm-6 col-xs-11">
+                            <select name="gastos_fijos" id="gastos_fijos" required class="form-control col-md-7 col-xs-12">
                                 <option value=""></option>
                                 <?php foreach ($gastos_fijos as $gasto_fijo) : ?>
                                     <option value="<?php echo $gasto_fijo->id_gastos_fijos; ?>"><?php echo $gasto_fijo->nombre; ?> </option>
@@ -62,8 +62,8 @@
                     </div>
                     <div class="form-group ">
                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Mes_Correspondiente<span class="required">*</span></label>
-                        <div class="col-md-4 col-sm-6 col-xs-11">
-                            <select type="text" name="mes_correspondiente" required="required" class="form-group col-md-7 col-xs-12 ">
+                        <div class="input-group col-md-4 col-sm-6 col-xs-11">
+                            <select type="text" name="mes_correspondiente" required="required" class="form-control col-md-7 col-xs-12 ">
                                 <option value="Enero">Enero</option>
                                 <option value="Febrero">Febrero</option>
                                 <option value="Marzo">Marzo </option>
@@ -83,8 +83,8 @@
 
                     <div class="form-group <?php echo !empty(form_error("total")) ? 'has-error' : ''; ?>">
                         <label for="total" class="control-label col-md-3 col-sm-3 col-xs-12">Total Bs <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" name="total" value="" id=total required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                        <div class="input-group col-md-4 col-sm-6 col-xs-11">
+                            <input type="number" name="total" value="" id=total required="required" class="form-control col-md-7 col-xs-12" placeholder="">
                             <?php echo form_error("total", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
