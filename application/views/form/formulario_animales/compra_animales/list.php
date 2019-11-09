@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Ingresos
+            Ingresos Animales
             <small>Listado</small>
         </h1>
 
@@ -14,6 +14,9 @@
 
         <!-- Default box -->
         <div class="box">
+        <div class="box-header with-border">
+                <h3 class="box-title">Opciones de Compra</h3>
+            </div>
             <div class="box-body">
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 ">
@@ -75,8 +78,6 @@
             <!-- /.box-body -->
         </div>
         <!-- /.box -->
-
-
 
 
     </section>

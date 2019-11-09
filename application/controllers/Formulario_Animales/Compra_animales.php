@@ -92,7 +92,7 @@ class Compra_animales extends BaseController
                 redirect(base_url() . 'Formulario_Animales/Compra_animales/addbovinos');
             }
         } else {
-            $this->session->set_flashdata("error", "No se pudo validar la informacion");
+            $this->session->set_flashdata("error", "No se llenaron los campos requeridos correctamente");
             redirect(base_url() . 'Formulario_Animales/Compra_animales/addbovinos');
         }
     }
@@ -151,7 +151,7 @@ class Compra_animales extends BaseController
                 redirect(base_url() . 'Formulario_Animales/Compra_animales/addbovinos');
             }
         } else {
-            $this->session->set_flashdata("error", "No se pudo validar la informacion");
+            $this->session->set_flashdata("error", "No se llenaron los campos requeridos correctamente");
             redirect(base_url() . 'Formulario_Animales/Compra_animales/addbovinos');
         }
     }
@@ -164,7 +164,7 @@ class Compra_animales extends BaseController
                 if ($this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i])) {
                     $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i]);
                     $id_animal = $animal->id_animal;
-                    $stock = $animal->stock + $cantidad[$i];
+                    $stock = $animal->stock + (int)$cantidad[$i];
                     $datosAnimal = array(
                         'stock' => $stock,
                     );
@@ -253,7 +253,7 @@ class Compra_animales extends BaseController
                 'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
 
             );
-            $this->loadView('Compra_animales', 'form/formulario_animales/compra_animales/editarbovinos', $data);
+            $this->loadView('Compra_animales', 'form/formulario_animales/compra_animales/editaranimales', $data);
         } else {
             $data = array(
                 'compra_animal' => $this->Compra_animales_model->getCompraAnimalConIntermediario($id_compra_animales),
@@ -321,11 +321,11 @@ class Compra_animales extends BaseController
                 redirect(base_url() . 'Formulario_Animales/Compra_animales/');
             } else {
                 $this->session->set_flashdata("error", "No se pudieron guardar los datos");
-                redirect(base_url() . 'Formulario_Animales/Compra_animales/addbovinos');
+                redirect(base_url() . 'Formulario_Animales/Compra_animales/editarBovinos');
             }
         } else {
-            $this->session->set_flashdata("error", "Los campos no fueron llenados correctamente");
-            redirect(base_url() . 'Formulario_Animales/Compra_animales/addbovinos');
+            $this->session->set_flashdata("error", "No se llenaron los campos requeridos correctamente");
+            redirect(base_url() . 'Formulario_Animales/Compra_animales/editarBovinos');
         }
     }
     public function actualizar_detalle_compra_bovinos($id_estancia, $id_compra_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total)
@@ -335,7 +335,7 @@ class Compra_animales extends BaseController
             foreach ($detalle_movimiento_actual as $detalle_movimiento) {
                 $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $detalle_movimiento->id_tipo_animal, $detalle_movimiento->sexo, $detalle_movimiento->categoria);
                 $id_animal = $animal->id_animal;
-                $stock = $animal->stock - $detalle_movimiento->cantidad;
+                $stock = $animal->stock - (int)$detalle_movimiento->cantidad;
                 $datosAnimal = array(
                     'stock' => $stock,
                 );
@@ -348,7 +348,7 @@ class Compra_animales extends BaseController
                 if ($this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i])) {
                     $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i]);
                     $id_animal = $animal->id_animal;
-                    $stock = $animal->stock + $cantidad[$i];
+                    $stock = $animal->stock + (int)$cantidad[$i];
                     $datosAnimal = array(
                         'stock' => $stock,
                     );
@@ -413,8 +413,8 @@ class Compra_animales extends BaseController
         foreach ($detalle_movimiento_actual as $detalle_movimiento) {
             $animal = $this->inventario_animales_model->buscarInventarioAnimal($compra_animal->id_estancia, $detalle_movimiento->id_tipo_animal, $detalle_movimiento->sexo, $detalle_movimiento->categoria);
             $id_animal = $animal->id_animal;
-            $restastock = $detalle_movimiento->cantidad;
-            $stock = $animal->stock - $restastock;
+            $restarstock = $detalle_movimiento->cantidad;
+            $stock = $animal->stock - $restarstock;
             $datosAnimal = array(
                 'stock' => $stock,
             );

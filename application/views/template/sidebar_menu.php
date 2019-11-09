@@ -36,7 +36,7 @@
                         <ul class="treeview-menu">
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales"><i class="fa fa-circle-o"></i> Categoria Animales</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales"><i class="fa fa-circle-o"></i> Inventario Animales Bovinos</a></li>
-                            <li><a href="<?php echo base_url(); ?>Movimiento_Animales/Venta_animales"><i class="fa fa-circle-o"></i> Ventas de Animales</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/Venta_animales"><i class="fa fa-circle-o"></i> Ventas de Animales</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Compra_animales"><i class="fa fa-circle-o"></i> Compra de Animales</a></li>
                             
 

@@ -1,6 +1,36 @@
 <?php
 class inventario_animales_model extends CI_Model
 {
+    public function getInventarioAnimalesBovinos()
+    {
+        $this->db->select('a.*, e.nombre as nombre_estancia, t.nombre as categoria_animal, t.raza ');
+        $this->db->from('animal a');
+        $this->db->join('estancias e','e.id_estancia = a.id_estancia');
+        $this->db->join('tipo_animal t','t.id_tipo_animal = a.id_tipo_animal');
+        $this->db->where('t.nombre','Bovino');
+        $resultado = $this->db->get();
+        return $resultado->result();
+    }
+    public function getInventarioAnimales()
+    {
+        $this->db->select('a.*, e.nombre as nombre_estancia, t.nombre as categoria_animal, t.raza ');
+        $this->db->from('animal a');
+        $this->db->join('estancias e','e.id_estancia = a.id_estancia');
+        $this->db->join('tipo_animal t','t.id_tipo_animal = a.id_tipo_animal');
+        $this->db->where('t.nombre !=','Bovino');
+        $resultado = $this->db->get();
+        return $resultado->result();
+    }
+    public function getInventarioAnimal($id_animal)
+    {
+        $this->db->select('a.*, e.nombre as nombre_estancia, t.nombre as categoria_animal, t.raza ');
+        $this->db->from('animal a');
+        $this->db->join('estancias e','e.id_estancia = a.id_estancia');
+        $this->db->join('tipo_animal t','t.id_tipo_animal = a.id_tipo_animal');
+        $this->db->where('a.id_animal',$id_animal);
+        $resultado = $this->db->get();
+        return $resultado->row();
+    }
 
     public function buscarInventarioAnimal($id_estancia,$id_tipo_animal,$sexo,$categoria)
     {
