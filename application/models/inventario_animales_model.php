@@ -8,6 +8,7 @@ class inventario_animales_model extends CI_Model
         $this->db->join('estancias e','e.id_estancia = a.id_estancia');
         $this->db->join('tipo_animal t','t.id_tipo_animal = a.id_tipo_animal');
         $this->db->where('t.nombre','Bovino');
+        $this->db->where('a.estado','1');
         $resultado = $this->db->get();
         return $resultado->result();
     }
@@ -18,6 +19,7 @@ class inventario_animales_model extends CI_Model
         $this->db->join('estancias e','e.id_estancia = a.id_estancia');
         $this->db->join('tipo_animal t','t.id_tipo_animal = a.id_tipo_animal');
         $this->db->where('t.nombre !=','Bovino');
+        $this->db->where('a.estado','1');
         $resultado = $this->db->get();
         return $resultado->result();
     }
@@ -28,10 +30,10 @@ class inventario_animales_model extends CI_Model
         $this->db->join('estancias e','e.id_estancia = a.id_estancia');
         $this->db->join('tipo_animal t','t.id_tipo_animal = a.id_tipo_animal');
         $this->db->where('a.id_animal',$id_animal);
+        $this->db->where('a.estado','1');
         $resultado = $this->db->get();
         return $resultado->row();
     }
-
     public function buscarInventarioAnimal($id_estancia,$id_tipo_animal,$sexo,$categoria)
     {
         $this->db->select('*');
@@ -39,6 +41,7 @@ class inventario_animales_model extends CI_Model
         $this->db->where('sexo',$sexo);
         $this->db->where('categoria',$categoria);
         $this->db->where('id_tipo_animal',$id_tipo_animal);
+        $this->db->where('estado','1');
         $resultado = $this->db->get('animal');
         $row = $resultado->row();
 
@@ -60,5 +63,10 @@ class inventario_animales_model extends CI_Model
     public function ultimoID()
     {
         return $this->db->insert_id();
+    }
+    public function borrar($id_animal,$datos)       
+    {
+        $this->db->where('id_animal',$id_animal);
+        return $this->db->update('animal',$datos);
     }
 }

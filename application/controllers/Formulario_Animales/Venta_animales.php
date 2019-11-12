@@ -210,6 +210,35 @@ class Venta_animales extends BaseController
             $this->loadView('Venta_animales', 'form/formulario_animales/venta_animales/editarbovinos', $data);
         }
     }
+    public function editarAnimales($id_venta_animales)
+    {
+        $resultado = $this->Venta_animales_model->getVentaAnimal($id_venta_animales);
+        if ($resultado->id_intermediario < 1) {
+            $data = array(
+                'venta_animal' => $this->Venta_animales_model->getVentaAnimal($id_venta_animales),
+                'detalle_movimiento_animales' => $this->Venta_animales_model->getDetallesVentas($id_venta_animales),
+                'empleados' => $this->Empleado_model->getEmpleados(),
+                'ganaderos' => $this->Ganadero_model->getGanaderosExterno(),
+                'stock_estancias_bovinos' => $this->inventario_animales_model->getInventarioAnimales(),
+                'transportistas' => $this->Transportista_model->getTransportistas(),
+                'intermediarios' => $this->Intermediario_model->getIntermediarios(),
+                'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
+            );
+            $this->loadView('Venta_animales', 'form/formulario_animales/venta_animales/editarbovinos', $data);
+        } else {
+            $data = array(
+                'venta_animal' => $this->Venta_animales_model->getVentaAnimalConIntermediario($id_venta_animales),
+                'detalle_movimiento_animales' => $this->Venta_animales_model->getDetallesVentas($id_venta_animales),
+                'empleados' => $this->Empleado_model->getEmpleados(),
+                'ganaderos' => $this->Ganadero_model->getGanaderosExterno(),
+                'stock_estancias_bovinos' => $this->inventario_animales_model->getInventarioAnimales(),
+                'transportistas' => $this->Transportista_model->getTransportistas(),
+                'intermediarios' => $this->Intermediario_model->getIntermediarios(),
+                'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
+            );
+            $this->loadView('Venta_animales', 'form/formulario_animales/venta_animales/editaranimales', $data);
+        }
+    }
     public function actualizarVenta()
     {
         //post que se van a guardar en la tabla de Compra de animales
