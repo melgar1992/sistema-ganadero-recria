@@ -189,7 +189,7 @@ $(document).ready(function () {
                 $("#tbAnimales tbody").append(html);
                 $('#canti').val(null);
                 $('#stock').val(null);
-                $('btn-agregar').val(null);
+                $('#btn-agregar').val(null);
 
                 sumar();
             } else {

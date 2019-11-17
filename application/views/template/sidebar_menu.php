@@ -35,11 +35,13 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales"><i class="fa fa-circle-o"></i> Categoria Animales</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/control_animales/listBovino"><i class="fa fa-circle-o"></i>Control animales bovinos</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/control_animales/listAnimales"><i class="fa fa-circle-o"></i>Control animales otros</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/inventario_animales"><i class="fa fa-circle-o"></i> Inventario Animales Bovinos</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/inventario_animales/listAnimales"><i class="fa fa-circle-o"></i> Inventario Animales</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Venta_animales"><i class="fa fa-circle-o"></i> Ventas de Animales</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Compra_animales"><i class="fa fa-circle-o"></i> Compra de Animales</a></li>
-                            
+
 
                         </ul>
                     </li>
@@ -52,7 +54,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?php echo base_url(); ?>Formulario_Estancia/Estancia"><i class="fa fa-circle-o"></i> Estancia</a></li>
-                            
+
                         </ul>
                     </li>
                     <li class="treeview">
@@ -65,7 +67,7 @@
                         <ul class="treeview-menu">
                             <li><a href="<?php echo base_url(); ?>Formulario_Empleados/Tipo_cargo"><i class="fa fa-circle-o"></i> Tipo Cargo</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Empleados/Empleado"><i class="fa fa-circle-o"></i> Empleado</a></li>
-                            
+
                         </ul>
                     </li>
                     <li class="treeview">
@@ -104,8 +106,6 @@
                         </a>
                         <ul class="treeview-menu">
 
-                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/Animales"><i class="fa fa-circle-o"></i>Animales bovinos</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/Animales"><i class="fa fa-circle-o"></i>Animales otros</a></li>
                         </ul>
                     </li>
                     <li class="treeview">

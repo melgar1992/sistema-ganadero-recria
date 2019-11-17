@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Inventario Animales
+            Control Animales Bovinos
             <small>Listado</small>
         </h1>
 
@@ -29,7 +29,7 @@
                 <?php endif; ?>
 
 
-                <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales/guardarCategoriaAnimal" id="categoria_animal" class="form-horizontal form-label-left">
+                <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/control_animales/guardarControlBovino" id="control_animal_bovino" class="form-horizontal form-label-left">
 
                     <div class='form-group'>
                         <label for="estancia" class="control-label col-md-3 col-sm-3 col-xs-12">Estancia*:</label>
@@ -42,27 +42,16 @@
                             <?php echo form_error("estancia", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
-                    <div class='form-group'>
-                        <label for="empleado" class="control-label col-md-3 col-sm-3 col-xs-12">Empleado*:</label>
-                        <div class="input-group col-md-4 col-sm-6 col-xs-11 <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
-                            <input type="hidden" name="id_empleado" value="" id="id_empleado">
-                            <input type="hidden" name="id_contrato_empleado" value="" id="id_contrato_empleado">
-                            <input type="text" class="form-control" placeholder="Encargado de compra" readonly required='required' name="empleado" required='required' id="empleado">
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-default"><span class="fa fa-search"></span> Buscar</button>
-                            </span>
-                            <?php echo form_error("empelado", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
-                        </div>
-                    </div>
+
                     <div class="form-group">
-                        <label for="cantidad" class="control-label col-md-3 col-sm-3 col-xs-12">Cantidad<span class="required">*</span></label>
+                        <label for="cantidad" class="control-label col-md-3 col-sm-3 col-xs-12">Cantidad<span class="required">*:</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <input type="number" name="cantidad" id="cantidad" required="required" class="form-control">
 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="tipo_movimiento" class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de movimiento<span class="required">*</span></label>
+                        <label for="tipo_movimiento" class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de control<span class="required">*:</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <select type="text" name="tipo_movimiento" required="required" class="form-control">
                                 <option value=""></option>
@@ -73,39 +62,42 @@
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("fecha")) ? 'has-error' : ''; ?>">
-                        <label for="fecha" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha<span class="required">*</span></label>
+                        <label for="fecha" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha<span class="required">*:</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <input type="date" name="fecha" value="<?php echo set_value('fecha') ?>" id=fecha required="required" class="form-control" placeholder="">
                             <?php echo form_error("fecha", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
-
                     <div class="form-group">
-                        <label for="categoria" class="control-label col-md-3 col-sm-3 col-xs-12">Familia de animal<span class="required">*</span></label>
+                        <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza<span class="required">*:</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
-                            <select type="text" name="categoria" id="categoria" class="categoria form-control" required="required" class="form-control">
+                            <select id="raza" name="raza" required class="form-control">
                                 <option value=""></option>
-                                <option value="Bovino">Bovino</option>
-                                <option value="Equino">Equino</option>
-                                <option value="Familia Cerdos">Familia Cerdos </option>
-                                <option value="Aves">Aves </option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza<span class="required">*</span></label>
-                        <div class="input-group col-md-4 col-sm-6 col-xs-11">
-                            <select id="raza" name="raza" disabled class="form-control">
-                                <option value=""></option>
+                                <?php foreach ($tipo_animales as $tipo_animal) : ?>
+                                    <option value="<?php echo $tipo_animal->id_tipo_animal; ?>"><?php echo $tipo_animal->raza; ?></option>
+                                <?php endforeach; ?>
                             </select>
                             <?php echo form_error("raza", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="categoria" class="control-label col-md-3 col-sm-3 col-xs-12">categoria<span class="required">*:</span></label>
+                        <div class="input-group col-md-4 col-sm-6 col-xs-11">
+                            <select type="text" name="categoria" id="categoria" class="categoria form-control" required="required" class="form-control">
+                                <option value=""></option>
+                                <option value="12">12</option>
+                                <option value="12 - 24 ">12 - 24</option>
+                                <option value="24 - 36">24 - 36</option>
+                                <option value="36">36</option>
+                                <option value="Bueyes">Bueyes</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="sex" class="control-label col-md-3 col-sm-3 col-xs-12">sexo<span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
-                            <select id="sex" name="sex" class="form-control">
+                            <select id="sex" name="sexo" required class="form-control">
                                 <option value="M">Macho</option>
                                 <option value="H">Hembra</option>
                             </select>
@@ -131,16 +123,36 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th>Familia animal</th>
+                                    <th>Estancia</th>
+                                    <th>Cantidad</th>
+                                    <th>Tipo Control</th>
+                                    <th>Fecha</th>
                                     <th>Raza</th>
+                                    <th>Categoria</th>
+                                    <th>sexo</th>
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php if (!empty($Control_animales)) : ?>
+                                    <?php foreach ($Control_animales as $Control_animal) : ?>
 
+                                        <tr>
+                                            <td><?php echo $Control_animal->id_detalle_venta_animales; ?></td>
+                                            <td><?php echo $Control_animal->nombre_estancia; ?></td>
+                                            <td><?php echo $Control_animal->cantidad; ?></td>
+                                            <td><?php echo $Control_animal->tipo_movimiento; ?></td>
+                                            <td><?php echo $Control_animal->fecha; ?></td>
+                                            <td><?php echo $Control_animal->raza; ?></td>
+                                            <td><?php echo $Control_animal->categoria; ?></td>
+                                            <th><?php echo $Control_animal->sexo ?></th>
+                                            <td>
+                                                <a href="<?php echo base_url() ?>Formulario_Empleados/Empleado/editar/<?php echo $Control_animal->id_detalle_venta_animales; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                <button type="button" value="<?php echo $Control_animal->id_detalle_venta_animales; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
@@ -151,57 +163,6 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Lista de Empleados</h4>
-            </div>
-            <div class="modal-body">
-                <table id="tabla_empleados" class="table table-bordered table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nombres</th>
-                            <th>Apellidos</th>
-                            <th>Carnet de Indentidad</th>
-                            <th>Opcion</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if (!empty($empleados)) : ?>
-                            <?php foreach ($empleados as $empleado) : ?>
-
-                                <tr>
-                                    <td><?php echo $empleado->id_empleado; ?></td>
-                                    <td><?php echo $empleado->nombres; ?></td>
-                                    <td><?php echo $empleado->apellidos; ?></td>
-                                    <td><?php echo $empleado->carnet_identidad; ?></td>
-
-                                    <?php $dataEmpleado = $empleado->id_empleado . "*" . $empleado->nombres . "*" . $empleado->apellidos . "*" . $empleado->carnet_identidad . "*" . $empleado->telefono . "*" . $empleado->direccion; ?>
-
-                                    <td>
-                                        <button type="button" class="btn btn-success btn-check-empleado" value="<?php echo $dataEmpleado; ?>"><span class="fa fa-check"></span></button>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
 
 <div class="modal fade" id="modal-estancia">
     <div class="modal-dialog">

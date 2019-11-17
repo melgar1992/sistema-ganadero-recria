@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Inventario Animales Bovino
+            Inventario Animales 
             <small>Listado</small>
         </h1>
 

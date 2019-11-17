@@ -52,7 +52,7 @@
                     <div class="form-group">
                         <label for="categoria" class="control-label col-md-3 col-sm-3 col-xs-12">Categoria<span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
-                            <select type="text" readonly name="categoria" id="categoria" class="categoria form-control" required="required" class="form-control">
+                            <select type="text" disabled name="categoria" id="categoria" class="categoria form-control" required="required" class="form-control">
                                 <option value=""></option>
                                 <option value="12" <?php echo ($animal->categoria == "12") ? 'selected' : ''  ?>>12</option>
                                 <option value="12 - 24 " <?php echo ($animal->categoria == "12 - 24 ") ? 'selected' : ''  ?>>12 - 24</option>
@@ -66,7 +66,7 @@
                     <div class="form-group">
                         <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza<span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
-                            <select id="raza" readonly name="raza" class="form-control">
+                            <select id="raza" disabled name="raza" class="form-control">
                                 <option value=""></option>
                                 <?php foreach ($tipo_animales as $tipo_animale) : ?>
                                     <?php if ($animal->id_tipo_animal == $tipo_animale->id_tipo_animal) : ?>
@@ -82,7 +82,7 @@
                     <div class="form-group">
                         <label for="sex" class="control-label col-md-3 col-sm-3 col-xs-12">sexo<span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
-                            <select id="sex" readonly name="sex" class="form-control">
+                            <select id="sex" disabled name="sex" class="form-control">
                                 <option value="M" <?php echo ($animal->sexo == "M") ? 'selected' : ''  ?>>Macho</option>
                                 <option value="H" <?php echo ($animal->sexo == "H") ? 'selected' : ''  ?>>Hembra</option>
                             </select>
