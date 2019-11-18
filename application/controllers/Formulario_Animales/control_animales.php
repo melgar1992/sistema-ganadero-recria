@@ -1,13 +1,13 @@
 <?php
 
-class control_animales extends BaseController
+class Control_animales extends BaseController
 {
     public function listBovino()
     {
         $data = array(
             'estancias' => $this->Estancia_model->getEstancias(),
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos(),
-            'Control_animales' => $this->Animales_model->getControlAnimalBovino(),
+            'Control_animales' => $this->Animales_model->getControlAnimalesBovinos(),
 
         );
 
@@ -120,5 +120,27 @@ class control_animales extends BaseController
             $this->session->set_flashdata("error", "No se llenaron los campos requeridos correctamente");
             redirect(base_url() . 'Formulario_Animales/control_animales/listBovino');
         }
+    }
+    public function editarBovinos($id_detalle_venta_animales)
+    {
+        $data = array(
+            'control_bovino' => $this->Animales_model->getControlAnimalBovino($id_detalle_venta_animales),
+            'estancias' => $this->Estancia_model->getEstancias(),
+            'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos(),
+        );
+        
+        $this->loadView('control_animales', 'form/formulario_animales/control_animales/editarbovinos', $data);
+
+    }
+    public function actualizarBovinos()
+    {
+        $id_detalle_venta_animales = $this->input->post('id_detalle_venta_animales');
+        $id_estancia = $this->input->post('id_estancia');
+        $cantidad = $this->input->post('cantidad');
+        $tipo_movimiento = $this->input->post('tipo_movimiento');
+        $fecha = $this->input->post('fecha');
+        $id_tipo_animal = $this->input->post('raza');
+        $categoria = $this->input->post('categoria');
+        $sexo = $this->input->post('sexo');
     }
 }
