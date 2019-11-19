@@ -142,5 +142,14 @@ class Control_animales extends BaseController
         $id_tipo_animal = $this->input->post('raza');
         $categoria = $this->input->post('categoria');
         $sexo = $this->input->post('sexo');
+
+        $this->form_validation->set_rules('id_estancia', 'id_estancia', 'required');
+        $this->form_validation->set_rules('cantidad', 'cantidad', 'required');
+        $this->form_validation->set_rules('estancia', 'estancia', 'required');
+        $this->form_validation->set_rules('fecha', 'fecha', 'required');
+        $this->form_validation->set_rules('tipo_movimiento', 'tipo_movimiento', 'required');
+        $this->form_validation->set_rules('raza', 'raza', 'required');
+        $this->form_validation->set_rules('categoria', 'categoria', 'required');
+        $this->form_validation->set_rules('sexo', 'sexo', 'required');
     }
 }
