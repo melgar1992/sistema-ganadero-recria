@@ -29,15 +29,12 @@
 
 
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/control_animales/actualizarControlBovino" id="control_animal_bovino" class="form-horizontal form-label-left">
-                    <input type="hidden" class="form-control" value="<?php echo $control_bovino->id_detalle_venta_animales ?>"  name="id_detalle_venta_animales" id="id_detalle_venta_animales">
+                    <input type="hidden" class="form-control" value="<?php echo $control_bovino->id_detalle_venta_animales ?>" name="id_detalle_venta_animales" id="id_detalle_venta_animales">
                     <div class='form-group'>
                         <label for="estancia" class="control-label col-md-3 col-sm-3 col-xs-12">Estancia*:</label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11 <?php echo !empty(form_error("estancia")) ? 'has-error' : ''; ?>">
                             <input type="hidden" name="id_estancia" value="<?php echo $control_bovino->id_estancia ?>" id="id_estancia">
                             <input type="text" class="form-control" placeholder="estancia" value="<?php echo $control_bovino->nombre_estancia ?>" readonly name="estancia" id="estancia">
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-estancia"><span class="fa fa-search"></span> Buscar</button>
-                            </span>
                             <?php echo form_error("estancia", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
@@ -52,12 +49,8 @@
                     <div class="form-group">
                         <label for="tipo_movimiento" class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de control<span class="required">*:</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
-                            <select type="text" name="tipo_movimiento" required="required" class="form-control">
-                                <option value=""></option>
-                                <option value="Muerte" <?php echo ($control_bovino->tipo_movimiento == 'Muerte') ? 'selected' : ''; ?>>Muerte</option>
-                                <option value="Nacimiento" <?php echo ($control_bovino->tipo_movimiento == 'Nacimiento') ? 'selected' : ''; ?>>Nacimiento</option>
-                                <option value="Conteo" <?php echo ($control_bovino->tipo_movimiento == 'Conteo') ? 'selected' : ''; ?>>Conteo </option>
-                            </select>
+                            <input type="text" name="tipo_movimiento" readonly value="<?php echo $control_bovino->tipo_movimiento  ?>" required="required" class="form-control">
+                                
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("fecha")) ? 'has-error' : ''; ?>">
@@ -70,40 +63,22 @@
                     <div class="form-group">
                         <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza<span class="required">*:</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
-                            <select id="raza" name="raza" required class="form-control">
-                                <option value=""></option>
-                                <?php foreach ($tipo_animales as $tipo_animale) : ?>
-                                    <?php if ($control_bovino->id_tipo_animal == $tipo_animale->id_tipo_animal) : ?>
-                                        <option value="<?php echo $tipo_animale->id_tipo_animal; ?>" selected><?php echo $tipo_animale->raza; ?></option>
-                                    <?php else : ?>
-                                        <option value="<?php echo $tipo_animale->id_tipo_animal; ?>"><?php echo $tipo_animale->raza; ?></option>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </select>
+                            <input type="hidden" name="raza" value="<?php echo $control_bovino->id_tipo_animal; ?>">
+                            <input type="text" class="form-control" readonly value="<?php echo $control_bovino->raza; ?>">
                             <?php echo form_error("raza", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="categoria" class="control-label col-md-3 col-sm-3 col-xs-12">categoria<span class="required">*:</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
-                            <select type="text" name="categoria" id="categoria" class="categoria form-control" required="required" class="form-control">
-                                <option value=""></option>
-                                <option value="12" <?php echo ($control_bovino->categoria == '12') ? 'selected' : ''; ?>>12</option>
-                                <option value="12 - 24 " <?php echo ($control_bovino->categoria == '12 - 24 ') ? 'selected' : ''; ?>>12 - 24</option>
-                                <option value="24 - 36" <?php echo ($control_bovino->categoria == '24 - 36') ? 'selected' : ''; ?>>24 - 36</option>
-                                <option value="36" <?php echo ($control_bovino->categoria == '36') ? 'selected' : ''; ?>>36</option>
-                                <option value="Bueyes" <?php echo ($control_bovino->categoria == 'Bueyes') ? 'selected' : ''; ?>>Bueyes</option>
+                            <input type="text" value=" <?php echo $control_bovino->categoria; ?>" name="categoria" readonly id="categoria" class="categoria form-control" required="required" class="form-control">
 
-                            </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="sex" class="control-label col-md-3 col-sm-3 col-xs-12">sexo<span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
-                            <select id="sex" name="sexo" required class="form-control">
-                                <option value="M" <?php echo ($control_bovino->sexo == 'M') ?>>Macho</option>
-                                <option value="H" <?php echo ($control_bovino->sexo == 'H') ?>>Hembra</option>
-                            </select>
+                            <input type="text" id="sex" value="<?php echo $control_bovino->sexo; ?>" name="sexo" readonly required class="form-control">
                             <?php echo form_error("sex", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>

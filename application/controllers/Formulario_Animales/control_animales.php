@@ -37,20 +37,25 @@ class Control_animales extends BaseController
                 $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria);
                 switch ($tipo_movimiento) {
                     case "Muerte":
-                        $data = array(
-                            'id_animal' => $animal->id_animal,
-                            'cantidad' => $cantidad,
-                            'tipo_movimiento' => $tipo_movimiento,
-                            'fecha' => $fecha,
+                        if ($cantidad < $animal->stock) {
+                            $data = array(
+                                'id_animal' => $animal->id_animal,
+                                'cantidad' => $cantidad,
+                                'tipo_movimiento' => $tipo_movimiento,
+                                'fecha' => $fecha,
 
-                        );
-                        $this->Animales_model->guardarControlBovino($data);
-                        $nuevoStock = (int) $animal->stock - (int) $cantidad;
-                        $datosAnimal = array(
-                            'stock' => $nuevoStock,
-                        );
-                        $this->Animales_model->actualizarAnimal($animal->id_animal, $datosAnimal);
-                        redirect(base_url() . 'Formulario_Animales/control_animales/listBovino');
+                            );
+                            $this->Animales_model->guardarControlBovino($data);
+                            $nuevoStock = (int) $animal->stock - (int) $cantidad;
+                            $datosAnimal = array(
+                                'stock' => $nuevoStock,
+                            );
+                            $this->Animales_model->actualizarAnimal($animal->id_animal, $datosAnimal);
+                            redirect(base_url() . 'Formulario_Animales/control_animales/listBovino');
+                        } else {
+                            $this->session->set_flashdata("error", "No se pueden morir mas animales de los registrados!");
+                            redirect(base_url() . 'Formulario_Animales/control_animales/listBovino');
+                        }
                         break;
                     case "Conteo":
                         $data = array(
@@ -62,10 +67,7 @@ class Control_animales extends BaseController
                         );
                         $this->Animales_model->guardarControlBovino($data);
                         if ($cantidad > $animal->stock) {
-                            $datosAnimal = array(
-                                'stock' => $cantidad,
-                            );
-                            $this->Animales_model->actualizarAnimal($animal->id_animal, $datosAnimal);
+                            $this->session->set_flashdata("error", "Tu conteo actual no puede ser mayor que tu inventario!!");
                             redirect(base_url() . 'Formulario_Animales/control_animales/listBovino');
                         } else {
                             redirect(base_url() . 'Formulario_Animales/control_animales/listBovino');
@@ -128,11 +130,10 @@ class Control_animales extends BaseController
             'estancias' => $this->Estancia_model->getEstancias(),
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos(),
         );
-        
-        $this->loadView('control_animales', 'form/formulario_animales/control_animales/editarbovinos', $data);
 
+        $this->loadView('control_animales', 'form/formulario_animales/control_animales/editarbovinos', $data);
     }
-    public function actualizarBovinos()
+    public function actualizarControlBovino()
     {
         $id_detalle_venta_animales = $this->input->post('id_detalle_venta_animales');
         $id_estancia = $this->input->post('id_estancia');
@@ -143,13 +144,65 @@ class Control_animales extends BaseController
         $categoria = $this->input->post('categoria');
         $sexo = $this->input->post('sexo');
 
-        $this->form_validation->set_rules('id_estancia', 'id_estancia', 'required');
         $this->form_validation->set_rules('cantidad', 'cantidad', 'required');
-        $this->form_validation->set_rules('estancia', 'estancia', 'required');
         $this->form_validation->set_rules('fecha', 'fecha', 'required');
-        $this->form_validation->set_rules('tipo_movimiento', 'tipo_movimiento', 'required');
-        $this->form_validation->set_rules('raza', 'raza', 'required');
-        $this->form_validation->set_rules('categoria', 'categoria', 'required');
-        $this->form_validation->set_rules('sexo', 'sexo', 'required');
+        $this->form_validation->set_rules('id_detalle_venta_animales', 'id_detalle_venta_animales', 'required');
+
+        if ($this->form_validation->run()) {
+            $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria);
+            $controlActual = $this->Animales_model->getControlAnimalBovino($id_detalle_venta_animales);
+            switch ($tipo_movimiento) {
+                case "Muerte":
+                    if ($cantidad < $animal->stock) {
+                        $data = array(
+                            'cantidad' => $cantidad,
+                            'fecha' => $fecha,
+                        );
+                        $this->Animales_model->actualizarControlBovino($id_detalle_venta_animales, $data);
+                        $diferencia = (int) $cantidad - (int) $controlActual->cantidad;
+                        $nuevoStock = (int) $animal->stock - (int) $diferencia;
+                        $datosAnimal = array(
+                            'stock' => $nuevoStock,
+                        );
+                        $this->Animales_model->actualizarAnimal($animal->id_animal, $datosAnimal);
+                        redirect(base_url() . 'Formulario_Animales/control_animales/listbovino');
+                    } else {
+                        $this->session->set_flashdata("error", "No se pueden morir mas animales de los registrados!");
+                        redirect(base_url() . 'Formulario_Animales/control_animales/editarbovinos/'.$id_detalle_venta_animales);
+                    }
+                    break;
+                case "Conteo":
+                    $data = array(
+                        'cantidad' => $cantidad,
+                        'fecha' => $fecha,
+                    );
+                    $this->Animales_model->actualizarControlBovino($id_detalle_venta_animales, $data);
+                    if ($cantidad > $animal->stock) {
+                        $this->session->set_flashdata("error", "Tu conteo actual no puede ser mayor que tu inventario!!");
+                        redirect(base_url() . 'Formulario_Animales/control_animales/editarBovino'.$id_detalle_venta_animales);
+                    } else {
+                        redirect(base_url() . 'Formulario_Animales/control_animales/listBovino');
+                    }
+
+                    break;
+                case "Nacimiento":
+                    $data = array(
+                        'cantidad' => $cantidad,
+                        'fecha' => $fecha,
+                    );
+                    $this->Animales_model->actualizarControlBovino($id_detalle_venta_animales, $data);
+                    $diferencia = (int) $cantidad - (int) $controlActual->cantidad;
+                    $nuevoStock = (int) $animal->stock + (int) $diferencia;
+                    $datosAnimal = array(
+                        'stock' => $nuevoStock,
+                    );
+                    $this->Animales_model->actualizarAnimal($animal->id_animal, $datosAnimal);
+                    redirect(base_url() . 'Formulario_Animales/control_animales/listbovino');
+                    break;
+            }
+        } else {
+            $this->session->set_flashdata("error", "No se llenaron los campos requeridos correctamente");
+            redirect(base_url() . 'Formulario_Animales/control_animales/editarbovinos/'.$id_detalle_venta_animales);
+        }
     }
 }

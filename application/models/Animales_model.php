@@ -5,6 +5,11 @@ class Animales_model extends CI_Model
     {
         return $this->db->insert('detalle_movimiento_animales', $data);
     }
+    public function actualizarControlBovino($id_detalle_venta_animales,$data)
+    {
+        $this->db->where('id_detalle_venta_animales',$id_detalle_venta_animales);
+        return $this->db->update('detalle_movimiento_animales',$data);
+    }
     public function actualizarAnimal($id_animal, $datos)
     {
         $this->db->where('id_animal', $id_animal);
