@@ -71,7 +71,7 @@
                     <div class="form-group">
                         <label for="categoria" class="control-label col-md-3 col-sm-3 col-xs-12">categoria<span class="required">*:</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
-                            <input type="text" value=" <?php echo $control_bovino->categoria; ?>" name="categoria" readonly id="categoria" class="categoria form-control" required="required" class="form-control">
+                            <input type="text" value="<?php echo $control_bovino->categoria; ?>" name="categoria" readonly id="categoria" class="categoria form-control" required="required" class="form-control">
 
                         </div>
                     </div>

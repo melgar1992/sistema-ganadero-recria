@@ -151,6 +151,7 @@ class Control_animales extends BaseController
         if ($this->form_validation->run()) {
             $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria);
             $controlActual = $this->Animales_model->getControlAnimalBovino($id_detalle_venta_animales);
+            var_dump($animal);
             switch ($tipo_movimiento) {
                 case "Muerte":
                     if ($cantidad < $animal->stock) {
@@ -168,7 +169,7 @@ class Control_animales extends BaseController
                         redirect(base_url() . 'Formulario_Animales/control_animales/listbovino');
                     } else {
                         $this->session->set_flashdata("error", "No se pueden morir mas animales de los registrados!");
-                        redirect(base_url() . 'Formulario_Animales/control_animales/editarbovinos/'.$id_detalle_venta_animales);
+                        redirect(base_url() . 'Formulario_Animales/control_animales/editarbovinos/' . $id_detalle_venta_animales);
                     }
                     break;
                 case "Conteo":
@@ -179,7 +180,7 @@ class Control_animales extends BaseController
                     $this->Animales_model->actualizarControlBovino($id_detalle_venta_animales, $data);
                     if ($cantidad > $animal->stock) {
                         $this->session->set_flashdata("error", "Tu conteo actual no puede ser mayor que tu inventario!!");
-                        redirect(base_url() . 'Formulario_Animales/control_animales/editarBovino'.$id_detalle_venta_animales);
+                        redirect(base_url() . 'Formulario_Animales/control_animales/editarBovino' . $id_detalle_venta_animales);
                     } else {
                         redirect(base_url() . 'Formulario_Animales/control_animales/listBovino');
                     }
@@ -202,7 +203,7 @@ class Control_animales extends BaseController
             }
         } else {
             $this->session->set_flashdata("error", "No se llenaron los campos requeridos correctamente");
-            redirect(base_url() . 'Formulario_Animales/control_animales/editarbovinos/'.$id_detalle_venta_animales);
+            redirect(base_url() . 'Formulario_Animales/control_animales/editarbovinos/' . $id_detalle_venta_animales);
         }
     }
 }
