@@ -67,7 +67,7 @@
                                         <td><?php echo $ingreso->nombre_categoria_ingreso; ?></td>
                                         <td><?php echo $ingreso->fecha; ?></td>
                                         <td><?php echo $ingreso->forma_pago; ?></td>
-                                        <td><?php echo $ingreso->total; ?></td>
+                                        <td><?php echo number_format($ingreso->total,2); ?></td>
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-info btn-vista-ingresos" data-toggle="modal" data-target="#modal-default" value="<?php echo $ingreso->id_otros_ingresos ?>"><span class="fa fa-search"></span></button>

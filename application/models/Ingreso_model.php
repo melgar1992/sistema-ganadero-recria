@@ -20,7 +20,7 @@ class Ingreso_model extends CI_Model
         }
     }
     public function getIngreso($id_otros_ingresos)
-    { 
+    {
         $this->db->select('oi.*, ci.id_categoria_ingresos, ci.nombre as nombre_categoria_ingreso,e.id_empleado, p.nombres, p.apellidos');
         $this->db->from('otros_ingresos oi');
         $this->db->join('categoria_ingresos ci', 'oi.id_categoria_ingresos = ci.id_categoria_ingresos');
@@ -36,9 +36,21 @@ class Ingreso_model extends CI_Model
             return $resultado->row();
         } else {
             return false;
-        } 
+        }
     }
-
+    public function getIngresoAnual()
+    {
+        $anho_actual = date("y");
+        $this->db->select_sum('total');
+        $this->db->where('fecha >=',$anho_actual.'-01-01');
+        $this->db->where('fecha <=',$anho_actual.'-12-31');
+        $ingreso_venta_animales_del_ano_actual = $this->db->get('venta_animales')->row_array();
+        $this->db->select_sum('total');
+        $this->db->where('fecha >=',$anho_actual.'-01-01');
+        $this->db->where('fecha <=',$anho_actual.'-12-31');
+        $ingreso_anual_de_otros_ingresos = $this->db->get('otros_ingresos')->row_array();
+        return $resultado = $ingreso_venta_animales_del_ano_actual['total'] + $ingreso_anual_de_otros_ingresos['total'];
+    }
     public function getCategoriaIngresos()
     {
         $resultados = $this->db->get("categoria_ingresos");
@@ -77,24 +89,19 @@ class Ingreso_model extends CI_Model
     {
         $this->db->select();
         $this->db->from('detalle_ingresos');
-        $this->db->where('id_otros_ingresos',$id_otros_ingresos);
+        $this->db->where('id_otros_ingresos', $id_otros_ingresos);
         $resultados = $this->db->get();
         return $resultados->result();
     }
-    public function actualizarIngreso($id_otros_ingresos, $data)            
+    public function actualizarIngreso($id_otros_ingresos, $data)
     {
-        $this->db->where('id_otros_ingresos',$id_otros_ingresos);
-       return $this->db->update('otros_ingresos',$data);
+        $this->db->where('id_otros_ingresos', $id_otros_ingresos);
+        return $this->db->update('otros_ingresos', $data);
     }
-
-    public function actualizarDetalle($id_otros_ingresos, $cantidad, $detalle, $precio_unitario, $sub_total)
-    {
-        $this->db->where('id_otros_ingresos',$id_otros_ingresos);
-
-    }
+   
     public function borrarDetalleIngreso($id_otros_ingresos)
     {
-        $this->db->where('id_otros_ingresos',$id_otros_ingresos);
-       return $this->db->delete('detalle_ingresos');
+        $this->db->where('id_otros_ingresos', $id_otros_ingresos);
+        return $this->db->delete('detalle_ingresos');
     }
 }

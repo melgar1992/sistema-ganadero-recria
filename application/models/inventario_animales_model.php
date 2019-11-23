@@ -69,4 +69,14 @@ class inventario_animales_model extends CI_Model
         $this->db->where('id_animal',$id_animal);
         return $this->db->update('animal',$datos);
     }
+
+    public function getSumatoriaInventarioBovinoAnual()
+    {
+ 
+        $this->db->select_sum('a.stock');
+        $this->db->from('animal a');
+        $this->db->join('tipo_animal tp','tp.id_tipo_animal = a.id_tipo_animal');
+        $this->db->where('tp.nombre','Bovino');
+        return $this->db->get()->row_array();
+    }
 }

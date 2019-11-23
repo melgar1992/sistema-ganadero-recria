@@ -106,6 +106,7 @@ class Ingreso extends BaseController
         $forma_pago = $this->input->post("forma_pago");
         $total = $this->input->post("total");
 
+     
         $this->form_validation->set_rules("categoriaingresos", "categoriaingresos", "required");
         $this->form_validation->set_rules("id_empleado", "id_empleado", "required");
         $this->form_validation->set_rules("fecha", "fecha", "required");

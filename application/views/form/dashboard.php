@@ -22,23 +22,21 @@
         <h3 class="box-title">Dashboard General</h3>
       </div>
       <div class="box-body">
-        Start creating your amazing application!
+        
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-lg-4 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-green">
               <div class="inner">
-                <h3>150</h3>
+                <h3><?php echo number_format($ingresos,2,'.',',') ; ?> Bs</h3>
 
                 <p>Ingresos</p>
               </div>
               <div class="icon">
                 <i class="fa fa-money"></i>
               </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
+              
             </div>
           </div>
           <!-- ./col -->
@@ -46,16 +44,14 @@
             <!-- small box -->
             <div class="small-box bg-red">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3><?php echo number_format($egresos,2) ; ?> Bs</h3>
 
                 <p>Egresos</p>
               </div>
               <div class="icon">
                 <i class="fa fa-money"></i>
               </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
+              
             </div>
           </div>
           <!-- ./col -->
@@ -63,16 +59,14 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
               <div class="inner">
-                <h3>65</h3>
+                <h3><?php echo $inventario['stock'] ?></h3>
 
-                <p>Inventario</p>
+                <p>Inventario Bovinos</p>
               </div>
               <div class="icon">
                 <i class="fa fa-paw"></i>
               </div>
-              <a href="#" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
+              
             </div>
           </div>
           <!-- ./col -->
