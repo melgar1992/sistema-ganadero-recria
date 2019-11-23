@@ -11,6 +11,6 @@ public function index()
 { 
   $datos['datos']='';
 
-    $this->loadView('','/form/dashboard',$datos);
+    $this->loadView('Dashboard','/form/dashboard',$datos);
 }
 }

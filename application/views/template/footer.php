@@ -37,8 +37,8 @@
 <script src="<?php echo base_url(); ?>assets/template/datatables-export/js/vfs_fonts.js"></script>
 <!-- Sweet Alert -->
 <script src="<?php echo base_url(); ?>assets/template/sweetalert2/sweetalert2.all.min.js"></script>
-
-
+<!-- ChartJs -->
+<script src="<?php echo base_url(); ?>assets/template/chartjs/Chart.js"></script>
 <input type="hidden" value="<?php echo base_url() ?>" id="base_url">
 <script>
   $('#example1').DataTable({
@@ -64,8 +64,7 @@
   $('.sidebar-menu').tree();
 </script>
 <script>
-
-
+  
 </script>
 
 <!--Formulario de la pagina -->
