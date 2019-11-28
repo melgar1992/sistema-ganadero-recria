@@ -85,7 +85,7 @@ class Compra_animales extends BaseController
             );
             if ($this->Compra_animales_model->guardarCompraBovinos($datosCompraAnimal)) {
                 $id_compra_animales = $this->Compra_animales_model->ultimoID();
-                $this->guardar_detalle_compra_bovinos($id_estancia, $id_compra_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total);
+                $this->guardar_detalle_compra_bovinos($id_estancia, $id_compra_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total, $fecha);
                 redirect(base_url() . 'Formulario_Animales/Compra_animales/');
             } else {
                 $this->session->set_flashdata("error", "No se pudieron guardar los datos");
@@ -144,7 +144,7 @@ class Compra_animales extends BaseController
             );
             if ($this->Compra_animales_model->guardarCompraBovinos($datosCompraAnimal)) {
                 $id_compra_animales = $this->Compra_animales_model->ultimoID();
-                $this->guardar_detalle_compra_bovinos($id_estancia, $id_compra_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total);
+                $this->guardar_detalle_compra_bovinos($id_estancia, $id_compra_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total, $fecha);
                 redirect(base_url() . 'Formulario_Animales/Compra_animales/');
             } else {
                 $this->session->set_flashdata("error", "No se pudieron guardar los datos");
@@ -155,7 +155,7 @@ class Compra_animales extends BaseController
             redirect(base_url() . 'Formulario_Animales/Compra_animales/addbovinos');
         }
     }
-    protected function guardar_detalle_compra_bovinos($id_estancia, $id_compra_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total)
+    protected function guardar_detalle_compra_bovinos($id_estancia, $id_compra_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total, $fecha)
     {
         if (!empty($categoria)) {
             for ($i = 0; $i < count($categoria); $i++) {
@@ -172,6 +172,7 @@ class Compra_animales extends BaseController
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_compra_animales' => $id_compra_animales,
+                        'fecha' => $fecha,
                         'cantidad' => $cantidad[$i],
                         'precio_unitario' => $precio_unitario[$i],
                         'sub_total' => $sub_total[$i],
@@ -193,6 +194,7 @@ class Compra_animales extends BaseController
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_compra_animales' => $id_compra_animales,
+                        'fecha' => $fecha,
                         'cantidad' => $cantidad[$i],
                         'precio_unitario' => $precio_unitario[$i],
                         'sub_total' => $sub_total[$i],
@@ -317,7 +319,7 @@ class Compra_animales extends BaseController
                 'estado' => '1',
             );
             if ($this->Compra_animales_model->actualizarCompraBovinos($id_compra_animales, $datosCompraAnimal)) {
-                $this->actualizar_detalle_compra_bovinos($id_estancia, $id_compra_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total);
+                $this->actualizar_detalle_compra_bovinos($id_estancia, $id_compra_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total, $fecha);
                 redirect(base_url() . 'Formulario_Animales/Compra_animales/');
             } else {
                 $this->session->set_flashdata("error", "No se pudieron guardar los datos");
@@ -328,7 +330,7 @@ class Compra_animales extends BaseController
             redirect(base_url() . 'Formulario_Animales/Compra_animales/editarBovinos');
         }
     }
-    public function actualizar_detalle_compra_bovinos($id_estancia, $id_compra_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total)
+    public function actualizar_detalle_compra_bovinos($id_estancia, $id_compra_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total, $fecha)
     {
         if (!empty($categoria)) {
             $detalle_movimiento_actual = $this->Compra_animales_model->getDetalleMovimientos($id_compra_animales);
@@ -356,6 +358,7 @@ class Compra_animales extends BaseController
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_compra_animales' => $id_compra_animales,
+                        'fecha' => $fecha,
                         'cantidad' => $cantidad[$i],
                         'precio_unitario' => $precio_unitario[$i],
                         'sub_total' => $sub_total[$i],
@@ -377,6 +380,7 @@ class Compra_animales extends BaseController
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_compra_animales' => $id_compra_animales,
+                        'fecha' => $fecha,
                         'cantidad' => $cantidad[$i],
                         'precio_unitario' => $precio_unitario[$i],
                         'sub_total' => $sub_total[$i],

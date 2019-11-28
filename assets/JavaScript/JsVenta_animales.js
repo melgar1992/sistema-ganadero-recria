@@ -271,7 +271,7 @@ function sumar() {
         subtotaltransporte = subtotaltransporte + Number($(this).find("td:eq(7)").children('input').val());
     });
     total = 0;
-    total = subtotalCompra + subtotaltransporte;
+    total = subtotalCompra - subtotaltransporte;
     porcentaje = $("#comision").val() / 100;
     comision = subtotalCompra * porcentaje;
     $("input[name=total]").val(total.toFixed(2));

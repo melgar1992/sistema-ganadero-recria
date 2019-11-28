@@ -84,7 +84,7 @@ class Venta_animales extends BaseController
             );
             if ($this->Venta_animales_model->guardarVentaBovinos($datosVentaAnimal)) {
                 $id_venta_animal = $this->Venta_animales_model->ultimoID();
-                $this->guardar_detalle_venta_bovinos($id_estancia, $id_venta_animal, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total);
+                $this->guardar_detalle_venta_bovinos($id_estancia, $id_venta_animal, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total,$fecha);
                 redirect(base_url() . 'Formulario_Animales/venta_animales/');
             } else {
                 $this->session->set_flashdata("error", "No se pudieron guardar los datos");
@@ -143,18 +143,18 @@ class Venta_animales extends BaseController
             );
             if ($this->Venta_animales_model->guardarVentaBovinos($datosVentaAnimal)) {
                 $id_venta_animal = $this->Venta_animales_model->ultimoID();
-                $this->guardar_detalle_venta_bovinos($id_estancia, $id_venta_animal, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total);
+                $this->guardar_detalle_venta_bovinos($id_estancia, $id_venta_animal, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total, $fecha);
                 redirect(base_url() . 'Formulario_Animales/venta_animales/');
             } else {
                 $this->session->set_flashdata("error", "No se pudieron guardar los datos");
-                redirect(base_url() . 'Formulario_Animales/venta_animales/addbovinos');
+                redirect(base_url() . 'Formulario_Animales/venta_animales/addanimales');
             }
         } else {
             $this->session->set_flashdata("error", "Los campos no fueron llenados correctamente");
-            redirect(base_url() . 'Formulario_Animales/venta_animales/addbovinos');
+            redirect(base_url() . 'Formulario_Animales/venta_animales/addanimales');
         }
     }
-    protected function guardar_detalle_venta_bovinos($id_estancia, $id_venta_animal, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total)
+    protected function guardar_detalle_venta_bovinos($id_estancia, $id_venta_animal, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total, $fecha)
     {
         if (!empty($categoria)) {
             for ($i = 0; $i < count($categoria); $i++) {
@@ -170,6 +170,7 @@ class Venta_animales extends BaseController
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_venta_animales' => $id_venta_animal,
+                        'fecha' => $fecha,
                         'cantidad' => $cantidad[$i],
                         'precio_unitario' => $precio_unitario[$i],
                         'sub_total' => $sub_total[$i],
@@ -285,7 +286,7 @@ class Venta_animales extends BaseController
                 'estado' => '1',
             );
             if ($this->Venta_animales_model->actualizarVentaBovinos($id_venta_animales, $datosVentaAnimal)) {
-                $this->actualizar_detalle_venta_bovinos($id_estancia, $id_venta_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total);
+                $this->actualizar_detalle_venta_bovinos($id_estancia, $id_venta_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total, $fecha);
                 redirect(base_url() . 'Formulario_Animales/venta_animales/');
             } else {
                 $this->session->set_flashdata("error", "No se pudieron guardar los datos");
@@ -296,7 +297,7 @@ class Venta_animales extends BaseController
             redirect(base_url() . 'Formulario_Animales/venta_animales/editarBovinos');
         }
     }
-    public function actualizar_detalle_venta_bovinos($id_estancia, $id_venta_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total)
+    public function actualizar_detalle_venta_bovinos($id_estancia, $id_venta_animales, $categoria, $id_tipo_animal, $sexo, $cantidad, $precio_unitario, $precio_transporte, $placa_camion, $sub_total, $fecha)
     {
         if (!empty($categoria)) {
             $detalle_movimiento_actual = $this->Venta_animales_model->getDetallesVentas($id_venta_animales);
@@ -324,6 +325,7 @@ class Venta_animales extends BaseController
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_venta_animales' => $id_venta_animales,
+                        'fecha' => $fecha,
                         'cantidad' => $cantidad[$i],
                         'precio_unitario' => $precio_unitario[$i],
                         'sub_total' => $sub_total[$i],
@@ -345,6 +347,7 @@ class Venta_animales extends BaseController
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_venta_animales' => $id_venta_animales,
+                        'fecha' => $fecha,
                         'cantidad' => $cantidad[$i],
                         'precio_unitario' => $precio_unitario[$i],
                         'sub_total' => $sub_total[$i],

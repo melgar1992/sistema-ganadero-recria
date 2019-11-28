@@ -3,7 +3,7 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
           <h1>
-              Venta de animales bovinos
+              Venta de animales 
               <small></small>
           </h1>
 

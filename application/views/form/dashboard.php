@@ -3,14 +3,10 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Blank page
-      <small>it all starts here</small>
+      Control de ganado
+
     </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">Examples</a></li>
-      <li class="active">Blank page</li>
-    </ol>
+
   </section>
 
   <!-- Main content -->
@@ -22,21 +18,21 @@
         <h3 class="box-title">Dashboard General</h3>
       </div>
       <div class="box-body">
-        
+
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-lg-4 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-green">
               <div class="inner">
-                <h3><?php echo number_format($ingresos,2,'.',',') ; ?> Bs</h3>
+                <h3><?php echo number_format($ingresos, 2, '.', ','); ?> Bs</h3>
 
                 <p>Ingresos</p>
               </div>
               <div class="icon">
                 <i class="fa fa-money"></i>
               </div>
-              
+
             </div>
           </div>
           <!-- ./col -->
@@ -44,14 +40,14 @@
             <!-- small box -->
             <div class="small-box bg-red">
               <div class="inner">
-              <h3><?php echo number_format($egresos,2) ; ?> Bs</h3>
+                <h3><?php echo number_format($egresos, 2); ?> Bs</h3>
 
                 <p>Egresos</p>
               </div>
               <div class="icon">
                 <i class="fa fa-money"></i>
               </div>
-              
+
             </div>
           </div>
           <!-- ./col -->
@@ -66,7 +62,7 @@
               <div class="icon">
                 <i class="fa fa-paw"></i>
               </div>
-              
+
             </div>
           </div>
           <!-- ./col -->
@@ -120,27 +116,23 @@
               <br>
               <div class="margin">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-info">Reportes de inventario</button>
-                  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Animales Bovinos </a></li>
+                  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Reportes de inventario
+                    <span class="fa fa-caret-down"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a data-toggle="modal" data-target="#modal-reporte">Animales Bovinos</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Otros Animales</a></li>
+                    <li><a data-toggle="modal" data-target="#modal-reporte">Anmimales Otros</a></li>
+
                   </ul>
                 </div>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-warning">Balance</button>
-                  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
+                  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Balance
+                    <span class="fa fa-caret-down"></span></button>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Financiero</a></li>
+                    <li><a data-toggle="modal" data-target="#modal-reporte">Financiero</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Inventario</a></li>
+                    <li><a data-toggle="modal" data-target="#modal-reporte">Inventario</a></li>
 
                   </ul>
                 </div>
@@ -160,7 +152,7 @@
         <!-- Default box -->
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">Reportes suplementarios</h3>
+            <h3 class="box-title">Reportes suplementario del año</h3>
           </div>
           <div class="box-body">
             <div class="margin">
@@ -171,9 +163,11 @@
                   <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Categoria de animales bovinos </a></li>
+                  <li><a data-toggle="modal" id='reporte_categoria_bovino' data-target="#modal-reporte">Categoria de animales bovinos </a></li>
                   <li class="divider"></li>
-                  <li><a href="#">Categoria de otros Animales</a></li>
+                  <li><a data-toggle="modal" id='reporte_categoria_animal' data-target="#modal-reporte">Categoria de otros Animales</a></li>
+                  <li class="divider"></li>
+                  <li><a data-toggle="modal" id='reporte_control_bovino' data-target="#modal-reporte">Control bovino</a></li>
                 </ul>
               </div>
               <div class="btn-group col-md-6 col-sm-12 col-xs-12">
@@ -183,9 +177,9 @@
                   <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Cantidad animales bovinos</a></li>
+                  <li><a data-toggle="modal" id='reporte_venta_bovino' data-target="#modal-reporte">Cantidad animales bovinos</a></li>
                   <li class="divider"></li>
-                  <li><a href="#">Cantidad otros animales</a></li>
+                  <li><a data-toggle="modal" id='reporte_venta_animal' data-target="#modal-reporte">Cantidad otros animales</a></li>
 
                 </ul>
               </div>
@@ -200,12 +194,12 @@
                   <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Cantidad animales bovinos</a></li>
+                  <li><a data-toggle="modal" id='reporte_compra_bovino' data-target="#modal-reporte">Cantidad animales bovinos</a></li>
                   <li class="divider"></li>
-                  <li><a href="#">Cantidad otros animales</a></li>
+                  <li><a data-toggle="modal" id='reporte_compra_animal' data-target="#modal-reporte">Cantidad otros animales</a></li>
                 </ul>
               </div>
-             
+
             </div>
           </div>
           <!-- /.box-body -->
@@ -223,3 +217,25 @@
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<div class="modal fade" id="modal-reporte">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Reporte</h4>
+      </div>
+      <div class="modal-body">
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary btn-print"><span class="fa fa-print">Imprimir</span></button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
