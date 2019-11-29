@@ -44,10 +44,12 @@ class Ingreso_model extends CI_Model
         $this->db->select_sum('total');
         $this->db->where('fecha >=',$anho_actual.'-01-01');
         $this->db->where('fecha <=',$anho_actual.'-12-31');
+        $this->db->where('estado','1');
         $ingreso_venta_animales_del_ano_actual = $this->db->get('venta_animales')->row_array();
         $this->db->select_sum('total');
         $this->db->where('fecha >=',$anho_actual.'-01-01');
         $this->db->where('fecha <=',$anho_actual.'-12-31');
+        $this->db->where('estado','1');
         $ingreso_anual_de_otros_ingresos = $this->db->get('otros_ingresos')->row_array();
         return $resultado = $ingreso_venta_animales_del_ano_actual['total'] + $ingreso_anual_de_otros_ingresos['total'];
     }

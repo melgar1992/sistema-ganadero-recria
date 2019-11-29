@@ -7,18 +7,22 @@ class Egreso_model extends CI_Model
         $this->db->select_sum('total');
         $this->db->where('fecha >=',$anho_actual.'-01-01');
         $this->db->where('fecha <=',$anho_actual.'-12-31');
+        $this->db->where('estado','1');
         $egreso_compra_animales_del_ano_actual = $this->db->get('compra_animales')->row_array();
         $this->db->select_sum('total');
         $this->db->where('fecha >=',$anho_actual.'-01-01');
         $this->db->where('fecha <=',$anho_actual.'-12-31');
+        $this->db->where('estado','1');
         $egreso_gastos_fijos = $this->db->get('pago_gasto_fijo')->row_array();
         $this->db->select_sum('total');
         $this->db->where('fecha >=',$anho_actual.'-01-01');
         $this->db->where('fecha <=',$anho_actual.'-12-31');
+        $this->db->where('estado','1');
         $egreso_gastos_variables= $this->db->get('gastos_variables')->row_array();
         $this->db->select_sum('pago');
         $this->db->where('fecha >=',$anho_actual.'-01-01');
         $this->db->where('fecha <=',$anho_actual.'-12-31');
+        $this->db->where('estado','1');
         $egreso_pago_empleado= $this->db->get('boleta_pago')->row_array();
         
         
