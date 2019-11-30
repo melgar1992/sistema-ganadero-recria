@@ -25,7 +25,7 @@
                         <td><?php echo $inventario_categoria->categoria; ?></td>
                         <td><?php echo $inventario_categoria->sexo; ?></td>
                         <td><?php echo $inventario_categoria->stock; ?></td>
-                      
+                    </tr>
                 <?php endforeach; ?>
 
             </tbody>

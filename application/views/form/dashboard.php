@@ -72,7 +72,7 @@
           <!-- LINE CHART -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Reporte mensual de ingresos y egresos</h3>
+              <h3 class="box-title">Reporte de ingresos y egresos del año</h3>
 
 
             </div>
@@ -105,11 +105,11 @@
             <div class="form-group">
               <label for="" class="col-md-1 control-label">Desde: </label>
               <div class="col-md-5">
-                <input type="date" class="form-control" name="fechainicio" value="">
+                <input type="date" class="form-control" id="fechainicio" name="fechainicio" value="">
               </div>
               <label for="" class="col-md-1 control-label">Hasta: </label>
               <div class="col-md-5">
-                <input type="date" class="form-control" name="fechafin" value="">
+                <input type="date" class="form-control" id="fechafin" name="fechafin" value="">
 
               </div>
               <br>
@@ -119,9 +119,9 @@
                   <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Reportes de inventario
                     <span class="fa fa-caret-down"></span></button>
                   <ul class="dropdown-menu">
-                    <li><a data-toggle="modal" data-target="#modal-reporte">Animales Bovinos</a></li>
+                    <li><a >Animales Bovinos</a></li>
                     <li class="divider"></li>
-                    <li><a data-toggle="modal" data-target="#modal-reporte">Anmimales Otros</a></li>
+                    <li><a >Anmimales Otros</a></li>
 
                   </ul>
                 </div>
@@ -130,9 +130,9 @@
                     <span class="fa fa-caret-down"></span></button>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a data-toggle="modal" data-target="#modal-reporte">Financiero</a></li>
+                    <li><a id="balance_general">Financiero</a></li>
                     <li class="divider"></li>
-                    <li><a data-toggle="modal" data-target="#modal-reporte">Inventario</a></li>
+                    <li><a >Inventario</a></li>
 
                   </ul>
                 </div>

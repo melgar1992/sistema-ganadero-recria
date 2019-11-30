@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	var base_url = $("#base_url").val();
 	$('#reporte_categoria_bovino').on('click', function () {
-		
+
 		$.ajax({
 			url: base_url + 'Dashboard/Reporte_categoria_bovino',
 			type: 'POST',
@@ -14,7 +14,7 @@ $(document).ready(function () {
 		});
 	});
 	$('#reporte_categoria_animal').on('click', function () {
-		
+
 		$.ajax({
 			url: base_url + 'Dashboard/Reporte_categoria_animal',
 			type: 'POST',
@@ -27,7 +27,7 @@ $(document).ready(function () {
 		});
 	});
 	$('#reporte_venta_bovino').on('click', function () {
-		
+
 		$.ajax({
 			url: base_url + 'Dashboard/Reporte_venta_animal_bovino',
 			type: 'POST',
@@ -40,7 +40,7 @@ $(document).ready(function () {
 		});
 	});
 	$('#reporte_venta_animal').on('click', function () {
-		
+
 		$.ajax({
 			url: base_url + 'Dashboard/Reporte_venta_animal',
 			type: 'POST',
@@ -53,7 +53,7 @@ $(document).ready(function () {
 		});
 	});
 	$('#reporte_compra_bovino').on('click', function () {
-		
+
 		$.ajax({
 			url: base_url + 'Dashboard/Reporte_compra_animal_bovino',
 			type: 'POST',
@@ -66,7 +66,7 @@ $(document).ready(function () {
 		});
 	});
 	$('#reporte_compra_animal').on('click', function () {
-		
+
 		$.ajax({
 			url: base_url + 'Dashboard/Reporte_compra_animal',
 			type: 'POST',
@@ -79,7 +79,7 @@ $(document).ready(function () {
 		});
 	});
 	$('#reporte_control_bovino').on('click', function () {
-		
+
 		$.ajax({
 			url: base_url + 'Dashboard/Control_animal_bovino',
 			type: 'POST',
@@ -91,13 +91,39 @@ $(document).ready(function () {
 			}
 		});
 	});
-	$(document).on('click','.btn-print',function () {
+	$('#balance_general').on('click', function () {
+		var fechafin = $('#fechafin').val();
+		var fechainicio = $('#fechainicio').val();
+		if ($('#fechainicio').val() != '' & $('#fechafin').val() != '') {
+			$.ajax({
+				url: base_url + 'Dashboard/Balance_general',
+				type: 'POST',
+				dataType: 'html',
+				data: { fechafin: fechafin, fechainicio: fechainicio },
+				success: function (data) {
 
-        $("#modal-reporte .modal-body").print({
-            title: 'Reporte',
-        });
+					$('#modal-reporte .modal-body').html(data);
+
+				}
+			});
+			$('#modal-reporte').modal('show');
+		} else {
+			Swal.fire({
+				type: 'error',
+				title: 'Oops...',
+				text: 'Es necesario llenar las fechas',
+
+			})
+		}
+
 	});
-	
+	$(document).on('click', '.btn-print', function () {
+
+		$("#modal-reporte .modal-body").print({
+			title: 'Reporte',
+		});
+	});
+
 });
 $(function () {
 	/* ChartJS

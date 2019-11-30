@@ -114,7 +114,6 @@ class Reportes_model extends CI_Model
         $this->db->group_by('categoria, sexo');
         $resultado = $this->db->get();
         return $resultado->result();
-        
     }
     public function getSumaTotalesCompraAnualBovinos()
     {
@@ -131,7 +130,6 @@ class Reportes_model extends CI_Model
         $this->db->where_not_in('categoria', 'Aves');
         $resultado = $this->db->get();
         return $resultado->row();
-       
     }
     public function getReporteCompraCategoriaAnimal()
     {
@@ -187,8 +185,16 @@ class Reportes_model extends CI_Model
         $this->db->where_not_in('categoria', 'Familia Cerdos');
         $this->db->where_not_in('categoria', 'Aves');
         $this->db->group_by('categoria, sexo, tipo_movimiento, nombre');
-        $this->db->order_by('nombre','ASC');
+        $this->db->order_by('nombre', 'ASC');
         $resultado = $this->db->get();
         return $resultado->result();
+    }
+    public function getIngresoVentaAnimalesEntreFechas($fechainicio, $fechafin)
+    {
+
+        $where = "fecha BETWEEN '".$fechainicio."' AND '".$fechafin."' AND `estado` = '1'";
+        $this->db->select_sum('total');
+        $this->db->where($where);
+        return $this->db->get('venta_animales')->row_array();
     }
 }
