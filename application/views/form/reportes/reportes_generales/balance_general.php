@@ -22,56 +22,86 @@
             <tbody>
                 <tr>
                     <td><strong>Ingresos directos</strong></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Venta animales</td>
                     <td></td>
-                    <td><?php echo $ingreso_venta_animal['total']; ?> </td>
+                    <td><?php echo number_format($ingreso_venta_animal['total'], 2); ?> </td>
                 </tr>
                 <tr>
                     <td>Pagos por comisiones</td>
+                    <td><?php echo number_format($comision_venta['comision_total'], 2); ?> </td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td colspan="0"></td>
+                    <td colspan="2"> </td>
                 </tr>
                 <tr>
                     <td><strong>Otros Ingresos</strong></td>
+                    <?php $suma_otros_ingresos = 0; ?>
                 </tr>
-                <tr>
-                    <td>Tractor</td>
-                </tr>
-                <tr>
-                    <td>Leche</td>
-                </tr>
-                <tr>
-                    <td>Queso</td>
-                </tr>
+                <?php if (!empty($otros_ingresos)) : ?>
+                    <?php foreach ($otros_ingresos as $otro_ingreso) : ?>
+
+                        <tr>
+                            <td><?php echo $otro_ingreso->nombre; ?></td>
+                            <td></td>
+                            <td><?php echo number_format($otro_ingreso->ingresos, 2); ?></td>
+                            <?php $suma_otros_ingresos = $suma_otros_ingresos + $otro_ingreso->ingresos; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
                 <tr>
                     <td><strong>Utilidad Bruta</strong></td>
+                    <td></td>
+                    <?php $utilidad_bruta = $ingreso_venta_animal['total'] - $comision_venta['comision_total'] + $suma_otros_ingresos ?>
+                    <td><?php echo number_format($utilidad_bruta, 2) ?></td>
                 </tr>
                 <tr>
-                    <td colspan="0"></td>
+                    <td><strong>Gastos fijos</strong></td>
                 </tr>
+                <?php $suma_pago_gastos_fijos = 0; ?>
+                <?php if (!empty($pago_gastos_fijos)) : ?>
+                    <?php foreach ($pago_gastos_fijos as $pago_gasto_fijo) : ?>
+
+                        <tr>
+                            <td><?php echo $pago_gasto_fijo->nombre; ?></td>
+                            <td><?php echo number_format($pago_gasto_fijo->pago_gastos_fijos, 2); ?></td>
+                            <td></td>
+                            <?php $suma_pago_gastos_fijos = $suma_pago_gastos_fijos + $pago_gasto_fijo->pago_gastos_fijos; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
                 <tr>
-                    <td><strong>Egresos</strong></td>
+                    <td> <strong>Gastos variables</strong></td>
                 </tr>
-                <tr>
-                    <td>Gastos fijos</td>
-                </tr>
-                <tr>
-                    <td>Gastos variables</td>
-                </tr>
+                <?php $suma_pago_gastos_variables = 0; ?>
+                <?php if (!empty($pago_gastos_variables)) : ?>
+                    <?php foreach ($pago_gastos_variables as $pago_gasto_variable) : ?>
+
+                        <tr>
+                            <td><?php echo $pago_gasto_variable->nombre; ?></td>
+                            <td><?php echo number_format($pago_gasto_variable->pago_gastos_variables, 2); ?></td>
+                            <td></td>
+                            <?php $suma_pago_gastos_variables = $suma_pago_gastos_variables + $pago_gasto_variable->pago_gastos_variables; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
                 <tr>
                     <td>Pago empleados</td>
+                    <td><?php echo number_format($pago_empleados['pago']); ?></td>
                 </tr>
                 <tr>
                     <td>Compra animales</td>
-                </tr>
-                <tr>
-                    <td><strong>Utilidad de la gestion</strong></td>
+                    <td><?php echo number_format($egreso_compra_animal['total'], 2); ?></td>
+                    <td></td>
                 </tr>
             </tbody>
 
         </table>
+        <?php $balance = $utilidad_bruta - $suma_pago_gastos_fijos - $suma_pago_gastos_variables - $pago_empleados['pago'] - $egreso_compra_animal['total']; ?>
+        <h3>Balance de la gestion <strong><?php echo number_format($balance, 2); ?></strong></h3>
     </div>
 </div>

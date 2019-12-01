@@ -30,8 +30,8 @@ $(document).ready(function () {
             
             html = "<tr>";
             html += "<td><input type='hidden' name= 'detalle[]' value ='" + $('#detalle').val() + "'>" + $('#detalle').val(); +"</td>";
-            html += "<td><input type='number' class='cantidad' name= 'cantidad[]' value ='" + $('#cantidad').val() + "'></td>";
-            html += "<td><input type = 'number' class='precio_unitario' name = 'precio_unitario[]'  value ='" + $('#precio_unitario').val() + "'></td>";
+            html += "<td><input type='number' step = 'any' class='cantidad' name= 'cantidad[]' value ='" + $('#cantidad').val() + "'></td>";
+            html += "<td><input type = 'number' step = 'any' class='precio_unitario' name = 'precio_unitario[]'  value ='" + $('#precio_unitario').val() + "'></td>";
             html += "<td><input type ='hidden' name = 'sub_total[]' value ='" + $('#importe_total').val() +"'><p>" + $('#importe_total').val() +"</p></td>";
             html += "<td><button type='button' class='btn btn-danger btn-remove-producto'><span class='fa fa-remove'></span></button></td>";
             html += "</tr>";

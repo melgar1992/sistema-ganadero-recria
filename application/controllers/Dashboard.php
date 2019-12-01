@@ -84,12 +84,18 @@ class Dashboard extends BaseController
   {
     $fechafin = $this->input->post('fechafin');
     $fechainicio = $this->input->post('fechainicio');
-    var_dump($fechafin);
-    var_dump($fechainicio);
+    
     $datos = array(
       'ingreso_venta_animal' => $this->Reportes_model->getIngresoVentaAnimalesEntreFechas($fechainicio, $fechafin),
+      'comision_venta' => $this->Reportes_model->getComisionVentasAnimales($fechainicio, $fechafin),
+      'otros_ingresos' => $this->Reportes_model->getOtrosIngresos($fechainicio, $fechafin),
+      'pago_gastos_fijos' => $this->Reportes_model->getPagoGastosFijos($fechainicio, $fechafin),
+      'pago_gastos_variables' => $this->Reportes_model->getPagoGastosVariables($fechainicio, $fechafin),
+      'pago_empleados' => $this->Reportes_model->getPagoEmpleados($fechainicio, $fechafin),
+      'egreso_compra_animal' => $this->Reportes_model->getIngresoCompraAnimalesEntreFechas($fechainicio, $fechafin),
 
     );
+
     $this->load->view('form/reportes/reportes_generales/balance_general', $datos);
   }
 }

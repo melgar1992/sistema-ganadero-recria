@@ -192,9 +192,69 @@ class Reportes_model extends CI_Model
     public function getIngresoVentaAnimalesEntreFechas($fechainicio, $fechafin)
     {
 
-        $where = "fecha BETWEEN '".$fechainicio."' AND '".$fechafin."' AND `estado` = '1'";
+        $where = "fecha BETWEEN '" . $fechainicio . "' AND '" . $fechafin . "' AND `estado` = '1'";
         $this->db->select_sum('total');
         $this->db->where($where);
         return $this->db->get('venta_animales')->row_array();
+    }
+    public function getComisionVentasAnimales($fechainicio, $fechafin)
+    {
+        $where = "fecha BETWEEN '".$fechainicio."' AND '".$fechafin."' AND `estado` = '1'";
+        $this->db->select(' SUM(total * (comision / 100)) as comision_total');
+        $this->db->where($where);
+        $this->db->where('estado', '1');
+        return $this->db->get('venta_animales')->row_array();
+    }
+    public function getOtrosIngresos($fechainicio, $fechafin)
+    {
+        $where = "fecha BETWEEN '".$fechainicio."' AND '".$fechafin."' AND `oi.estado` = '1'";
+        $this->db->select_sum('total','ingresos');
+        $this->db->select('nombre');
+        $this->db->from('otros_ingresos oi');
+        $this->db->join('categoria_ingresos ci', 'oi.id_categoria_ingresos = ci.id_categoria_ingresos');
+        $this->db->where($where);
+        $this->db->group_by('nombre');
+        $this->db->order_by('nombre','ASC');
+        return $this->db->get()->result();
+    }
+    public function getPagoGastosFijos($fechainicio, $fechafin)
+    {
+        $where = "fecha BETWEEN '".$fechainicio."' AND '".$fechafin."' AND `pg.estado` = '1'";
+        $this->db->select_sum('pg.total','pago_gastos_fijos');
+        $this->db->select('nombre');
+        $this->db->from('pago_gasto_fijo pg');
+        $this->db->join('gastos_fijos gf', 'gf.id_gastos_fijos = pg.id_gastos_fijos');
+        $this->db->where($where);
+        $this->db->group_by('nombre');
+        $this->db->order_by('nombre','ASC');
+        return $this->db->get()->result();
+    }
+    public function getPagoGastosVariables($fechainicio, $fechafin)
+    {
+        $where = "fecha BETWEEN '".$fechainicio."' AND '".$fechafin."' AND `gv.estado` = '1'";
+        $this->db->select_sum('gv.total','pago_gastos_variables');
+        $this->db->select('nombre');
+        $this->db->from('gastos_variables gv');
+        $this->db->join('tipo_gastos_variables tgv', 'gv.id_tipo_gastos_variables = tgv.id_tipo_gastos_variables');
+        $this->db->where($where);
+        $this->db->group_by('nombre');
+        $this->db->order_by('nombre','ASC');
+        return $this->db->get()->result();
+    }
+    public function getPagoEmpleados($fechainicio, $fechafin)
+    {
+        $where = "fecha BETWEEN '".$fechainicio."' AND '".$fechafin."' AND `estado` = '1'";
+        $this->db->select_sum('pago');
+        $this->db->from('boleta_pago');
+        $this->db->where($where);
+        return $this->db->get()->row_array();
+    }
+    public function getIngresoCompraAnimalesEntreFechas($fechainicio, $fechafin)
+    {
+
+        $where = "fecha BETWEEN '" . $fechainicio . "' AND '" . $fechafin . "' AND `estado` = '1'";
+        $this->db->select_sum('total');
+        $this->db->where($where);
+        return $this->db->get('compra_animales')->row_array();
     }
 }

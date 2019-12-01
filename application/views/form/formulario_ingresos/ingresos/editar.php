@@ -131,10 +131,10 @@
                                                             <input type='text' name='detalle[]' value='<?php echo $detalle_ingreso->detalle; ?>'>
                                                         </td>
                                                         <td>
-                                                            <input type='number'  class='cantidad' name='cantidad[]' value='<?php echo $detalle_ingreso->cantidad; ?>'>
+                                                            <input type='number' step="any"  class='cantidad' name='cantidad[]' value='<?php echo $detalle_ingreso->cantidad; ?>'>
                                                         </td>
                                                         <td>
-                                                            <input type='number'  class='precio_unitario' name='precio_unitario[]' value='<?php echo $detalle_ingreso->precio_unitario; ?>'>
+                                                            <input type='number' step="any"  class='precio_unitario' name='precio_unitario[]' value='<?php echo $detalle_ingreso->precio_unitario; ?>'>
                                                         </td>
                                                         <td>
                                                             <input type='hidden'  name='sub_total[]' value='<?php echo $detalle_ingreso->sub_total; ?>'>
@@ -156,7 +156,7 @@
                                 <div class="col-md-3">
                                     <div class="input-group">
                                         <span class="input-group-addon">Importe total:</span>
-                                        <input type="number"  class="form-control" value="<?php echo !empty(form_error("total")) ? set_value("total") : $ingreso->total ?>" placeholder="0.00" id="total" name="total" required readonly="readonly">
+                                        <input type="number" step="any"  class="form-control" value="<?php echo !empty(form_error("total")) ? set_value("total") : $ingreso->total ?>" placeholder="0.00" id="total" name="total" required readonly="readonly">
                                     </div>
                                 </div>
                             </div>
