@@ -36,10 +36,8 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td colspan="2"> </td>
-                </tr>
-                <tr>
                     <td><strong>Otros Ingresos</strong></td>
+                    <td colspan="2"></td>
                     <?php $suma_otros_ingresos = 0; ?>
                 </tr>
                 <?php if (!empty($otros_ingresos)) : ?>
@@ -53,14 +51,10 @@
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>
-                <tr>
-                    <td><strong>Utilidad Bruta</strong></td>
-                    <td></td>
-                    <?php $utilidad_bruta = $ingreso_venta_animal['total'] - $comision_venta['comision_total'] + $suma_otros_ingresos ?>
-                    <td><?php echo number_format($utilidad_bruta, 2) ?></td>
-                </tr>
+
                 <tr>
                     <td><strong>Gastos fijos</strong></td>
+                    <td colspan="2"></td>
                 </tr>
                 <?php $suma_pago_gastos_fijos = 0; ?>
                 <?php if (!empty($pago_gastos_fijos)) : ?>
@@ -76,6 +70,7 @@
                 <?php endif; ?>
                 <tr>
                     <td> <strong>Gastos variables</strong></td>
+                    <td colspan="2"></td>
                 </tr>
                 <?php $suma_pago_gastos_variables = 0; ?>
                 <?php if (!empty($pago_gastos_variables)) : ?>
@@ -92,6 +87,7 @@
                 <tr>
                     <td>Pago empleados</td>
                     <td><?php echo number_format($pago_empleados['pago']); ?></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Compra animales</td>
@@ -101,7 +97,11 @@
             </tbody>
 
         </table>
-        <?php $balance = $utilidad_bruta - $suma_pago_gastos_fijos - $suma_pago_gastos_variables - $pago_empleados['pago'] - $egreso_compra_animal['total']; ?>
-        <h3>Balance de la gestion <strong><?php echo number_format($balance, 2); ?></strong></h3>
+        <?php $utilidad_bruta = $ingreso_venta_animal['total'] - $comision_venta['comision_total'] + $suma_otros_ingresos ?>
+        <?php $egresos =  $suma_pago_gastos_fijos + $suma_pago_gastos_variables + $pago_empleados['pago'] + $egreso_compra_animal['total']; ?>
+        <?php $balance = $utilidad_bruta  - $egresos ?>
+        <h4>Utilidad antes Bruta &nbsp &nbsp<strong><?php echo number_format($utilidad_bruta, 2); ?></strong></h4>
+        <h4>Egresos &nbsp &nbsp<strong><?php echo number_format($egresos, 2); ?></strong></h4>
+        <h3>Balance de la gestion &nbsp &nbsp<strong><?php echo number_format($balance, 2); ?></strong></h3>
     </div>
 </div>

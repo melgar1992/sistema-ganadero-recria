@@ -59,7 +59,7 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-user-circle-o"></i> <span>Formulario Empleados</span>
+                            <i class="fa fa-group"></i> <span>Formulario Empleados</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -72,7 +72,7 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-print"></i> <span>Formulario Egresos</span>
+                            <i class="fa fa-money"></i> <span>Formulario Egresos</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -87,7 +87,7 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-print"></i> <span>Formulario Ingresos</span>
+                            <i class="fa fa-money"></i> <span>Formulario Ingresos</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -99,18 +99,7 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-print"></i> <span>Control de Animales</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-print"></i> <span>Reportes</span>
+                            <i class="fa  fa-gear"></i> <span>Configuracion del sistema</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
