@@ -27,7 +27,7 @@
               <div class="inner">
                 <h3><?php echo number_format($ingresos, 2, '.', ','); ?> Bs</h3>
 
-                <p>Ingresos</p>
+                <p>Ingresos de la gestion actual</p>
               </div>
               <div class="icon">
                 <i class="fa fa-money"></i>
@@ -42,7 +42,7 @@
               <div class="inner">
                 <h3><?php echo number_format($egresos, 2); ?> Bs</h3>
 
-                <p>Egresos</p>
+                <p>Egresos de la gestion actual</p>
               </div>
               <div class="icon">
                 <i class="fa fa-money"></i>
@@ -57,7 +57,7 @@
               <div class="inner">
                 <h3><?php echo $inventario['stock'] ?></h3>
 
-                <p>Inventario Bovinos</p>
+                <p>Inventario animales bovinos</p>
               </div>
               <div class="icon">
                 <i class="fa fa-paw"></i>
