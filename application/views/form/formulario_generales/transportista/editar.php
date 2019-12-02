@@ -3,8 +3,8 @@
      <!-- Content Header (Page header) -->
      <section class="content-header">
          <h1>
-             Tipos de Transporte
-             <small>Listado</small>
+             Transportista
+           
          </h1>
 
      </section>
@@ -15,14 +15,9 @@
          <!-- Default box -->
          <div class="box">
              <div class="box-header with-border">
-                 <h3 class="box-title">Formulario</h3>
+                 <h3 class="box-title">Editar Transportista </h3>
 
-                 <div class="box-tools pull-right">
-                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                         <i class="fa fa-minus"></i></button>
-                     <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                         <i class="fa fa-times"></i></button>
-                 </div>
+                 
              </div>
              <div class="box-body">
 
@@ -38,44 +33,44 @@
                      <input type="hidden" value="<?php echo $transportista->id_persona; ?>" name="id_persona">
 
                      <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
-                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombres <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="nombre" value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $transportista->nombres ?>" id=nombre required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombres: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="nombre" value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $transportista->nombres ?>" id=nombre required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("apellidos")) ? 'has-error' : ''; ?>">
-                         <label for="apellidos" class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="apellidos" value="<?php echo !empty(form_error("apellidos")) ? set_value("apellidos") : $transportista->apellidos ?>" id=apellidos required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="apellidos" class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="apellidos" value="<?php echo !empty(form_error("apellidos")) ? set_value("apellidos") : $transportista->apellidos ?>" id=apellidos required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("apellidos", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("ci")) ? 'has-error' : ''; ?>">
-                         <label for="ci" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Identidad<span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="ci" value="<?php echo !empty(form_error("ci")) ? set_value("ci") : $transportista->carnet_identidad ?>" id=ci required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="ci" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Identidad: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="ci" value="<?php echo !empty(form_error("ci")) ? set_value("ci") : $transportista->carnet_identidad ?>" id=ci required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("ci", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("telefono")) ? 'has-error' : ''; ?>">
-                         <label for="telefono" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Telefono <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="telefono" value="<?php echo !empty(form_error("telefono")) ? set_value("telefono") : $transportista->telefono ?>" id=telefono required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="telefono" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Telefono: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="telefono" value="<?php echo !empty(form_error("telefono")) ? set_value("telefono") : $transportista->telefono ?>" id=telefono required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("telefono", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("trayecto")) ? 'has-error' : ''; ?>">
-                         <label for="trayecto" class="control-label col-md-3 col-sm-3 col-xs-12">Trayecto de trabajo <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="trayecto" value="<?php echo !empty(form_error("trayecto")) ? set_value("trayecto") : $transportista->trayecto ?>" id=trayecto required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="trayecto" class="control-label col-md-3 col-sm-3 col-xs-12">Trayecto de trabajo: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="trayecto" value="<?php echo !empty(form_error("trayecto")) ? set_value("trayecto") : $transportista->trayecto ?>" id=trayecto required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("trayecto", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group">
                          <label for="tipo_transporte" class="control-label col-md-3 col-sm-3 col-xs-12">tipo transporte <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <select name="tipo_transporte" id="tipo_transporte" required="required" class="form-group col-md-7 col-xs-12">
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <select name="tipo_transporte" id="tipo_transporte" required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
                                  <?php foreach ($tipo_transportes as $tipo_transporte) : ?>
                                      <?php if ($tipo_transporte->id_tipo_transporte == $transportista->id_tipo_transporte) : ?>
                                          <option value="<?php echo $tipo_transporte->id_tipo_transporte; ?>" selected><?php echo $tipo_transporte->nombres; ?></option>

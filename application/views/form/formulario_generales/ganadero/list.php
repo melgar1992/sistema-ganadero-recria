@@ -20,7 +20,7 @@
              </div>
              <div class="box-body">
                  <h4>Los campos con * son obligatorios, despues podran agregar mas estancia de ser necesario.</h4>
-
+                    <br> </br>
                  <?php if ($this->session->flashdata("error")) : ?>
                      <div class="alert alert-danger alert-dismissable">
                          <button type="button" class="close" data-dissmiss="alert" aria-hidden="true">$times;</button>
@@ -32,30 +32,30 @@
                      <input type="hidden" name="tipo_ganadero" value="externo" id="tipo_ganadero">
 
                      <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
-                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombres <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="nombre" value="<?php echo set_value('nombre') ?>" id=nombre required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombres: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="nombre" value="<?php echo set_value('nombre') ?>" id=nombre required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("apellidos")) ? 'has-error' : ''; ?>">
-                         <label for="apellidos" class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="apellidos" value="<?php echo set_value('apellidos') ?>" id=apellidos required="required" class="form-group col-md-7 col-xs-12" placeholder="">
-                             <?php echo form_error("apellidos", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
+                         <label for="apellidos" class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="apellidos" value="<?php echo set_value('apellidos') ?>" id=apellidos required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
+                             <?php echo form_error("apellidos", "<span class='help-block col-md-4 col-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("ci")) ? 'has-error' : ''; ?>">
-                         <label for="ci" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Identidad <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="number" name="ci" value="<?php echo set_value('ci') ?>" id=ci required="required" class="form-group col-md-7 col-xs-12">
+                         <label for="ci" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Identidad: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="number" name="ci" value="<?php echo set_value('ci') ?>" id=ci required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
                              <?php echo form_error("ci", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("telefono")) ? 'has-error' : ''; ?>">
-                         <label for="telefono" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Telefono <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="number" name="telefono" value="<?php echo set_value('telefono') ?>" id=telefono required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="telefono" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Telefono:<span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="number" name="telefono" value="<?php echo set_value('telefono') ?>" id=telefono required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("telefono", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
@@ -105,7 +105,7 @@
 
                                              <td>
                                                  <div class="btn-group">
-                                                     <button type="button" class="btn btn-info btn-vista" data-toggle="modal" data-target="modal-default" value="<?php echo $ganadero->id_ganadero ?>"><span class="fa fa-search"></span></button>
+                                                    
                                                      <a href="<?php echo base_url() ?>Formularios_Generales/Ganadero/editar/<?php echo $ganadero->id_ganadero; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                      <button type="button" value="<?php echo $ganadero->id_ganadero; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                  </div>

@@ -16,12 +16,6 @@
          <div class="box">
              <div class="box-header with-border">
                  <h3 class="box-title">Formulario de Transporte</h3>
-                 <div class="box-tools pull-right">
-                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                         <i class="fa fa-minus"></i></button>
-                     <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                         <i class="fa fa-times"></i></button>
-                 </div>
              </div>
              <div class="box-body">
 
@@ -38,45 +32,45 @@
                  <form method="POST" action="<?php echo base_url(); ?>Formularios_Generales/Transportista/guardarTransportista" id="transportista" class="form-horizontal form-label-left">
 
                      <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
-                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombres <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="nombre" value="<?php echo set_value('nombre') ?>" id=nombre required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombres: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="nombre" value="<?php echo set_value('nombre') ?>" id=nombre required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("apellidos")) ? 'has-error' : ''; ?>">
-                         <label for="apellidos" class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="apellidos" value="<?php echo set_value('apellidos') ?>" id=apellidos required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="apellidos" class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="apellidos" value="<?php echo set_value('apellidos') ?>" id=apellidos required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("apellidos", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("ci")) ? 'has-error' : ''; ?>">
-                         <label for="ci" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Identidad <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="number" name="ci" value="<?php echo set_value('ci') ?>" id=ci required="required" class="form-group col-md-7 col-xs-12">
+                         <label for="ci" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Identidad: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="number" name="ci" value="<?php echo set_value('ci') ?>" id=ci required="required" class="form-control col-md-7 col-sm-3 col-xs-12">
                              <?php echo form_error("ci", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("telefono")) ? 'has-error' : ''; ?>">
-                         <label for="telefono" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Telefono <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="number" name="telefono" value="<?php echo set_value('telefono') ?>" id=telefono required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="telefono" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Telefono: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="number" name="telefono" value="<?php echo set_value('telefono') ?>" id=telefono required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("telefono", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("trayecto")) ? 'has-error' : ''; ?>">
-                         <label for="trayecto" class="control-label col-md-3 col-sm-3 col-xs-12">Trayecto de trabajo <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="trayecto" value="<?php echo set_value('trayecto') ?>" id=trayecto required="required" class="form-group col-md-7 col-xs-12" placeholder="Beni-Sc, San Ramon, Rio mamore.">
+                         <label for="trayecto" class="control-label col-md-3 col-sm-3 col-xs-12">Trayecto de trabajo: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="trayecto" value="<?php echo set_value('trayecto') ?>" id=trayecto required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="Beni-Sc, San Ramon, Rio mamore.">
                              <?php echo form_error("trayecto", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
 
                      <div class="form-group <?php echo !empty(form_error("tipo_transporte")) ? 'has-error' : ''; ?>">
-                         <label for="tipo_transporte" class="control-label col-md-3 col-sm-3 col-xs-12">Tipos de Transporte <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <select name="tipo_transporte" id="tipo_transporte" required class="form-group col-md-7 col-xs-12">
+                         <label for="tipo_transporte" class="control-label col-md-3 col-sm-3 col-xs-12">Tipos de Transporte: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <select name="tipo_transporte" id="tipo_transporte" required class="form-control col-md-3 col-sm-3 col-xs-12">
                                  <option value=""></option>
                                  <?php foreach ($tipo_transportes as $tipo_transporte) : ?>
                                      <option value="<?php echo $tipo_transporte->id_tipo_transporte; ?>"><?php echo $tipo_transporte->nombres; ?></option>

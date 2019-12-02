@@ -15,7 +15,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Formulario</h3>
+                <h3 class="box-title">Formulario Inventario Animales Bovinos</h3>
 
             </div>
             <div class="box-body">
@@ -32,7 +32,7 @@
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/inventario_animales/guardarBovino" id="inventario_animal" class="form-horizontal form-label-left">
 
                     <div class='form-group'>
-                        <label for="estancia" class="control-label col-md-3 col-sm-3 col-xs-12">Estancia*</label>
+                        <label for="estancia" class="control-label col-md-3 col-sm-3 col-xs-12">Estancia: *</label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11 <?php echo !empty(form_error("estancia")) ? 'has-error' : ''; ?>">
                             <input type="hidden" name="id_estancia" value="" id="id_estancia">
                             <input type="text" class="form-control" required placeholder="estancia" readonly name="estancia" id="estancia">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="cantidad" class="control-label col-md-3 col-sm-3 col-xs-12">Cantidad<span class="required">*</span></label>
+                        <label for="cantidad" class="control-label col-md-3 col-sm-3 col-xs-12">Cantidad<span class="required">: *</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <input type="number" name="cantidad" id="cantidad" required="required" class="form-control">
 
@@ -50,7 +50,7 @@
                     </div>
   
                     <div class="form-group">
-                        <label for="categoria" class="control-label col-md-3 col-sm-3 col-xs-12">Categoria<span class="required">*</span></label>
+                        <label for="categoria" class="control-label col-md-3 col-sm-3 col-xs-12">Categoria<span class="required">: *</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <select type="text" name="categoria" id="categoria" class="categoria form-control" required="required" class="form-control">
                                 <option value=""></option>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza<span class="required">*</span></label>
+                        <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza<span class="required">: *</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <select id="raza" name="raza" class="form-control">
                                 <option value=""></option>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="sex" class="control-label col-md-3 col-sm-3 col-xs-12">sexo<span class="required">*</span></label>
+                        <label for="sex" class="control-label col-md-3 col-sm-3 col-xs-12">Sexo<span class="required">: *</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <select id="sex" name="sex" class="form-control">
                                 <option value="M">Macho</option>
