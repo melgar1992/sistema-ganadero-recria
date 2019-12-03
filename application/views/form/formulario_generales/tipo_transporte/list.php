@@ -15,17 +15,13 @@
          <!-- Default box -->
          <div class="box">
              <div class="box-header with-border">
-                 <h3 class="box-title">Formulario</h3>
+                 <h3 class="box-title">Formulario Tipo de Transporte</h3>
 
-                 <div class="box-tools pull-right">
-                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                         <i class="fa fa-minus"></i></button>
-                     <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                         <i class="fa fa-times"></i></button>
-                 </div>
+
              </div>
              <div class="box-body">
-
+                 <h4> Todos los campos con * son obligatorios </h4>
+                 <br> </br>
                  <?php if ($this->session->flashdata("error")) : ?>
                      <div class="alert alert-danger alert-dismissable">
                          <button type="button" class="close" data-dissmiss="alert" aria-hidden="true">$times;</button>
@@ -33,13 +29,13 @@
 
                      </div>
                  <?php endif; ?>
-                 <form method="POST" action="<?php echo base_url();?>Formularios_Generales/Tipo_transporte/guardarTipoTransporte" id="tipo_transporte" class="form-horizontal form-label-left">
+                 <form method="POST" action="<?php echo base_url(); ?>Formularios_Generales/Tipo_transporte/guardarTipoTransporte" id="tipo_transporte" class="form-horizontal form-label-left">
 
-                     <div class="form-group <?php echo !empty(form_error("nombre"))?'has-error':'';?>">
-                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre del tipo del transporte <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="nombre" value="<?php echo set_value('nombre')?>" id=nombre required="required" class="form-group col-md-7 col-xs-12" placeholder="Camiones, Fluvial, Arreo de Ganado, Etc.">
-                             <?php echo form_error("nombre","<span class='help-block col-md-4 cols-xs-12 '>","</span>");?>
+                     <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
+                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre tipo de transporte: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="nombre" value="<?php echo set_value('nombre') ?>" id=nombre required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="Camiones, Fluvial, Arreo de Ganado, Etc.">
+                             <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
 
@@ -72,23 +68,23 @@
                                  </tr>
                              </thead>
                              <tbody>
-                             <?php if (!empty($tipo_transportes)) : ?>
-                                 <?php foreach ($tipo_transportes as $tipo_transporte) : ?>
+                                 <?php if (!empty($tipo_transportes)) : ?>
+                                     <?php foreach ($tipo_transportes as $tipo_transporte) : ?>
 
-                                     <tr>
-                                         <td><?php echo $tipo_transporte->id_tipo_transporte; ?></td>
-                                         <td><?php echo $tipo_transporte->nombres; ?></td>
-                                         
-                                         <td>
-                                             <div class="btn-group">
-                                                 <a href="<?php echo base_url() ?>Formularios_Generales/Tipo_transporte/Editar/<?php echo $tipo_transporte->id_tipo_transporte; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                 <button type="button" value="<?php echo $tipo_transporte->id_tipo_transporte;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
-                                             </div>
-                                         </td>
-                                     </tr>
-                                 <?php endforeach; ?>
-                             <?php endif; ?>
-                                 
+                                         <tr>
+                                             <td><?php echo $tipo_transporte->id_tipo_transporte; ?></td>
+                                             <td><?php echo $tipo_transporte->nombres; ?></td>
+
+                                             <td>
+                                                 <div class="btn-group">
+                                                     <a href="<?php echo base_url() ?>Formularios_Generales/Tipo_transporte/Editar/<?php echo $tipo_transporte->id_tipo_transporte; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                     <button type="button" value="<?php echo $tipo_transporte->id_tipo_transporte; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+                                                 </div>
+                                             </td>
+                                         </tr>
+                                     <?php endforeach; ?>
+                                 <?php endif; ?>
+
                              </tbody>
                          </table>
                      </div>

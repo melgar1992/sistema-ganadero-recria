@@ -38,30 +38,30 @@
                      <input type="hidden" value="<?php echo $ganadero->id_persona; ?>" name="id_persona">
 
                      <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
-                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombres <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="nombre" value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $ganadero->nombres ?>" id=nombre required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombres: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="nombre" value="<?php echo !empty(form_error("nombre")) ? set_value("nombre") : $ganadero->nombres ?>" id=nombre required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("apellidos")) ? 'has-error' : ''; ?>">
-                         <label for="apellidos" class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="apellidos" value="<?php echo !empty(form_error("apellidos")) ? set_value("apellidos") : $ganadero->apellidos ?>" id=apellidos required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="apellidos" class="control-label col-md-3 col-sm-3 col-xs-12">Apellidos: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="apellidos" value="<?php echo !empty(form_error("apellidos")) ? set_value("apellidos") : $ganadero->apellidos ?>" id=apellidos required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("apellidos", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("ci")) ? 'has-error' : ''; ?>">
-                         <label for="ci" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Identidad<span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="ci" value="<?php echo !empty(form_error("ci")) ? set_value("ci") : $ganadero->carnet_identidad ?>" id=ci required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="ci" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Identidad: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="ci" value="<?php echo !empty(form_error("ci")) ? set_value("ci") : $ganadero->carnet_identidad ?>" id=ci required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("ci", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("telefono")) ? 'has-error' : ''; ?>">
-                         <label for="telefono" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Telefono <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="telefono" value="<?php echo !empty(form_error("telefono")) ? set_value("telefono") : $ganadero->telefono ?>" id=telefono required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                         <label for="telefono" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Telefono: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="telefono" value="<?php echo !empty(form_error("telefono")) ? set_value("telefono") : $ganadero->telefono ?>" id=telefono required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("telefono", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                          </div>
                      </div>  

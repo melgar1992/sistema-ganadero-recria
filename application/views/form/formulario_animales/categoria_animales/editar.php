@@ -3,8 +3,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Categorias Animales
-            <small>Listado</small>
+            Categoria Animales
+     
         </h1>
 
     </section>
@@ -15,14 +15,8 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Title</h3>
+                <h3 class="box-title">Editar Categoria Animales</h3>
 
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fa fa-times"></i></button>
-                </div>
             </div>
             <div class="box-body">
 
@@ -38,9 +32,9 @@
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales/actualizarCategoriaAnimal" id="categorias" class="form-horizontal form-label-left">
                     <input type="hidden" value="<?php echo $categorias->id_tipo_animal; ?>" name="id_tipo_animal">
                     <div class="form-group">
-                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select name="nombre" id="nombre" required="required" class="form-group col-md-7 col-xs-12">
+                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre: <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <select name="nombre" id="nombre" required="required" class="form-control col-md-3 col-sm-3 col-xs-12">
                                 <?php foreach ($animales as $animal) : ?>
                                     <?php if ($animal == $categorias->nombre) : ?>
                                         <option value="<?php echo $animal ?>" selected><?php echo $animal?></option>
@@ -54,9 +48,9 @@
 
 
                     <div class="form-group">
-                        <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="raza" id="raza" value="<?php echo !empty(form_error("raza")) ? set_value("raza") : $categorias->raza ?>" required="required" class="form-group col-md-7 col-xs-12" placeholder="Escriba la raza">
+                        <label for="raza" class="control-label col-md-3 col-sm-3 col-xs-12">Raza: <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <input type="text" name="raza" id="raza" value="<?php echo !empty(form_error("raza")) ? set_value("raza") : $categorias->raza ?>" required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="Escriba la raza">
                             <?php echo form_error("raza", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>

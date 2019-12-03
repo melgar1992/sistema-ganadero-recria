@@ -4,7 +4,7 @@
      <section class="content-header">
          <h1>
              Tipos de Transporte
-             <small>Listado</small>
+             
          </h1>
 
      </section>
@@ -15,14 +15,8 @@
          <!-- Default box -->
          <div class="box">
              <div class="box-header with-border">
-                 <h3 class="box-title">Formulario</h3>
+                 <h3 class="box-title">Editar Tipo de Transporte</h3>
 
-                 <div class="box-tools pull-right">
-                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                         <i class="fa fa-minus"></i></button>
-                     <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                         <i class="fa fa-times"></i></button>
-                 </div>
              </div>
              <div class="box-body">
 
@@ -36,9 +30,9 @@
                  <form method="POST" action="<?php echo base_url();?>Formularios_Generales/Tipo_transporte/ActualizarTipoTransporte" id="tipo_transporte" class="form-horizontal form-label-left">
                  <input type="hidden" value="<?php echo $tipo_transporte->id_tipo_transporte;?>" name= "id_tipo_transporte">
                      <div class="form-group <?php echo !empty(form_error("nombre"))?'has-error':'';?>">
-                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre del tipo del transporte <span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="nombre" value="<?php echo !empty(form_error("nombre"))? set_value("nombre"):$tipo_transporte->nombres?>" id=nombre required="required" class="form-group col-md-7 col-xs-12" placeholder="Camiones, Fluvial, Arreo de Ganado, Etc.">
+                         <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre del tipo del transporte: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="nombre" value="<?php echo !empty(form_error("nombre"))? set_value("nombre"):$tipo_transporte->nombres?>" id=nombre required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="Camiones, Fluvial, Arreo de Ganado, Etc.">
                              <?php echo form_error("nombre","<span class='help-block col-md-4 cols-xs-12 '>","</span>");?>
                          </div>
                      </div>
