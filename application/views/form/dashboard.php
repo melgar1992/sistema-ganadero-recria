@@ -116,24 +116,11 @@
               <br>
               <div class="margin">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Reportes de inventario
-                    <span class="fa fa-caret-down"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a >Animales Bovinos</a></li>
-                    <li class="divider"></li>
-                    <li><a >Anmimales Otros</a></li>
-
-                  </ul>
-                </div>
-                <div class="btn-group">
                   <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Balance
                     <span class="fa fa-caret-down"></span></button>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a id="balance_general">Financiero</a></li>
-                    <li class="divider"></li>
-                    <li><a >Inventario</a></li>
-
+                    <li><a href="#" id="balance_general">Financiero</a></li>
                   </ul>
                 </div>
               </div>

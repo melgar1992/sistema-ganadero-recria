@@ -6,7 +6,7 @@
             <section class="sidebar">
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="header">Navegacion principal</li>
                     <li>
                         <a href="<?php echo base_url(); ?>">
                             <i class="fa fa-home"></i> <span>Inicio</span>
@@ -65,8 +65,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url(); ?>Formulario_Empleados/Tipo_cargo"><i class="fa fa-circle-o"></i> Tipo Cargo</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Empleados/Empleado"><i class="fa fa-circle-o"></i> Empleado</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Empleados/Tipo_cargo"><i class="fa fa-circle-o"></i> Categoria de Cargo</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Empleados/Empleado"><i class="fa fa-circle-o"></i> Empleados</a></li>
 
                         </ul>
                     </li>
@@ -81,8 +81,8 @@
                             <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Gastos_fijo"><i class="fa fa-circle-o"></i> Gastos Fijo</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Pago_empleado"><i class="fa fa-circle-o"></i> Pagos de Empleado</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Categoria_gastos_variable"><i class="fa fa-circle-o"></i> Categoria Gastos Variables</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Egreso_gasto_fijo"><i class="fa fa-circle-o"></i> Egresos de gastos Fijo</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Egreso_gasto_variable"><i class="fa fa-circle-o"></i> Egresos de gasto variable</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Egreso_gasto_fijo"><i class="fa fa-circle-o"></i> Egresos de gastos Fijos</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Egresos/Egreso_gasto_variable"><i class="fa fa-circle-o"></i> Egresos de gastos variables</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -94,7 +94,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="<?php echo base_url(); ?>Formulario_Ingresos/Categoria_otros_ingresos"><i class="fa fa-circle-o"></i> Categorias de Otros Ingresos</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Ingresos/Ingreso"><i class="fa fa-circle-o"></i> Ingreso</a></li>
+                            <li><a href="<?php echo base_url(); ?>Formulario_Ingresos/Ingreso"><i class="fa fa-circle-o"></i> Ingresos</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -105,8 +105,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Reporte 1</a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Reporte 2</a></li>
+                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Administracion de usuarios</a></li>
+                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Datos de la empresa</a></li>
                         </ul>
                     </li>
                 </ul>
