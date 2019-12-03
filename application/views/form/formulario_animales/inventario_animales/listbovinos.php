@@ -19,6 +19,8 @@
 
             </div>
             <div class="box-body">
+                <h4> Los campos con * son obligatorios</h4>
+                <br> </br>
 
                 <?php if ($this->session->flashdata("error")) : ?>
                     <div class="alert alert-danger alert-dismissable">

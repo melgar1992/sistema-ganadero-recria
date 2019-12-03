@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Compra de animales bovinos
+            Compra de Animales
             <small>Editar</small>
         </h1>
 
@@ -17,7 +17,7 @@
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border ">
-                    <h4>Todos los campos con * son obligatorios.</h4>
+                    
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -31,7 +31,7 @@
 
                     <div class="form-group">
                         <div class='col-md-3 col-sm-6 col-xs-12'>
-                            <label for="ganadero" class="">Ganadero*:</label>
+                            <label for="ganadero" class="">Ganadero: *</label>
                             <div class="input-group <?php echo !empty(form_error("ganadero")) ? 'has-error' : ''; ?>">
                                 <input type="hidden" name="id_ganadero" value="<?php echo !empty(form_error('id_ganadero')) ? set_value('id_ganadero') : $compra_animal->id_ganadero ?>" id="id_ganadero">
                                 <input type="text" class="form-control" placeholder="ganadero que vende" readonly value="<?php echo !empty(form_error('ganadero')) ? set_value('ganadero') : $compra_animal->nombre_ganadero ?>" required='required' name="ganadero" required='required' id="ganadero">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-group">
                         <div class='col-md-3 col-sm-6 col-xs-12'>
-                            <label for="empleado" class="">Empleado*:</label>
+                            <label for="empleado" class="">Empleado: *</label>
                             <div class="input-group <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
                                 <input type="hidden" name="id_empleado" value="<?php echo !empty(form_error('id_empleado')) ? form_error('id_empleado') : $compra_animal->id_empleado ?>" id="id_empleado">
                                 <input type="text" class="form-control" value="<?php echo !empty(form_error('empleado')) ? form_error('empleado') : $compra_animal->nombre_empleado ?>" placeholder="Encargado de compra" readonly required='required' name="empleado" required='required' id="empleado">
@@ -73,7 +73,7 @@
                         </div>
 
                         <div class='col-md-3 col-sm-6 col-xs-12'>
-                            <label for="estancia">Estancia*:</label>
+                            <label for="estancia">Estancia: *</label>
                             <div class="input-group <?php echo !empty(form_error("estancia")) ? 'has-error' : ''; ?>">
                                 <input type="hidden" name="id_estancia" value="<?php echo !empty(form_error('id_estancia')) ? form_error('id_estancia') : $compra_animal->id_estancia ?>" id="id_estancia">
                                 <input type="text" class="form-control" value="<?php echo !empty(form_error('estancia')) ? form_error('estancia') : $compra_animal->nombre_estancia ?>" placeholder="estancia destino" readonly name="estancia" id="estancia">
@@ -85,14 +85,14 @@
                         </div>
                         <div class='col-md-2 col-sm-6 col-xs-12'>
                             <div class='input-group'>
-                                <label for="comision" class="">Fecha compra*:</label>
+                                <label for="comision" class="">Fecha compra: *</label>
                                 <input type="date" class='form-control' required='required' value="<?php echo !empty(form_error('fecha')) ? form_error('fecha') : $compra_animal->fecha ?>" name="fecha" id="fecha">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class='col-md-3 col-sm-6 col-xs-12'>
-                            <label for="transportista">Transportista*:</label>
+                            <label for="transportista">Transportista: *</label>
                             <div class="input-group <?php echo !empty(form_error("transportista")) ? 'has-error' : ''; ?>">
                                 <input type="hidden" name="id_transportista" value="<?php echo !empty(form_error('id_transportista')) ? form_error('id_transportista') : $compra_animal->id_transportista ?>" id="id_transportista">
                                 <input type="text" class="form-control" value='<?php echo !empty(form_error('transportista')) ? form_error('transportista') : $compra_animal->nombre_transportista ?>' placeholder="transportista" readonly name="transportista" id="transportista">
@@ -106,7 +106,7 @@
                     <hr>
                     <div class="col-md-2 col-sm-4 col-xs-12">
                         <div>
-                            <label for="categ">Categoria <span class="required">*</span></label>
+                            <label for="categ">Categoria: <span class="required">*</span></label>
                             <select id="catego" name='categ' class="form-control categ">
                                 <option value=""></option>
                                 <option value="Equino">Equino</option>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="col-md-2 col-sm-4 col-xs-12 ">
                         <div>
-                            <label for="raz">Raza<span class="required">*</span></label>
+                            <label for="raz">Raza: <span class="required">*</span></label>
                             <select id="raz" name="raz" disabled class="form-control">
                                 <option value=""></option>
                             </select>

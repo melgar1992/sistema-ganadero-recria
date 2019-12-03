@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Pagos de Gastos Fijos
+            Pago de Gastos Fijos
             <small>Listado</small>
         </h1>
 
@@ -15,11 +15,12 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Formulario de Pago Gasto Fijo</h3>
+                <h3 class="box-title">Formulario de Pago Gastos Fijos</h3>
 
             </div>
             <div class="box-body">
                 <h4>Los campos con * son obligatorios.</h4>
+                <br></br>
 
                 <?php if ($this->session->flashdata("error")) : ?>
                     <div class="alert alert-danger alert-dismissable">
@@ -30,7 +31,7 @@
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Egresos/Egreso_gasto_fijo/guardarEgresoGastoFijo" id="pago_empleado" class="form-horizontal form-label-left">
 
                     <div class="form-group <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
-                        <label for="empleado" class="control-label col-md-3 col-sm-3 col-xs-12">Empleado <span class="required">*</span></label>
+                        <label for="empleado" class="control-label col-md-3 col-sm-3 col-xs-12">Empleado: <span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <input type="hidden" name="id_empleado" value="" id="id_empleado">
                             <input type="text" class="form-control" readonly name="empleado" required='required' id="empleado">
@@ -42,14 +43,14 @@
                     </div>
 
                     <div class="form-group <?php echo !empty(form_error("fecha")) ? 'has-error' : ''; ?>">
-                        <label for="fecha" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha del pago <span class="required">*</span></label>
+                        <label for="fecha" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha del pago: <span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <input type="date" name="fecha" value="" id=fecha required="required" class="form-control col-md-7 col-xs-12" placeholder="">
                             <?php echo form_error("fecha", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("gastos_fijos")) ? 'has-error' : ''; ?>">
-                        <label for="gastos_fijos" class="control-label col-md-3 col-sm-3 col-xs-12">Gastos_Fijos<span class="required">*</span></label>
+                        <label for="gastos_fijos" class="control-label col-md-3 col-sm-3 col-xs-12">Gastos_Fijos: <span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <select name="gastos_fijos" id="gastos_fijos" required class="form-control col-md-7 col-xs-12">
                                 <option value=""></option>
@@ -61,7 +62,7 @@
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Mes_Correspondiente<span class="required">*</span></label>
+                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Mes_Correspondiente: <span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <select type="text" name="mes_correspondiente" required="required" class="form-control col-md-7 col-xs-12 ">
                                 <option value="Enero">Enero</option>
@@ -82,7 +83,7 @@
                     </div>
 
                     <div class="form-group <?php echo !empty(form_error("total")) ? 'has-error' : ''; ?>">
-                        <label for="total" class="control-label col-md-3 col-sm-3 col-xs-12">Total Bs <span class="required">*</span></label>
+                        <label for="total" class="control-label col-md-3 col-sm-3 col-xs-12">Total Bs: <span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <input type="number" name="total" value="" id=total required="required" class="form-control col-md-7 col-xs-12" placeholder="">
                             <?php echo form_error("total", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
@@ -112,7 +113,7 @@
                                     <th>Gastos Fijos</th>
                                     <th>Fecha</th>
                                     <th>Mes_Correspondiente</th>
-                                    <th>Total</th>
+                                    <th>Total Bs</th>
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -126,7 +127,7 @@
                                             <td><?php echo $pago_gasto_fijo->gastoFijo; ?></td>
                                             <td><?php echo $pago_gasto_fijo->mes_correspondiente; ?></td>
                                             <td><?php echo $pago_gasto_fijo->fecha; ?></td>
-                                            <td><?php echo $pago_gasto_fijo->total; ?></td>
+                                            <td><?php echo number_format($pago_gasto_fijo->total, 2); ?></td>
 
                                             <td>
                                                 <div class="btn-group">

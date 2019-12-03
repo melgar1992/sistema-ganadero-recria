@@ -3,7 +3,7 @@
     <section class="content-header">
         <h1>
             Egresos Gastos Variables
-            <small>Editar</small>
+            <small></small>
         </h1>
     </section>
     <!-- Main content -->

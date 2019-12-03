@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             Egresos Gastos Variables
-            <small>Listado</small>
+            <small></small>
         </h1>
 
     </section>
@@ -15,14 +15,9 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Title</h3>
+                <h3 class="box-title"></h3>
 
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fa fa-times"></i></button>
-                </div>
+                
             </div>
             <div class="box-body">
                 <div class="form-group">
@@ -63,10 +58,10 @@
                                     <td><?php echo $egreso_gasto_variable->nombres; ?></td>
                                     <td><?php echo $egreso_gasto_variable->nombre_categoria_egreso_variable; ?></td>
                                     <td><?php echo $egreso_gasto_variable->fecha; ?></td>
-                                    <td><?php echo $egreso_gasto_variable->total; ?></td>
+                                    <td><?php echo number_format($egreso_gasto_variable->total, 2); ?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-info btn-vista-egresos" data-toggle="modal" data-target="#modal-default" value="<?php echo $egreso_gasto_variable->id_gastos_variables ?>"><span class="fa fa-search"></span></button>
+                                           
                                             <a href="<?php echo base_url() ?>Formulario_Egresos/egreso_gasto_variable/editar/<?php echo $egreso_gasto_variable->id_gastos_variables; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                             <button type="button" value="<?php echo $egreso_gasto_variable->id_gastos_variables; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                         </div>

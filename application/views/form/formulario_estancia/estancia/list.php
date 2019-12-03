@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Ganaderos
+            Estancias
             <small>Listado</small>
         </h1>
 
@@ -17,12 +17,7 @@
             <div class="box-header with-border">
                 <h3 class="box-title">Formulario de Estancias</h3>
 
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fa fa-times"></i></button>
-                </div>
+                
             </div>
             <div class="box-body">
                 <h4>Los campos con * son obligatorios.</h4>
@@ -37,8 +32,8 @@
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Estancia/Estancia/guardarEstancia" id="estancia" class="form-horizontal form-label-left">
 
                 <div class="form-group <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
-                        <label for="empelado" class="control-label col-md-3 col-sm-3 col-xs-12">Representante de la estancia <span class="required">*</span></label>
-                        <div class="input-group col-md-4 col-sm-6 col-xs-11">
+                        <label for="empleado" class="control-label col-md-3 col-sm-3 col-xs-12">Representante de la estancia: <span class="required">*</span></label>
+                        <div class="input-group col-md-4 col-sm-6 col-xs-12">
                             <input type="hidden" name="id_empleado" value="" id="id_empleado">
                             <input type="text"  class="form-control" readonly required='required' id="empleado">
                             <span class="input-group-btn">
@@ -48,16 +43,16 @@
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("nombre")) ? 'has-error' : ''; ?>">
-                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre de la Estancia <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="nombre" value="" id=nombre required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre de la Estancia: <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <input type="text" name="nombre" value="" id=nombre required="required" class="form-control col-md-3 col-xs-12" placeholder="">
                             <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="departamento" class="control-label col-md-3 col-sm-3 col-xs-12">Departamento </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select id="departamento" required name="departamento" class="form-group col-md-7 col-xs-12">
+                        <label for="departamento" class="control-label col-md-3 col-sm-3 col-xs-12">Departamento: </label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <select id="departamento" required name="departamento" class="form-control col-md-3 col-xs-12">
                                 <option value=""></option>
                                 <option value="Pando">Pando</option>
                                 <option value="Beni">Beni</option>
@@ -73,23 +68,23 @@
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("provincia")) ? 'has-error' : ''; ?>">
-                        <label for="provincia" class="control-label col-md-3 col-sm-3 col-xs-12">Provincia <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="provincia" value="" id=provincia required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                        <label for="provincia" class="control-label col-md-3 col-sm-3 col-xs-12">Provincia: <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <input type="text" name="provincia" value="" id=provincia required="required" class="form-control col-md-3 col-xs-12" placeholder="">
                             <?php echo form_error("provincia", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("municipio")) ? 'has-error' : ''; ?>">
-                        <label for="municipio" class="control-label col-md-3 col-sm-3 col-xs-12">Municipio <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="municipio" value="" id=municipio required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                        <label for="municipio" class="control-label col-md-3 col-sm-3 col-xs-12">Municipio: <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <input type="text" name="municipio" value="" id=municipio required="required" class="form-control col-md-3 col-xs-12" placeholder="">
                             <?php echo form_error("municipio", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("referencia")) ? 'has-error' : ''; ?>">
-                        <label for="referencia" class="control-label col-md-3 col-sm-3 col-xs-12">Referencia <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <textarea rows='3' name="referencia" value="" id=referencia required="required" class="form-group col-md-7 col-xs-12" placeholder=""></textarea>
+                        <label for="referencia" class="control-label col-md-3 col-sm-3 col-xs-12">Referencia: <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <textarea rows='3' name="referencia" value="" id=referencia required="required" class="form-control col-md-3 col-xs-12" placeholder=""></textarea>
                             <?php echo form_error("referencia", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>

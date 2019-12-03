@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Detalle_Egresos
+            Detalle Egresos Variables
             <small></small>
         </h1>
     </section>
@@ -48,30 +48,30 @@
                     <div class="form-group">
                         <div class="col-md-2 ">
                             <div>
-                                <label for="cantidad">Cantidad<span class="required">*</span></label>
+                                <label for="cantidad">Cantidad: <span class="required">*</span></label>
 
                                 <input type="number" value="" id="cantidad" class="form-control" placeholder="">
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-md-4 col-sm-6 col-xs-12">
 
                             <div>
-                                <label for="detalle">Detalle <span class="required">*</span></label>
+                                <label for="detalle">Detalle: <span class="required">*</span></label>
 
                                 <input type="text" value="" id="detalle" class="form-control " placeholder="">
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-2 col-xs-4">
+                        <div class="col-md-2 col-sm-4 col-xs-6">
                             <div>
-                                <label for="precio_unitario">Precio_unitario <span class="required">*</span></label>
+                                <label for="precio_unitario">Precio_unitario: <span class="required">*</span></label>
 
                                 <input type="number" value="" id="precio_unitario" class="form-control  " placeholder="">
                             </div>
                         </div>
 
-                        <div class="col-md-2 col-sm-2 col-xs-3">
+                        <div class="col-md-2 col-sm-4 col-xs-3">
                             <div>
-                                <label for="importe_total">Importe Total</label>
+                                <label for="importe_total">Importe Total Bs: </label>
                                 <input type="number" readonly value="" id="importe_total" class="form-control " placeholder="">
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                                         <th>Detalle</th>
                                         <th>Cantidad</th>
                                         <th>Precio Unitario</th>
-                                        <th>Sub Total</th>
+                                        <th>Sub Total Bs</th>
                                         <th>Opciones</th>
                                     <tr>
                                 </thead>
