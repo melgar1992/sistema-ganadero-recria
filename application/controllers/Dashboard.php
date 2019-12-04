@@ -16,6 +16,8 @@ class Dashboard extends BaseController
       'ingresos' => $this->Ingreso_model->getIngresoAnual(),
       'egresos' => $this->Egreso_model->getEgresoAnual(),
       'inventario' => $this->inventario_animales_model->getSumatoriaInventarioBovinoAnual(),
+      'years' => $this->Reportes_model->getYears(),
+      'ingresos_por_meses' => $this->Reportes_model->getIngresosPorMeses(date("y")),
     );
 
     $this->loadView('Dashboard', '/form/dashboard', $datos);
@@ -84,10 +86,10 @@ class Dashboard extends BaseController
   {
     $fechafin = $this->input->post('fechafin');
     $fechainicio = $this->input->post('fechainicio');
-    
+
     $datos = array(
       'ingreso_venta_animal' => $this->Reportes_model->getIngresoVentaAnimalesEntreFechas($fechainicio, $fechafin),
-      'comision_venta' => $this->Reportes_model->getComisionVentasAnimales($fechainicio, $fechafin),
+      'comision' => $this->Reportes_model->getComisionesAnimales($fechainicio, $fechafin),
       'otros_ingresos' => $this->Reportes_model->getOtrosIngresos($fechainicio, $fechafin),
       'pago_gastos_fijos' => $this->Reportes_model->getPagoGastosFijos($fechainicio, $fechafin),
       'pago_gastos_variables' => $this->Reportes_model->getPagoGastosVariables($fechainicio, $fechafin),
@@ -97,5 +99,15 @@ class Dashboard extends BaseController
     );
 
     $this->load->view('form/reportes/reportes_generales/balance_general', $datos);
+  }
+  public function Datos_grafico_principal()
+  {
+    $year = $this->input->post('year');
+    $datos = array(
+      'ingresos_por_meses' => $this->Reportes_model->getIngresosPorMeses($year),
+      'egresos_por_meses' => $this->Reportes_model->getEgresoPorMeses($year),
+    );
+
+    echo json_encode($datos);
   }
 }

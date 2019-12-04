@@ -30,11 +30,7 @@
                     <td></td>
                     <td><?php echo number_format($ingreso_venta_animal['total'], 2); ?> </td>
                 </tr>
-                <tr>
-                    <td>Pagos por comisiones</td>
-                    <td><?php echo number_format($comision_venta['comision_total'], 2); ?> </td>
-                    <td></td>
-                </tr>
+
                 <tr>
                     <td><strong>Otros Ingresos</strong></td>
                     <td colspan="2"></td>
@@ -51,7 +47,7 @@
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>
-
+               
                 <tr>
                     <td><strong>Gastos fijos</strong></td>
                     <td colspan="2"></td>
@@ -71,6 +67,11 @@
                 <tr>
                     <td> <strong>Gastos variables</strong></td>
                     <td colspan="2"></td>
+                </tr>
+                <tr>
+                    <td>Pagos por comisiones</td>
+                    <td><?php echo number_format($comision, 2); ?> </td>
+                    <td></td>
                 </tr>
                 <?php $suma_pago_gastos_variables = 0; ?>
                 <?php if (!empty($pago_gastos_variables)) : ?>
@@ -97,8 +98,8 @@
             </tbody>
 
         </table>
-        <?php $utilidad_bruta = $ingreso_venta_animal['total'] - $comision_venta['comision_total'] + $suma_otros_ingresos ?>
-        <?php $egresos =  $suma_pago_gastos_fijos + $suma_pago_gastos_variables + $pago_empleados['pago'] + $egreso_compra_animal['total']; ?>
+        <?php $utilidad_bruta = $ingreso_venta_animal['total'] + $suma_otros_ingresos ?>
+        <?php $egresos =  $suma_pago_gastos_fijos + $suma_pago_gastos_variables + $pago_empleados['pago'] + $comision + $egreso_compra_animal['total']; ?>
         <?php $balance = $utilidad_bruta  - $egresos ?>
         <h4>Utilidad antes Bruta &nbsp &nbsp<strong><?php echo number_format($utilidad_bruta, 2); ?></strong></h4>
         <h4>Egresos &nbsp &nbsp<strong><?php echo number_format($egresos, 2); ?></strong></h4>
