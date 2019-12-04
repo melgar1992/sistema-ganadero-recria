@@ -41,7 +41,7 @@
                     <div class="form-group <?php echo !empty(form_error("total")) ? 'has-error' : ''; ?>">
                         <label for="total" class="control-label col-md-3 col-sm-3 col-xs-12">Total Bs: <span class="required">*</span></label>
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <input type="number" name="total" value="<?php echo !empty(form_error("total")) ? set_value("total") : $gasto_fijo->total ?>" id=total required="required" class="form-control col-md-3 col-xs-12" placeholder="">
+                            <input type="number" step="any" min="0" name="total" value="<?php echo !empty(form_error("total")) ? set_value("total") : $gasto_fijo->total ?>" id=total required="required" class="form-control col-md-3 col-xs-12" placeholder="">
                             <?php echo form_error("total", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>

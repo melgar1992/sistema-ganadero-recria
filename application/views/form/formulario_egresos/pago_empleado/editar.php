@@ -68,7 +68,7 @@
                     <div class="form-group <?php echo !empty(form_error("pago")) ? 'has-error' : ''; ?>">
                         <label for="pago" class="control-label col-md-3 col-sm-3 col-xs-12">Pago Bs: <span class="required">*</span></label>
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <input type="number" name="pago" value="<?php echo !empty(form_error("pago")) ? set_value("pago") : $boleta_pago->pago ?>" id=pago required="required" class="form-control col-md-3 col-xs-12" placeholder="">
+                            <input type="number" step="any" min="0" name="pago" value="<?php echo !empty(form_error("pago")) ? set_value("pago") : $boleta_pago->pago ?>" id=pago required="required" class="form-control col-md-3 col-xs-12" placeholder="">
                             <?php echo form_error("pago", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
