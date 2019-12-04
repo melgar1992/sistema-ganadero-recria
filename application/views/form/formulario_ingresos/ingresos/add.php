@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Ingresos
+            Formulario Ingresos
             <small></small>
         </h1>
     </section>
@@ -40,7 +40,7 @@
                                 <?php echo form_error('forma_pago', "<span class= 'help-block'>", '</span>'); ?>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-4">
+                                <div class="col-md-3 col-sm-6 col-xs-11">
                                     <label for="">Empleado:</label>
                                     <div class="input-group">
                                         <input type="hidden" name="id_empleado" value="" id="id_empleado">
@@ -58,33 +58,33 @@
 
                             </div>
                             <div class="form-group">
-                                <div class="col-md-2 col-sm-2 col-xs-3 ">
+                                <div class="col-md-2 ">
                                     <div>
-                                        <label for="cantidad">Cantidad<span class="required">*</span></label>
+                                        <label for="cantidad">Cantidad: <span class="required">*</span></label>
 
-                                        <input type="number" step="any" value="" id="cantidad" class="form-control col-md-3 " placeholder="">
+                                        <input type="number" step="any" min="0" value="" id="cantidad" class="form-control col-md-3 " placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
 
                                     <div>
-                                        <label for="detalle">Detalle <span class="required">*</span></label>
+                                        <label for="detalle">Detalle: <span class="required">*</span></label>
 
                                         <input type="text" value="" id="detalle" class="form-control" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-4">
                                     <div>
-                                        <label for="precio_unitario">Precio_unitario <span class="required">*</span></label>
+                                        <label for="precio_unitario">Precio_unitario: <span class="required">*</span></label>
 
-                                        <input type="number" step="any" value="" id="precio_unitario" class="form-control" placeholder="">
+                                        <input type="number" step="any" min="0" value="" id="precio_unitario" class="form-control" placeholder="">
                                     </div>
                                 </div>
 
                                 <div class="col-md-2 col-sm-2 col-xs-4">
                                     <div>
-                                        <label for="importe_total">Importe Total</label>
-                                        <input type="number" readonly step="any" value="" id="importe_total" class="form-control" placeholder="">
+                                        <label for="importe_total">Importe Total: </label>
+                                        <input type="number" readonly step="any" min="0" value="" id="importe_total" class="form-control" placeholder="">
                                     </div>
                                 </div>
 
@@ -122,7 +122,7 @@
                                 <div class="col-md-3">
                                     <div class="input-group">
                                         <span class="input-group-addon">Importe total:</span>
-                                        <input type="number" step="any" class="form-control" placeholder="0.00" id="total" name="total" required readonly="readonly">
+                                        <input type="number" step="any" min="0" class="form-control" placeholder="0.00" id="total" name="total" required readonly="readonly">
                                     </div>
                                 </div>
                             </div>

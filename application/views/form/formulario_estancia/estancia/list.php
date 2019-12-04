@@ -17,7 +17,7 @@
             <div class="box-header with-border">
                 <h3 class="box-title">Formulario de Estancias</h3>
 
-                
+
             </div>
             <div class="box-body">
                 <h4>Los campos con * son obligatorios.</h4>
@@ -30,12 +30,11 @@
                     </div>
                 <?php endif; ?>
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Estancia/Estancia/guardarEstancia" id="estancia" class="form-horizontal form-label-left">
-
-                <div class="form-group <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
+                    <div class='form-group'>
                         <label for="empleado" class="control-label col-md-3 col-sm-3 col-xs-12">Representante de la estancia: <span class="required">*</span></label>
-                        <div class="input-group col-md-4 col-sm-6 col-xs-12">
+                        <div class="input-group col-md-4 col-sm-6 col-xs-12 <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
                             <input type="hidden" name="id_empleado" value="" id="id_empleado">
-                            <input type="text"  class="form-control" readonly required='required' id="empleado">
+                            <input type="text" class="form-control" readonly required='required' id="empleado">
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-default"><span class="fa fa-search"></span> Buscar</button>
                             </span>
@@ -128,11 +127,11 @@
 
                                         <tr>
                                             <td><?php echo $estancia->id_estancia; ?></td>
-                                            <td><?php echo $estancia->nombres;?> <?php echo $estancia->apellidos; ?></td>
+                                            <td><?php echo $estancia->nombres; ?> <?php echo $estancia->apellidos; ?></td>
                                             <td><?php echo $estancia->nombre; ?></td>
                                             <td><?php echo $estancia->departamento; ?></td>
                                             <td><?php echo $estancia->provincia; ?></td>
-                                            <td><?php echo $estancia->municipio; ?></td>               
+                                            <td><?php echo $estancia->municipio; ?></td>
 
                                             <td>
                                                 <div class="btn-group">
