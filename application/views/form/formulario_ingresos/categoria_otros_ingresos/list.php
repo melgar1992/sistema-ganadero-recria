@@ -15,14 +15,9 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Title</h3>
+                <h3 class="box-title">Formulario Categoria Otros Ingresos</h3>
 
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fa fa-times"></i></button>
-                </div>
+                
             </div>
             <div class="box-body">
 
@@ -37,9 +32,9 @@
 
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Ingresos/Categoria_otros_ingresos/guardarCategoriaOtrosIngresos" id="categoria_otros_ingresos" class="form-horizontal form-label-left">
                     <div class="form-group">
-                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="nombre" value="<?php echo set_value("nombre"); ?>" id="nombre" required="required" class="form-group col-md-7 col-xs-12" placeholder="Tractor,Comision,Queso,etc ">
+                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre Categoria: <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <input type="text" name="nombre" value="<?php echo set_value("nombre"); ?>" id="nombre" required="required" class="form-control col-md-3 col-xs-12" placeholder="Tractor,Comision,Queso,etc ">
                             <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>

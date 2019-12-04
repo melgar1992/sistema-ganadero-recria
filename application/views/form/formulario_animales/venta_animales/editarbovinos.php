@@ -3,8 +3,8 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
           <h1>
-              Venta de animales bovinos
-              <small></small>
+              Venta de Animales Bovinos
+              <small>Editar</small>
           </h1>
 
       </section>
@@ -16,7 +16,8 @@
               <!-- Default box -->
               <div class="box">
                   <div class="box-header with-border ">
-                      <h4>Todos los campos con * son obligatorios.</h4>
+                 
+                    
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">
@@ -30,7 +31,7 @@
 
                       <div class="form-group">
                           <div class='col-md-3 col-sm-6 col-xs-12'>
-                              <label for="ganadero" class="">Ganadero*:</label>
+                              <label for="ganadero" class="">Ganadero: *</label>
                               <div class="input-group <?php echo !empty(form_error("ganadero")) ? 'has-error' : ''; ?>">
                                   <input type="hidden" name="id_ganadero" value="<?php echo !empty(form_error('id_ganadero')) ? set_value('id_ganadero') : $venta_animal->id_ganadero ?>" id="id_ganadero">
                                   <input type="text" class="form-control" placeholder="ganadero que vende" readonly value="<?php echo !empty(form_error('ganadero')) ? set_value('ganadero') : $venta_animal->nombre_ganadero ?>" required='required' name="ganadero" required='required' id="ganadero">
@@ -60,7 +61,7 @@
                       </div>
                       <div class="form-group">
                           <div class='col-md-3 col-sm-6 col-xs-12'>
-                              <label for="empleado" class="">Empleado*:</label>
+                              <label for="empleado" class="">Empleado: *</label>
                               <div class="input-group <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
                                   <input type="hidden" name="id_empleado" value="<?php echo !empty(form_error('id_empleado')) ? form_error('id_empleado') : $venta_animal->id_empleado ?>" id="id_empleado">
                                   <input type="text" class="form-control" value="<?php echo !empty(form_error('empleado')) ? form_error('empleado') : $venta_animal->nombres ?>" placeholder="Encargado de compra" readonly required='required' name="empleado" required='required' id="empleado">
@@ -80,14 +81,14 @@
                           </div>
                           <div class='col-md-2 col-sm-6 col-xs-12'>
                               <div class='input-group'>
-                                  <label for="comision" class="">Fecha compra*:</label>
+                                  <label for="comision" class="">Fecha compra: *</label>
                                   <input type="date" class='form-control' value="<?php echo !empty(form_error('fecha')) ? form_error('fecha') : $venta_animal->fecha ?>" required='required' name="fecha" id="fecha">
                               </div>
                           </div>
                       </div>
                       <div class="form-group">
                           <div class='col-md-3 col-sm-6 col-xs-12'>
-                              <label for="transportista">Transportista*:</label>
+                              <label for="transportista">Transportista: *</label>
                               <div class="input-group <?php echo !empty(form_error("transportista")) ? 'has-error' : ''; ?>">
                                   <input type="hidden" name="id_transportista" value="<?php echo !empty(form_error('id_transportista')) ? form_error('id_transportista') : $venta_animal->id_transportista ?>" id="id_transportista">
                                   <input type="text" class="form-control" value='<?php echo !empty(form_error('transportista')) ? form_error('transportista') : $venta_animal->nombre_transportista ?>' placeholder="transportista" readonly name="transportista" id="transportista">
@@ -101,7 +102,7 @@
                       <hr>
                       <div class="form-group">
                           <div class='col-md-3 col-sm-3 col-xs-12'>
-                              <label for="stock_estancias">Seleccionar animales de inventario*:</label>
+                              <label for="stock_estancias">Seleccionar animales de inventario: *</label>
                               <div class="input-group">
                                   <span class="input-group-btn">
                                       <button class="btn btn-success btn-flat btn-block" type="button" data-toggle="modal" data-target="#modal-stock-estancias"><span class="fa fa-search"></span> Buscar</button>
@@ -109,11 +110,11 @@
                               </div>
                           </div>
                           <div class='col-md-3 col-sm-3 col-xs-12'>
-                              <label for="stock">Stock*:</label>
+                              <label for="stock">Stock: *</label>
                               <input type="text" readonly='readonly' value="" class="form-control" id="stock">
                           </div>
                           <div class='col-md-3 col-sm-3 col-xs-12'>
-                              <label for="canti">Cantidad*:</label>
+                              <label for="canti">Cantidad: *</label>
                               <input type="number" class="form-control" value="" id="canti">
                           </div>
                           <div class="col-md-2 col-md-2 col-xs-12">

@@ -3,7 +3,7 @@
      <!-- Content Header (Page header) -->
      <section class="content-header">
          <h1>
-             Tipo_Cargo
+             Tipo Cargos
              <small>Listado</small>
          </h1>
          
@@ -15,14 +15,9 @@
          <!-- Default box -->
          <div class="box">
              <div class="box-header with-border">
-                 <h3 class="box-title">Title</h3>
+                 <h3 class="box-title">Editar</h3>
 
-                 <div class="box-tools pull-right">
-                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                         <i class="fa fa-minus"></i></button>
-                     <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                         <i class="fa fa-times"></i></button>
-                 </div>
+                 
              </div>
              <div class="box-body">
                  
@@ -38,16 +33,16 @@
                  <form method="POST" action="<?php echo base_url();?>Formulario_Empleados/Tipo_Cargo/actualizarTipoCargo" id="tipo_cargo" class="form-horizontal form-label-left">
                      <input type="hidden" value="<?php echo $tipo_cargo->id_tipos_cargos;?>" name= "id_tipo_cargo">
                     <div class="form-group <?php echo !empty(form_error("cargo"))?'has-error':'';?>">
-                         <label for="cargo" class="control-label col-md-3 col-sm-3 col-xs-12">Cargo<span class="required">*</span></label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="cargo" id=cargo value="<?php echo !empty(form_error("cargo"))? set_value("cargo"):$tipo_cargo->cargo ?>" required="required" class="form-group col-md-7 col-xs-12" placeholder="Nombre del cargo">
+                         <label for="cargo" class="control-label col-md-3 col-sm-3 col-xs-12">Cargo: <span class="required">*</span></label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="cargo" id=cargo value="<?php echo !empty(form_error("cargo"))? set_value("cargo"):$tipo_cargo->cargo ?>" required="required" class="form-control col-md-3 col-xs-12" placeholder="Nombre del cargo">
                              <?php echo form_error("cargo","<span class='help-block col-md-4 cols-xs-12 '>","</span>");?>
                          </div>
                      </div>
                      <div class="form-group">
-                         <label for="area" class="control-label col-md-3 col-sm-3 col-xs-12">Area </label>
-                         <div class="col-md-6 col-sm-6 col-xs-12">
-                             <input type="text" name="area" id="area" value="<?php echo $tipo_cargo->area?>"  class="form-group col-md-7 col-xs-12" placeholder="Escriba el area">
+                         <label for="area" class="control-label col-md-3 col-sm-3 col-xs-12">Area: </label>
+                         <div class="col-md-4 col-sm-6 col-xs-12">
+                             <input type="text" name="area" id="area" value="<?php echo $tipo_cargo->area?>"  class="form-control col-md-3 col-xs-12" placeholder="Escriba el area">
 
                          </div>
                      </div>

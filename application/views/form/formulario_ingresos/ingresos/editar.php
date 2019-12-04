@@ -52,7 +52,7 @@
                                 <?php echo form_error('forma_pago', "<span class= 'help-block'>", '</span>'); ?>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-4">
+                                <div class="col-md-3 col-sm-6 col-xs-11">
                                     <label for="">Empleado:</label>
                                     <div class="input-group">
                                         <input type="hidden" name="id_empleado" value="<?php echo !empty(form_error("id_empleado")) ? set_value("id_empleado") : $ingreso->id_empleado ?>" id="id_empleado">
@@ -71,31 +71,31 @@
                             <div class="form-group">
                                 <div class="col-md-2 col-sm-2 col-xs-3 ">
                                     <div>
-                                        <label for="cantidad">Cantidad</label>
+                                        <label for="cantidad">Cantidad: *</label>
 
-                                        <input type="number"  value="" id="cantidad" class="form-control col-md-3 " placeholder="">
+                                        <input type="number" value=""  step="any" min="0"  id="cantidad" class="form-control col-md-3 " placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
 
                                     <div>
-                                        <label for="detalle">Detalle </label>
+                                        <label for="detalle">Detalle: * </label>
 
                                         <input type="text" value="" id="detalle" class="form-control" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-4">
                                     <div>
-                                        <label for="precio_unitario">Precio_unitario </label>
+                                        <label for="precio_unitario">Precio_unitario: *</label>
 
-                                        <input type="number"  value="" id="precio_unitario"  class="form-control" placeholder="">
+                                        <input type="number" value=""  step="any" min="0"  id="precio_unitario" class="form-control" placeholder="">
                                     </div>
                                 </div>
 
                                 <div class="col-md-2 col-sm-2 col-xs-4">
                                     <div>
                                         <label for="importe_total">Importe Total</label>
-                                        <input type="number"  readonly value="" id="importe_total" class="form-control" placeholder="">
+                                        <input type="number" readonly value=""  step="any" min="0"  id="importe_total" class="form-control" placeholder="">
                                     </div>
                                 </div>
 
@@ -131,13 +131,13 @@
                                                             <input type='text' name='detalle[]' value='<?php echo $detalle_ingreso->detalle; ?>'>
                                                         </td>
                                                         <td>
-                                                            <input type='number' step="any"  class='cantidad' name='cantidad[]' value='<?php echo $detalle_ingreso->cantidad; ?>'>
+                                                            <input type='number' step="any" min="0" class='cantidad' name='cantidad[]' value='<?php echo $detalle_ingreso->cantidad; ?>'>
                                                         </td>
                                                         <td>
-                                                            <input type='number' step="any"  class='precio_unitario' name='precio_unitario[]' value='<?php echo $detalle_ingreso->precio_unitario; ?>'>
+                                                            <input type='number' step="any" min="0" class='precio_unitario' name='precio_unitario[]' value='<?php echo $detalle_ingreso->precio_unitario; ?>'>
                                                         </td>
                                                         <td>
-                                                            <input type='hidden'  name='sub_total[]' value='<?php echo $detalle_ingreso->sub_total; ?>'>
+                                                            <input type='hidden'  step="any" min="0" name='sub_total[]' value='<?php echo $detalle_ingreso->sub_total; ?>'>
                                                             <p><?php echo $detalle_ingreso->sub_total ?></p>
                                                         </td>
                                                         <td>
@@ -156,7 +156,7 @@
                                 <div class="col-md-3">
                                     <div class="input-group">
                                         <span class="input-group-addon">Importe total:</span>
-                                        <input type="number" step="any"  class="form-control" value="<?php echo !empty(form_error("total")) ? set_value("total") : $ingreso->total ?>" placeholder="0.00" id="total" name="total" required readonly="readonly">
+                                        <input type="number" step="any"  min="0" class="form-control" value="<?php echo !empty(form_error("total")) ? set_value("total") : $ingreso->total ?>" placeholder="0.00" id="total" name="total" required readonly="readonly">
                                     </div>
                                 </div>
                             </div>

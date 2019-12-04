@@ -3,7 +3,7 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
           <h1>
-              Venta de animales 
+              Venta de Animales 
               <small></small>
           </h1>
 
@@ -29,7 +29,7 @@
 
                       <div class="form-group">
                           <div class='col-md-3 col-sm-6 col-xs-12'>
-                              <label for="ganadero" class="">Ganadero*:</label>
+                              <label for="ganadero" class="">Ganadero: *</label>
                               <div class="input-group <?php echo !empty(form_error("ganadero")) ? 'has-error' : ''; ?>">
                                   <input type="hidden" name="id_ganadero" value="" id="id_ganadero">
                                   <input type="text" class="form-control" placeholder="ganadero que compra" readonly required='required' name="ganadero" required='required' id="ganadero">
@@ -59,7 +59,7 @@
                       </div>
                       <div class="form-group">
                           <div class='col-md-3 col-sm-6 col-xs-12'>
-                              <label for="empleado" class="">Empleado*:</label>
+                              <label for="empleado" class="">Empleado: *</label>
                               <div class="input-group <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
                                   <input type="hidden" name="id_empleado" value="" id="id_empleado">
                                   <input type="hidden" name="id_contrato_empleado" value="" id="id_contrato_empleado">
@@ -80,14 +80,14 @@
                           </div>
                           <div class='col-md-2 col-sm-6 col-xs-12'>
                               <div class='input-group'>
-                                  <label for="comision" class="">Fecha compra*:</label>
+                                  <label for="comision" class="">Fecha compra: *</label>
                                   <input type="date" class='form-control' required='required' name="fecha" id="fecha">
                               </div>
                           </div>
                       </div>
                       <div class="form-group">
                           <div class='col-md-3 col-sm-6 col-xs-12'>
-                              <label for="transportista">Transportista*:</label>
+                              <label for="transportista">Transportista: *</label>
                               <div class="input-group <?php echo !empty(form_error("transportista")) ? 'has-error' : ''; ?>">
                                   <input type="hidden" name="id_transportista" value="" id="id_transportista">
                                   <input type="text" class="form-control" placeholder="transportista" readonly name="transportista" id="transportista">
@@ -101,7 +101,7 @@
                       <hr>
                       <div class="form-group">
                           <div class='col-md-3 col-sm-3 col-xs-12'>
-                              <label for="stock_estancias">Seleccionar animales de inventario*:</label>
+                              <label for="stock_estancias">Seleccionar animales de inventario: *</label>
                               <div class="input-group">
                                   <span class="input-group-btn">
                                       <button class="btn btn-success btn-flat btn-block" type="button" data-toggle="modal" data-target="#modal-stock-estancias"><span class="fa fa-search"></span> Buscar</button>
@@ -109,11 +109,11 @@
                               </div>
                           </div>
                           <div class='col-md-3 col-sm-3 col-xs-12'>
-                              <label for="stock">Stock*:</label>
+                              <label for="stock">Stock: *</label>
                               <input type="text" readonly='readonly' value="" class="form-control" id="stock">
                           </div>
                           <div class='col-md-3 col-sm-3 col-xs-12'>
-                              <label for="canti">Cantidad*:</label>
+                              <label for="canti">Cantidad: *</label>
                               <input type="number" class="form-control" value="" id="canti">
                           </div>
                           <div class="col-md-2 col-md-2 col-xs-12">

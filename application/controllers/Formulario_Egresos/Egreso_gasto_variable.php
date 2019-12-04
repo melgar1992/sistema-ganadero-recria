@@ -91,7 +91,7 @@ class Egreso_gasto_variable extends BaseController
             "categoriaegresovariables" => $this->Egreso_gasto_variable_model->getCategoriaEgresos(),
         );
 
-        $this->loadView('egresos_gastos_variables', '/form/formulario_egresos/egreso_gasto_variable/editar', $data);
+        $this->loadView('Egreso_gastos_variable', '/form/formulario_egresos/egreso_gasto_variable/editar', $data);
     }
     public function actualizarEgreso()
     {

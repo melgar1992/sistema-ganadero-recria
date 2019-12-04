@@ -15,14 +15,9 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Formulario de Boletas de pagos</h3>
+                <h3 class="box-title">Editar</h3>
 
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fa fa-times"></i></button>
-                </div>
+                
             </div>
             <div class="box-body">
                 <h4>Los campos con * son obligatorios.</h4>
@@ -36,7 +31,7 @@
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Egresos/Pago_empleado/actualizarBoletaPago" id="pago_empleado" class="form-horizontal form-label-left">
                             <input type="text" hidden name="id_boleta_pago" value="<?php echo $boleta_pago->id_boleta_pago; ?>">
                     <div class="form-group <?php echo !empty(form_error("empleado")) ? 'has-error' : ''; ?>">
-                        <label for="empelado" class="control-label col-md-3 col-sm-3 col-xs-12">Empleado <span class="required">*</span></label>
+                        <label for="empelado" class="control-label col-md-3 col-sm-3 col-xs-12">Empleado: <span class="required">*</span></label>
                         <div class="input-group col-md-4 col-sm-6 col-xs-11">
                             <input type="hidden" name="id_empleado" value="<?php echo $boleta_pago->id_empleado; ?>" id="id_empleado">
                             <input type="hidden" name="id_contrato_empleado" value="<?php echo $boleta_pago->id_contrato_empleado; ?>" id="id_contrato_empleado">
@@ -48,16 +43,16 @@
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("fecha")) ? 'has-error' : ''; ?>">
-                        <label for="fecha" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha del pago <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="date" name="fecha" value="<?php echo !empty(form_error("fecha")) ? set_value("fecha") : $boleta_pago->fecha ?>" id=fecha required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                        <label for="fecha" class="control-label col-md-3 col-sm-3 col-xs-12">Fecha del pago: <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <input type="date" name="fecha" value="<?php echo !empty(form_error("fecha")) ? set_value("fecha") : $boleta_pago->fecha ?>" id=fecha required="required" class="form-control col-md-3 col-xs-12" placeholder="">
                             <?php echo form_error("fecha", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("tipo_pago")) ? 'has-error' : ''; ?>">
-                        <label for="tipo_pago" class="control-label col-md-3 col-sm-3 col-xs-12">Tipos de pago<span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select name="tipo_pago" id="tipo_pago" required class="form-group col-md-7 col-xs-12">
+                        <label for="tipo_pago" class="control-label col-md-3 col-sm-3 col-xs-12">Tipos de pago: <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <select name="tipo_pago" id="tipo_pago" required class="form-control col-md-3 col-xs-12">
                                 <option value=""></option>
                                 <?php foreach ($tipos_pagos as $tipo_pago) : ?>
                                     <?php if ($boleta_pago->id_tipo_pago == $tipo_pago->id_tipo_pago) : ?>
@@ -71,9 +66,9 @@
                         </div>
                     </div>
                     <div class="form-group <?php echo !empty(form_error("pago")) ? 'has-error' : ''; ?>">
-                        <label for="pago" class="control-label col-md-3 col-sm-3 col-xs-12">Pago Bs <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" name="pago" value="<?php echo !empty(form_error("pago")) ? set_value("pago") : $boleta_pago->pago ?>" id=pago required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                        <label for="pago" class="control-label col-md-3 col-sm-3 col-xs-12">Pago Bs: <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <input type="number" name="pago" value="<?php echo !empty(form_error("pago")) ? set_value("pago") : $boleta_pago->pago ?>" id=pago required="required" class="form-control col-md-3 col-xs-12" placeholder="">
                             <?php echo form_error("pago", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>

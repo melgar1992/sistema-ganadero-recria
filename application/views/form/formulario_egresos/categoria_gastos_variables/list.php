@@ -15,16 +15,13 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Title</h3>
+                <h3 class="box-title">Formulario Categoria Gastos Variables</h3>
 
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fa fa-times"></i></button>
-                </div>
+
             </div>
             <div class="box-body">
+                <h4>Los campos con * son obligatorios.</h4>
+                <br> </br>
 
                 <?php if ($this->session->flashdata("error")) : ?>
                     <div class="alert alert-danger alert-dismissable">
@@ -37,13 +34,13 @@
 
                 <form method="POST" action="<?php echo base_url(); ?>Formulario_Egresos/Categoria_gastos_variable/guardarCategoriaGastosVariables" id="categoria_gastos_variables" class="form-horizontal form-label-left">
                     <div class="form-group">
-                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="nombre" value="<?php echo set_value("nombre"); ?>" id="nombre" required="required" class="form-group col-md-7 col-xs-12" placeholder="">
+                        <label for="nombre" class="control-label col-md-3 col-sm-3 col-xs-12">Nombre: <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <input type="text" name="nombre" value="<?php echo set_value("nombre"); ?>" id="nombre" required="required" class="form-control col-md-3 col-xs-12" placeholder="">
                             <?php echo form_error("nombre", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>
                         </div>
                     </div>
-                   
+
 
                     <div class="form-group">
 
@@ -74,12 +71,12 @@
                                         <tr>
                                             <td><?php echo $categoria_gasto_variable->id_tipo_gastos_variables; ?></td>
                                             <td><?php echo $categoria_gasto_variable->nombre; ?></td>
-                                            
+
                                             <td>
                                                 <div class="btn-group">
 
                                                     <a href="<?php echo base_url(); ?>Formulario_Egresos/Categoria_gastos_variable/editar/<?php echo $categoria_gasto_variable->id_tipo_gastos_variables; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
-                                                    <button type="button" value="<?php echo $categoria_gasto_variable->id_tipo_gastos_variables;?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
+                                                    <button type="button" value="<?php echo $categoria_gasto_variable->id_tipo_gastos_variables; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                                 </div>
                                             </td>
                                         </tr>

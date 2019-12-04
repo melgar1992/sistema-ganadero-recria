@@ -56,7 +56,7 @@
                                             <td><?php echo number_format($venta_animal->total, 2); ?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-info btn-vista-ingresos" data-toggle="modal" data-target="#modal-default" value="<?php echo $venta_animal->id_venta_animales ?>"><span class="fa fa-search"></span></button>
+                                                   
                                                     <?php if ($venta_animal->tipo_venta == 'bovino') : ?>
                                                         <a href="<?php echo base_url() ?>Formulario_Animales/Venta_animales/editarBovinos/<?php echo $venta_animal->id_venta_animales; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                     <?php else :  ?>

@@ -56,7 +56,7 @@
                                             <td><?php echo number_format($compra_animal->total, 2); ?></td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-info btn-vista-ingresos" data-toggle="modal" data-target="#modal-default" value="<?php echo $compra_animal->id_compra_animales ?>"><span class="fa fa-search"></span></button>
+                                                  
                                                     <?php if ($compra_animal->tipo_compra == 'bovino') : ?>
                                                         <a href="<?php echo base_url() ?>Formulario_Animales/Compra_animales/editarBovinos/<?php echo $compra_animal->id_compra_animales; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                     <?php else :  ?>

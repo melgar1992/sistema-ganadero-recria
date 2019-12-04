@@ -47,7 +47,7 @@
                          </div>
                      </div>
                      <div class="form-group <?php echo !empty(form_error("ci")) ? 'has-error' : ''; ?>">
-                         <label for="ci" class="control-label col-md-3 col-sm-3 col-xs-12">Numero de Identidad: <span class="required">*</span></label>
+                         <label for="ci" class="control-label col-md-3 col-sm-3 col-xs-12">Carnet de Identidad: <span class="required">*</span></label>
                          <div class="col-md-4 col-sm-6 col-xs-12">
                              <input type="text" name="ci" value="<?php echo !empty(form_error("ci")) ? set_value("ci") : $intermediario->carnet_identidad ?>" id=ci required="required" class="form-control col-md-3 col-sm-3 col-xs-12" placeholder="">
                              <?php echo form_error("ci", "<span class='help-block col-md-4 cols-xs-12 '>", "</span>"); ?>

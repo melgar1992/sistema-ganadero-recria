@@ -43,7 +43,7 @@
 
                             </div>
                             <div class="form-group">
-                                <div class="col-md-4">
+                                <div class="col-md-3 col-sm-6 col-xs-11">
                                     <label for="">Empleado:</label>
                                     <div class="input-group">
                                         <input type="hidden" name="id_empleado" value="<?php echo !empty(form_error("id_empleado")) ? set_value("id_empleado") : $egreso_gasto_variable->id_empleado ?>" id="id_empleado">
@@ -60,33 +60,33 @@
 
                             </div>
                             <div class="form-group">
-                                <div class="col-md-2 col-sm-2 col-xs-3 ">
+                                <div class="col-md-2 ">
                                     <div>
-                                        <label for="cantidad">Cantidad</label>
+                                        <label for="cantidad">Cantidad: *</label>
 
-                                        <input type="number" value="" id="cantidad" class="form-control col-md-3 " placeholder="">
+                                        <input type="number" step="any" min="0" value="" id="cantidad" class="form-control col-md-3 " placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
 
                                     <div>
-                                        <label for="detalle">Detalle </label>
+                                        <label for="detalle">Detalle: * </label>
 
                                         <input type="text" value="" id="detalle" class="form-control" placeholder="">
                                     </div>
                                 </div>
-                                <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="col-md-2 col-sm-4 col-xs-6">
                                     <div>
-                                        <label for="precio_unitario">Precio_unitario </label>
+                                        <label for="precio_unitario">Precio_unitario: * </label>
 
-                                        <input type="number" value="" id="precio_unitario" class="form-control" placeholder="">
+                                        <input type="number" step="any" min="0" value="" id="precio_unitario" class="form-control" placeholder="">
                                     </div>
                                 </div>
 
-                                <div class="col-md-2 col-sm-2 col-xs-4">
+                                <div class="col-md-2 col-sm-4 col-xs-3">
                                     <div>
-                                        <label for="importe_total">Importe Total</label>
-                                        <input type="number" readonly value="" id="importe_total" class="form-control" placeholder="">
+                                        <label for="importe_total">Importe Total: </label>
+                                        <input type="number" step="any" min="0" readonly value="" id="importe_total" class="form-control" placeholder="">
                                     </div>
                                 </div>
 
@@ -122,10 +122,10 @@
                                                             <input type='text' name='detalle[]' value='<?php echo $detalle_egreso->detalle; ?>'>
                                                         </td>
                                                         <td>
-                                                            <input type='number' class='cantidad' name='cantidad[]' value='<?php echo $detalle_egreso->cantidad; ?>'>
+                                                            <input type='number' step="any" min="0" class='cantidad' name='cantidad[]' value='<?php echo $detalle_egreso->cantidad; ?>'>
                                                         </td>
                                                         <td>
-                                                            <input type='number' class='precio_unitario' name='precio_unitario[]' value='<?php echo $detalle_egreso->precio_unitario; ?>'>
+                                                            <input type='number' step="any" min="0" class='precio_unitario' name='precio_unitario[]' value='<?php echo $detalle_egreso->precio_unitario; ?>'>
                                                         </td>
                                                         <td>
                                                             <input type='hidden' name='sub_total[]' value='<?php echo $detalle_egreso->sub_total; ?>'>
@@ -141,21 +141,22 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class='form-group'>
-                                    <div class="col-md-3">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Importe total:</span>
-                                            <input type="number" class="form-control" value="<?php echo !empty(form_error("total")) ? set_value("total") : $egreso_gasto_variable->total ?>" placeholder="0.00" id="total" name="total" required readonly="readonly">
-                                        </div>
+                            </div>
+                            <div class='form-group'>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Importe total:</span>
+                                        <input type="number" step="any" min="0" class="form-control" value="<?php echo !empty(form_error("total")) ? set_value("total") : $egreso_gasto_variable->total ?>" placeholder="0.00" id="total" name="total" required readonly="readonly">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <a class="btn btn-primary " href="<?php echo site_url("Formulario_Egresos/Egreso_gasto_variable") ?>" type="button">Volver</a>
-                                        <button type="submit" class="btn btn-warning ">Editar</button>
-                                    </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <a class="btn btn-primary " href="<?php echo site_url("Formulario_Egresos/Egreso_gasto_variable") ?>" type="button">Volver</a>
+                                    <button type="submit" class="btn btn-warning ">Editar</button>
                                 </div>
+                            </div>
                         </form>
                     </div>
                     <!-- /.box-body -->
