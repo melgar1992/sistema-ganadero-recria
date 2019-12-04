@@ -1,5 +1,9 @@
+
+
 $(document).ready(function () {
 	var base_url = $("#base_url").val();
+	var year = (new Date).getFullYear();
+	data_grafico_principal(base_url, year);
 	$('#reporte_categoria_bovino').on('click', function () {
 
 		$.ajax({
@@ -99,7 +103,10 @@ $(document).ready(function () {
 				url: base_url + 'Dashboard/Balance_general',
 				type: 'POST',
 				dataType: 'html',
-				data: { fechafin: fechafin, fechainicio: fechainicio },
+				data: {
+					fechafin: fechafin,
+					fechainicio: fechainicio
+				},
 				success: function (data) {
 
 					$('#modal-reporte .modal-body').html(data);
@@ -117,6 +124,10 @@ $(document).ready(function () {
 		}
 
 	});
+	$('#year').on('change', function () {
+		yearselected = $(this).val();
+		data_grafico_principal(base_url, yearselected);
+	});
 	$(document).on('click', '.btn-print', function () {
 
 		$("#modal-reporte .modal-body").print({
@@ -125,7 +136,29 @@ $(document).ready(function () {
 	});
 
 });
-$(function () {
+
+function data_grafico_principal(base_url, year) {
+
+	$.ajax({
+		type: "POST",
+		url: base_url + "Dashboard/Datos_grafico_principal",
+		data: {
+			year: year
+		},
+		dataType: "json",
+		success: function (response) {
+			resetGrafico();
+			grafico_principal(response['ingresos_por_meses'],response['egresos_por_meses']);
+		}
+	});
+}
+
+function resetGrafico() {
+	$('#lineChart').remove(); // this is my <canvas> element
+	$('#chart').append('<canvas id="lineChart" style="height:250px"></canvas>');
+}
+
+function grafico_principal(ingresos_mensuales,egresos_por_meses) {
 	/* ChartJS
 	 * -------
 	 * Here we will create a few charts using ChartJS
@@ -134,28 +167,27 @@ $(function () {
 	//--------------
 	//- AREA CHART -
 	//--------------
-
 	var areaChartData = {
 		labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
 		datasets: [{
-				label: 'Electronics',
+				label: 'Egresos',
 				fillColor: 'rgba(210, 214, 222, 1)',
 				strokeColor: 'rgba(210, 214, 222, 1)',
 				pointColor: 'rgba(210, 214, 222, 1)',
 				pointStrokeColor: '#c1c7d1',
 				pointHighlightFill: '#fff',
 				pointHighlightStroke: 'rgba(220,220,220,1)',
-				data: [65, 59, 80, 81, 56, 55, 40]
+				data: egresos_por_meses
 			},
 			{
-				label: 'Digital Goods',
+				label: 'Ingresos',
 				fillColor: 'rgba(60,141,188,0.9)',
 				strokeColor: 'rgba(60,141,188,0.8)',
 				pointColor: '#3b8bba',
 				pointStrokeColor: 'rgba(60,141,188,1)',
 				pointHighlightFill: '#fff',
 				pointHighlightStroke: 'rgba(60,141,188,1)',
-				data: [28, 48, 40, 19, 86, 27, 90]
+				data: ingresos_mensuales
 			}
 		]
 	}
@@ -196,18 +228,17 @@ $(function () {
 		//Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
 		maintainAspectRatio: true,
 		//Boolean - whether to make the chart responsive to window resizing
-		responsive: true
+		responsive: true,
+		//Para que se muestren las etiquetas de los datos del grafico
+		multiTooltipTemplate: "<%= datasetLabel %>  <%= value %>"
 	}
-
-
 	//-------------
 	//- LINE CHART -
 	//--------------
 	var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
 	var lineChart = new Chart(lineChartCanvas)
 	var lineChartOptions = areaChartOptions
-	lineChartOptions.datasetFill = false
 	lineChart.Line(areaChartData, lineChartOptions)
 
 
-})
+}
