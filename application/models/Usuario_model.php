@@ -4,8 +4,11 @@ class Usuario_model extends CI_Model
 
 public function login($username, $password)
 {
+    $this->db->select('usuarios.*, roles.nombres as rol');
     $this->db->where("username",$username);
     $this->db->where("password",$password);
+    $this->db->join('roles','roles.id_roles = usuarios.id_roles');
+
 
     $resultado = $this->db->get("usuarios");
 

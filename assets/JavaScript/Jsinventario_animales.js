@@ -38,6 +38,32 @@ $(document).ready(function () {
             }
         })
     })
+    $(document).on('click', '#cambio_categoria', function () {
+
+        Swal.fire({
+            title: 'Esta seguro de realizar el cambio de categorias??',
+            text: "Una vez se cambian las categorias no se puede revertir!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, deseo cambio categoria!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.value) {
+                
+                $.ajax({
+                    url: base_url + 'Formulario_Animales/inventario_animales/cambioCategoria',
+                    type: 'POST',
+                    success: function (resp) {
+                        window.location.href = base_url + resp;
+                    }
+                })
+
+
+            }
+        })
+    })
     $('.categ').on('change', function () {
         var categoria = $(this).val();
         $('.raz').empty();

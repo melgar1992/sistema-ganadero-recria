@@ -93,7 +93,8 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                             <button class="btn btn-primary btn-flat" type="reset">Borrar</button>
                             <button type="submit" id="guardar" class="btn btn-success">Guardar</button>
-
+                            <button type="button" id="cambio_categoria" class="btn btn-warning">Cambio de categoria</button>
+      
                         </div>
                     </div>
 

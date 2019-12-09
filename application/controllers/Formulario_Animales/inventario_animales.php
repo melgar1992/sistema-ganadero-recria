@@ -156,4 +156,11 @@ class inventario_animales extends BaseController
 
          echo 'Formulario_Animales/inventario_animales';
     }
+    public function cambioCategoria()
+    {
+        $this->inventario_animales_model->cambioCategoriaBovinos();
+       
+        echo 'Formulario_Animales/inventario_animales';
+
+    }
 }

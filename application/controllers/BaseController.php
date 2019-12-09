@@ -33,7 +33,7 @@ class BaseController extends CI_Controller
 			$data = array(
 				'id_usuarios' => $res->id_usuarios,
 				'nombres' => $res->nombres,
-				'id_roles' => $res->id_roles,
+				'rol' => $res->rol,
 				'login' => true,
 			);
 

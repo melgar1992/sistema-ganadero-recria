@@ -37,8 +37,10 @@
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Categoria_animales"><i class="fa fa-circle-o"></i> Categoria Animales</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/control_animales/listBovino"><i class="fa fa-circle-o"></i>Control animales bovinos</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/control_animales/listAnimales"><i class="fa fa-circle-o"></i>Control animales otros</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/inventario_animales"><i class="fa fa-circle-o"></i> Inventario Animales Bovinos</a></li>
-                            <li><a href="<?php echo base_url(); ?>Formulario_Animales/inventario_animales/listAnimales"><i class="fa fa-circle-o"></i> Inventario Animales</a></li>
+                            <?php if ($this->session->userdata('rol') == 'Admin') : ?>
+                                <li><a href="<?php echo base_url(); ?>Formulario_Animales/inventario_animales"><i class="fa fa-circle-o"></i> Inventario Animales Bovinos</a></li>
+                                <li><a href="<?php echo base_url(); ?>Formulario_Animales/inventario_animales/listAnimales"><i class="fa fa-circle-o"></i> Inventario Animales</a></li>
+                            <?php endif; ?>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Venta_animales"><i class="fa fa-circle-o"></i> Ventas de Animales</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Compra_animales"><i class="fa fa-circle-o"></i> Compra de Animales</a></li>
 
@@ -97,18 +99,20 @@
                             <li><a href="<?php echo base_url(); ?>Formulario_Ingresos/Ingreso"><i class="fa fa-circle-o"></i> Ingresos</a></li>
                         </ul>
                     </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa  fa-gear"></i> <span>Configuracion del sistema</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Administracion de usuarios</a></li>
-                            <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Datos de la empresa</a></li>
-                        </ul>
-                    </li>
+                    <?php if ($this->session->userdata('rol') == 'Admin') : ?>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa  fa-gear"></i> <span>Configuracion del sistema</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Administracion de usuarios</a></li>
+                                <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Datos de la empresa</a></li>
+                            </ul>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </section>
             <!-- /.sidebar -->
