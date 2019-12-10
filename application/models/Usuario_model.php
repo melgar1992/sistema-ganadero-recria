@@ -7,7 +7,7 @@ class Usuario_model extends CI_Model
         $this->db->select('usuarios.*, roles.nombres as rol');
         $this->db->where("username", $username);
         $this->db->where("password", $password);
-        $this->db->where("username.estado", "1");
+        $this->db->where("usuarios.estado", "1");
         $this->db->join('roles', 'roles.id_roles = usuarios.id_roles');
 
 
