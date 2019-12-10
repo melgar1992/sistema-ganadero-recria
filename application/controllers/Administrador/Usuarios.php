@@ -20,8 +20,6 @@ class Usuarios extends BaseController
     {
         $nombre = $this->input->post("nombre");
         $apellidos = $this->input->post("apellidos");
-        $telefono = $this->input->post("telefono");
-        $email = $this->input->post("email");
         $username = $this->input->post("username");
         $password = $this->input->post("password");
         $roles = $this->input->post("roles");
@@ -31,9 +29,7 @@ class Usuarios extends BaseController
         $data = array(
             'id_roles' => $roles,
             'nombres' => $nombre,
-            'apellidos' => $apellidos,
-            'telefono' => $telefono,
-            'email' => $email,
+            'apellidos' => $apellidos, 
             'username' => $username,
             'password' => $password,
             'estado' => "1"
@@ -68,8 +64,6 @@ class Usuarios extends BaseController
         $idusuario = $this->input->post("idusuario");
         $nombre = $this->input->post("nombre");
         $apellidos = $this->input->post("apellidos");
-        $telefono = $this->input->post("telefono");
-        $email = $this->input->post("email");
         $username = $this->input->post("username");
         $password = $this->input->post("password");
         $roles = $this->input->post("roles");
@@ -80,8 +74,6 @@ class Usuarios extends BaseController
             'id_roles' => $roles,
             'nombres' => $nombre,
             'apellidos' => $apellidos,
-            'telefono' => $telefono,
-            'email' => $email,
             'username' => $username,
             'password' => $password,
 
