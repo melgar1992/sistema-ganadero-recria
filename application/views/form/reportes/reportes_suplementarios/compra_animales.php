@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-xs-12">
 
-        En el siguiente reporte se mostrara los datos de las cantidades  de las ventas de otros animales realizadas en el año presente asi como tambien los ingresos de forma monetaria.
+        En el siguiente reporte se mostrara los datos de las cantidades  de las compras realizadas en el año presente asi como tambien los ingresos de forma monetaria.
 
     </div>
 </div>

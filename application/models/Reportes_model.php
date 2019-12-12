@@ -14,6 +14,20 @@ class Reportes_model extends CI_Model
         $resultado = $this->db->get('animal');
         return $resultado->result();
     }
+    public function getEstanciaAnimalBovino()
+    {
+        $this->db->select('a.*, e.nombre');
+        $this->db->from('animal a');
+        $this->db->join('estancias e', 'e.id_estancia = a.id_estancia');
+        $this->db->or_where('categoria', '12');
+        $this->db->or_where('categoria', '12 - 24 ');
+        $this->db->or_where('categoria', '24 - 36');
+        $this->db->or_where('categoria', '36');
+        $this->db->or_where('categoria', 'bueyes');
+        $resultado = $this->db->get();
+        return $resultado->result();
+ 
+    }
     public function getIventarioCategoriAnimal()
     {
         $this->db->select('categoria, sexo');
@@ -24,6 +38,18 @@ class Reportes_model extends CI_Model
         $this->db->or_where('categoria', 'Aves');
         $resultado = $this->db->get('animal');
         return $resultado->result();
+    }
+    public function getEstanciaAnimal()
+    {
+        $this->db->select('a.*, e.nombre');
+        $this->db->from('animal a');
+        $this->db->join('estancias e', 'e.id_estancia= a.id_estancia');
+        $this->db->or_where('categoria', 'Equino');
+        $this->db->or_where('categoria', 'Familia Cerdos');
+        $this->db->or_where('categoria', 'Aves');
+        $resultado = $this->db->get();
+        return $resultado->result();
+ 
     }
     public function getReporteVentaCategoriaBovino()
     {

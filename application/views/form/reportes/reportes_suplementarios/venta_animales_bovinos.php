@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-xs-12">
 
-        En el siguiente reporte se mostrara los datos de las cantidades en las diferentes categorias de las ventas de animales bovinos realizadas en el año presente asi como tambien los ingresos de forma monetaria.
+        En el siguiente reporte se mostrara los datos de las cantidades en las diferentes categorias de las ventas realizadas en el año presente asi como tambien los ingresos de forma monetaria.
 
     </div>
 </div>
