@@ -26,6 +26,7 @@ class Dashboard extends BaseController
   {
     $datos = array(
       'inventario_categorias' => $this->Reportes_model->getInvenarioCategoriaBovino(),
+      'estancias'=>$this->Estancia_model->getEstancias(),
     );
 
     $this->load->view('form/reportes/reportes_suplementarios/categoria_animales_bovinos', $datos);
@@ -77,6 +78,7 @@ class Dashboard extends BaseController
   {
     $datos = array(
       'control_animales' => $this->Reportes_model->getReporteControlBovino(),
+      'estancias'=>$this->Reportes_model->getReporteControlBovino(),
 
     );
 
