@@ -1,15 +1,7 @@
 <div class="row">
-    <div class="col-xs-12 text-center">
-        <b>Laguna Seca</b><br>
-        Tel. 69050003 <br>
-        Email:nicolas@hotmail.com
-    </div>
-</div> <br>
-
-<div class="row">
     <div class="col-xs-12">
 
-        En el siguiente reporte se mostrara los datos del año presente de la cantidad de animales bovinos que existen en todas las estancias en sus diferentes categorias.
+        En el siguiente reporte se mostrara los datos del año presente de la cantidad de otros animales que existen en todas las estancias en las diferentes categorias.
 
     </div>
 

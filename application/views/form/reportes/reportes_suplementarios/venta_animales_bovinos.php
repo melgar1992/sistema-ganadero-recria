@@ -1,13 +1,18 @@
 <div class="row">
     <div class="col-xs-12 text-center">
-        <b>Empresa de Ventas</b><br>
-        Calle Moquegua 430 <br>
-        Tel. 481890 <br>
-        Email:yonybrondy17@gmail.com
+        <b>Laguna Seca</b><br>
+        Tel. 69050003 <br>
+        Email:nicolas@hotmail.com
     </div>
 </div> <br>
+<div class="row">
+    <div class="col-xs-12">
 
-<br>
+        En el siguiente reporte se mostrara los datos de las cantidades en las diferentes categorias de las ventas realizadas en el año presente asi como tambien los ingresos de forma monetaria.
+
+    </div>
+</div>
+</br>
 <div class="row">
     <div class="col-xs-12">
         <table class="table table-bordered">
