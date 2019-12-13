@@ -27,7 +27,6 @@ class Reportes_model extends CI_Model
         $this->db->group_by('e.nombre');
         $resultado = $this->db->get();
         return $resultado->result();
- 
     }
     public function getIventarioCategoriAnimal()
     {
@@ -51,7 +50,6 @@ class Reportes_model extends CI_Model
         $this->db->group_by('e.nombre');
         $resultado = $this->db->get();
         return $resultado->result();
- 
     }
     public function getReporteVentaCategoriaBovino()
     {
@@ -230,14 +228,14 @@ class Reportes_model extends CI_Model
         $where = "va.fecha BETWEEN '" . $fechainicio . "' AND '" . $fechafin . "' AND `estado` = '1'";
         $this->db->select(' SUM(sub_total * (comision / 100)) as comision_total');
         $this->db->from('venta_animales va');
-        $this->db->join('detalle_movimiento_animales dm','dm.id_venta_animales = va.id_venta_animales');
+        $this->db->join('detalle_movimiento_animales dm', 'dm.id_venta_animales = va.id_venta_animales');
         $this->db->where($where);
         $this->db->where('estado', '1');
         $comision_venta = $this->db->get()->row_array();
 
         $where = "ca.fecha BETWEEN '" . $fechainicio . "' AND '" . $fechafin . "' AND `estado` = '1'";
         $this->db->select(' SUM(sub_total * (comision / 100)) as comision_total');
-        $this->db->join('detalle_movimiento_animales dm','dm.id_compra_animales = ca.id_compra_animales');
+        $this->db->join('detalle_movimiento_animales dm', 'dm.id_compra_animales = ca.id_compra_animales');
         $this->db->where($where);
         $this->db->where('estado', '1');
         $comision_compra = $this->db->get('compra_animales ca')->row_array();
@@ -337,13 +335,17 @@ class Reportes_model extends CI_Model
         $this->db->where('estado', '1');
         $this->db->group_by('mes');
         $otros_ingresos = $this->db->get()->result();
-        foreach ($ingreso_ventas as $ingreso_venta) {
+        if (!empty($ingreso_ventas)) {
+            foreach ($ingreso_ventas as $ingreso_venta) {
 
-            $ingresos_por_meses[$ingreso_venta->mes - 1] =  $ingresos_por_meses[$ingreso_venta->mes - 1] + $ingreso_venta->ingreso_ventas;
+                $ingresos_por_meses[$ingreso_venta->mes - 1] =  $ingresos_por_meses[$ingreso_venta->mes - 1] + $ingreso_venta->ingreso_ventas;
+            }
         }
-        foreach ($otros_ingresos as $otros_ingreso) {
+        if (!empty($otros_ingresos)) {
+            foreach ($otros_ingresos as $otros_ingreso) {
 
-            $ingresos_por_meses[$ingreso_venta->mes - 1] =  $ingresos_por_meses[$ingreso_venta->mes - 1] + $otros_ingreso->ingreso_ventas;
+                $ingresos_por_meses[$ingreso_venta->mes - 1] =  $ingresos_por_meses[$ingreso_venta->mes - 1] + $otros_ingreso->ingreso_ventas;
+            }
         }
 
         return $ingresos_por_meses;
