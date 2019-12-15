@@ -344,7 +344,7 @@ class Reportes_model extends CI_Model
         if (!empty($otros_ingresos)) {
             foreach ($otros_ingresos as $otros_ingreso) {
 
-                $ingresos_por_meses[$ingreso_venta->mes - 1] =  $ingresos_por_meses[$ingreso_venta->mes - 1] + $otros_ingreso->ingreso_ventas;
+                $ingresos_por_meses[$otros_ingreso->mes - 1] =  $ingresos_por_meses[$otros_ingreso->mes - 1] + $otros_ingreso->ingreso_ventas;
             }
         }
 
