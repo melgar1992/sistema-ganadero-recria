@@ -74,11 +74,11 @@
             <div class="box-header with-border">
               <h3 class="box-title">Reporte de ingresos y egresos del año</h3>
               <div class="box-tools pull-right">
-              <select name="year" id="year" class="form-control">
-              <?php foreach($years as $year): ?>
-                <option value="<?php echo $year->year ?>"><?php echo $year->year ?></option>
-              <?php endforeach; ?>
-              </select>
+                <select name="year" id="year" class="form-control">
+                  <?php foreach ($years as $year) : ?>
+                    <option value="<?php echo $year->year ?>"><?php echo $year->year ?></option>
+                  <?php endforeach; ?>
+                </select>
               </div>
 
             </div>
@@ -115,7 +115,7 @@
               </div>
               <label for="" class="col-md-1 control-label">Hasta: </label>
               <div class="col-md-5">
-                <input type="date" class="form-control" id="fechafin" name="fechafin" value="<?php echo date("Y-m-d") ;?>">
+                <input type="date" class="form-control" id="fechafin" name="fechafin" value="<?php echo date("Y-m-d"); ?>">
 
               </div>
               <br>
