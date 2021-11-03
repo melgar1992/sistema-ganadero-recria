@@ -1,6 +1,8 @@
-<IfModule authz_core_module>
-    Require all granted
-</IfModule>
-<IfModule !authz_core_module>
-    Allow from all
-</IfModule>
+Options +FollowSymLinks
+Options -Indexes
+DirectoryIndex index.hmtl index.php
+RewriteEngine on
+RewriteCond $1 !^(index\.php|images|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /sistema-ganadero-recria/index.php/$1 [l,QSA]
