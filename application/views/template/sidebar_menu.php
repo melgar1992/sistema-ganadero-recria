@@ -28,7 +28,7 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-paw"></i> <span>Formulario de Animales</span>
+                            <i class="fa">🐮</i> <span>Formulario de Animales</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>

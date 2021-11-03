@@ -10,6 +10,7 @@ if (!$this->session->userdata('login')) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sistema de Ganado Recria| Dashboard</title>
+    <link rel="icon" href="<?php echo base_url('assets/images/cow.png') ?>" type="image/png" />
 
 
     <!-- Tell the browser to be responsive to screen width -->
@@ -66,7 +67,6 @@ if (!$this->session->userdata('login')) {
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?php echo base_url() ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                                 <span class="hidden-xs"><?php echo $this->session->userdata('nombres') ?></span>
                             </a>
                             <ul class="dropdown-menu">

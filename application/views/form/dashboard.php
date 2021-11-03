@@ -55,12 +55,12 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
               <div class="inner">
-                <h3><?php echo $inventario['stock'] ?></h3>
+                <h3><?php echo ($inventario['stock'] > 0) ? $inventario['stock'] :  '0'; ?></h3>
 
                 <p>Inventario animales bovinos</p>
               </div>
               <div class="icon">
-                <i class="fa fa-paw"></i>
+                <i class="fa"><small>🐮</small></i>
               </div>
 
             </div>
