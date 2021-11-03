@@ -6,7 +6,7 @@ class inventario_animales extends BaseController
     {
         $data = array(
             'estancias' => $this->Estancia_model->getEstancias(),
-            'stock_estancias_bovinos' => $this->inventario_animales_model->getInventarioAnimalesBovinos(),
+            'stock_estancias_bovinos' => $this->Inventario_animales_model->getInventarioAnimalesBovinos(),
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
 
         );
@@ -16,7 +16,7 @@ class inventario_animales extends BaseController
     {
         $data = array(
             'estancias' => $this->Estancia_model->getEstancias(),
-            'stock_estancias_bovinos' => $this->inventario_animales_model->getInventarioAnimales(),
+            'stock_estancias_bovinos' => $this->Inventario_animales_model->getInventarioAnimales(),
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
 
         );
@@ -36,7 +36,7 @@ class inventario_animales extends BaseController
         $this->form_validation->set_rules('categoria', 'categoria', 'required');
         $this->form_validation->set_rules('raza', 'id tipo animal', 'required');
         $this->form_validation->set_rules('sex', 'sexo del animal', 'required');
-        if (!($this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria))) {
+        if (!($this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria))) {
             if ($this->form_validation->run()) {
                 $data = array(
                     'id_tipo_animal' => $id_tipo_animal,
@@ -46,7 +46,7 @@ class inventario_animales extends BaseController
                     'categoria' => $categoria,
                     'estado' => '1',
                 );
-                $this->inventario_animales_model->guardarInventario($data);
+                $this->Inventario_animales_model->guardarInventario($data);
                 $this->index();
             } else {
                 $this->index();
@@ -70,7 +70,7 @@ class inventario_animales extends BaseController
         $this->form_validation->set_rules('categoria', 'categoria', 'required');
         $this->form_validation->set_rules('raza', 'id tipo animal', 'required');
         $this->form_validation->set_rules('sex', 'sexo del animal', 'required');
-        if (!($this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria))) {
+        if (!($this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria))) {
             if ($this->form_validation->run()) {
                 $data = array(
                     'id_tipo_animal' => $id_tipo_animal,
@@ -80,7 +80,7 @@ class inventario_animales extends BaseController
                     'categoria' => $categoria,
                     'estado' => '1',
                 );
-                $this->inventario_animales_model->guardarInventario($data);
+                $this->Inventario_animales_model->guardarInventario($data);
                 $this->listAnimales();
             } else {
                 $this->listAnimales();
@@ -93,7 +93,7 @@ class inventario_animales extends BaseController
     public function editarbovinos($id_animal)
     {
         $data = array(
-            'animal' => $this->inventario_animales_model->getInventarioAnimal($id_animal),
+            'animal' => $this->Inventario_animales_model->getInventarioAnimal($id_animal),
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos(),
 
         );
@@ -102,7 +102,7 @@ class inventario_animales extends BaseController
     public function editarAnimal($id_animal)
     {
         $data = array(
-            'animal' => $this->inventario_animales_model->getInventarioAnimal($id_animal),
+            'animal' => $this->Inventario_animales_model->getInventarioAnimal($id_animal),
 
         );
         $this->loadView('inventario_animales', 'form/formulario_animales/inventario_animales/editaranimal', $data);
@@ -120,7 +120,7 @@ class inventario_animales extends BaseController
                 'stock' => $stock,
                 'estado' => '1',
             );
-            $this->inventario_animales_model->actualizarInventario($id_animal, $data);
+            $this->Inventario_animales_model->actualizarInventario($id_animal, $data);
             $this->index();
         } else {
             $this->session->set_flashdata("error", "Error en los campos");
@@ -140,7 +140,7 @@ class inventario_animales extends BaseController
                 'stock' => $stock,
                 'estado' => '1',
             );
-            $this->inventario_animales_model->actualizarInventario($id_animal, $data);
+            $this->Inventario_animales_model->actualizarInventario($id_animal, $data);
             $this->listAnimales();
         } else {
             $this->session->set_flashdata("error", "Error en los campos");
@@ -152,13 +152,13 @@ class inventario_animales extends BaseController
         $data = array(
             'estado' => '0',
          );
-         $this->inventario_animales_model->borrar($id_animal,$data);
+         $this->Inventario_animales_model->borrar($id_animal,$data);
 
          echo 'Formulario_Animales/inventario_animales';
     }
     public function cambioCategoria()
     {
-        $this->inventario_animales_model->cambioCategoriaBovinos();
+        $this->Inventario_animales_model->cambioCategoriaBovinos();
        
         echo 'Formulario_Animales/inventario_animales';
 

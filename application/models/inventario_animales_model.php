@@ -1,5 +1,5 @@
 <?php
-class inventario_animales_model extends CI_Model
+class Inventario_animales_model extends CI_Model
 {
     public function getInventarioAnimalesBovinos()
     {

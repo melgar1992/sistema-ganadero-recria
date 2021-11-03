@@ -161,14 +161,14 @@ class Compra_animales extends BaseController
             for ($i = 0; $i < count($categoria); $i++) {
 
                 // actualiza o crea el inventario de animales en la estancia correspondiente.
-                if ($this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i])) {
-                    $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i]);
+                if ($this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i])) {
+                    $animal = $this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i]);
                     $id_animal = $animal->id_animal;
                     $stock = $animal->stock + (int)$cantidad[$i];
                     $datosAnimal = array(
                         'stock' => $stock,
                     );
-                    $this->inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
+                    $this->Inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_compra_animales' => $id_compra_animales,
@@ -189,8 +189,8 @@ class Compra_animales extends BaseController
                         'categoria' => $categoria[$i],
                         'estado' => '1',
                     );
-                    $this->inventario_animales_model->guardarInventario($datosAnimal);
-                    $id_animal = $this->inventario_animales_model->ultimoID();
+                    $this->Inventario_animales_model->guardarInventario($datosAnimal);
+                    $id_animal = $this->Inventario_animales_model->ultimoID();
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_compra_animales' => $id_compra_animales,
@@ -335,26 +335,26 @@ class Compra_animales extends BaseController
         if (!empty($categoria)) {
             $detalle_movimiento_actual = $this->Compra_animales_model->getDetalleMovimientos($id_compra_animales);
             foreach ($detalle_movimiento_actual as $detalle_movimiento) {
-                $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $detalle_movimiento->id_tipo_animal, $detalle_movimiento->sexo, $detalle_movimiento->categoria);
+                $animal = $this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $detalle_movimiento->id_tipo_animal, $detalle_movimiento->sexo, $detalle_movimiento->categoria);
                 $id_animal = $animal->id_animal;
                 $stock = $animal->stock - (int)$detalle_movimiento->cantidad;
                 $datosAnimal = array(
                     'stock' => $stock,
                 );
-                $this->inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
+                $this->Inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
                 $this->Compra_animales_model->borrarDetalleMovimientos($detalle_movimiento->id_detalle_venta_animales);
             }
             for ($i = 0; $i < count($categoria); $i++) {
 
                 // actualiza o crea el inventario de animales en la estancia correspondiente.
-                if ($this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i])) {
-                    $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i]);
+                if ($this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i])) {
+                    $animal = $this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal[$i], $sexo[$i], $categoria[$i]);
                     $id_animal = $animal->id_animal;
                     $stock = $animal->stock + (int)$cantidad[$i];
                     $datosAnimal = array(
                         'stock' => $stock,
                     );
-                    $this->inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
+                    $this->Inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_compra_animales' => $id_compra_animales,
@@ -375,8 +375,8 @@ class Compra_animales extends BaseController
                         'categoria' => $categoria[$i],
                         'estado' => '1',
                     );
-                    $this->inventario_animales_model->guardarInventario($datosAnimal);
-                    $id_animal = $this->inventario_animales_model->ultimoID();
+                    $this->Inventario_animales_model->guardarInventario($datosAnimal);
+                    $id_animal = $this->Inventario_animales_model->ultimoID();
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_compra_animales' => $id_compra_animales,
@@ -393,14 +393,14 @@ class Compra_animales extends BaseController
         } else {
             $detalle_movimiento_actual = $this->Compra_animales_model->getDetalleMovimientos($id_compra_animales);
             foreach ($detalle_movimiento_actual as $detalle_movimiento) {
-                $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $detalle_movimiento->id_tipo_animal, $detalle_movimiento->sexo, $detalle_movimiento->categoria);
+                $animal = $this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $detalle_movimiento->id_tipo_animal, $detalle_movimiento->sexo, $detalle_movimiento->categoria);
                 $id_animal = $animal->id_animal;
                 $restastock = $detalle_movimiento->cantidad;
                 $stock = $animal->stock - $restastock;
                 $datosAnimal = array(
                     'stock' => $stock,
                 );
-                $this->inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
+                $this->Inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
                 $this->Compra_animales_model->borrarDetalleMovimientos($detalle_movimiento->id_detalle_venta_animales);
             }
         }
@@ -415,14 +415,14 @@ class Compra_animales extends BaseController
         // Se borra los detalles de la compra de los animales y se lo disminuye del inventario
         $detalle_movimiento_actual = $this->Compra_animales_model->getDetalleMovimientos($id_compra_animales);
         foreach ($detalle_movimiento_actual as $detalle_movimiento) {
-            $animal = $this->inventario_animales_model->buscarInventarioAnimal($compra_animal->id_estancia, $detalle_movimiento->id_tipo_animal, $detalle_movimiento->sexo, $detalle_movimiento->categoria);
+            $animal = $this->Inventario_animales_model->buscarInventarioAnimal($compra_animal->id_estancia, $detalle_movimiento->id_tipo_animal, $detalle_movimiento->sexo, $detalle_movimiento->categoria);
             $id_animal = $animal->id_animal;
             $restarstock = $detalle_movimiento->cantidad;
             $stock = $animal->stock - $restarstock;
             $datosAnimal = array(
                 'stock' => $stock,
             );
-            $this->inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
+            $this->Inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
             $this->Compra_animales_model->borrarDetalleMovimientos($detalle_movimiento->id_detalle_venta_animales);
         }
 

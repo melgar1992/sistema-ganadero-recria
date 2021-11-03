@@ -15,7 +15,7 @@ class Venta_animales extends BaseController
         $data = array(
             'empleados' => $this->Empleado_model->getEmpleados(),
             'ganaderos' => $this->Ganadero_model->getGanaderosExterno(),
-            'stock_estancias_bovinos' => $this->inventario_animales_model->getInventarioAnimalesBovinos(),
+            'stock_estancias_bovinos' => $this->Inventario_animales_model->getInventarioAnimalesBovinos(),
             'transportistas' => $this->Transportista_model->getTransportistas(),
             'intermediarios' => $this->Intermediario_model->getIntermediarios(),
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
@@ -28,7 +28,7 @@ class Venta_animales extends BaseController
         $data = array(
             'empleados' => $this->Empleado_model->getEmpleados(),
             'ganaderos' => $this->Ganadero_model->getGanaderosExterno(),
-            'stock_estancias_bovinos' => $this->inventario_animales_model->getInventarioAnimales(),
+            'stock_estancias_bovinos' => $this->Inventario_animales_model->getInventarioAnimales(),
             'transportistas' => $this->Transportista_model->getTransportistas(),
             'intermediarios' => $this->Intermediario_model->getIntermediarios(),
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
@@ -159,14 +159,14 @@ class Venta_animales extends BaseController
         if (!empty($categoria)) {
             for ($i = 0; $i < count($categoria); $i++) {
                 // actualiza o crea el inventario de animales en la estancia correspondiente.
-                if ($this->inventario_animales_model->buscarInventarioAnimal($id_estancia[$i], $id_tipo_animal[$i], $sexo[$i], $categoria[$i])) {
-                    $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia[$i], $id_tipo_animal[$i], $sexo[$i], $categoria[$i]);
+                if ($this->Inventario_animales_model->buscarInventarioAnimal($id_estancia[$i], $id_tipo_animal[$i], $sexo[$i], $categoria[$i])) {
+                    $animal = $this->Inventario_animales_model->buscarInventarioAnimal($id_estancia[$i], $id_tipo_animal[$i], $sexo[$i], $categoria[$i]);
                     $id_animal = $animal->id_animal;
                     $stock = $animal->stock - (int) $cantidad[$i];
                     $datosAnimal = array(
                         'stock' => $stock,
                     );
-                    $this->inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
+                    $this->Inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_venta_animales' => $id_venta_animal,
@@ -191,7 +191,7 @@ class Venta_animales extends BaseController
                 'detalle_movimiento_animales' => $this->Venta_animales_model->getDetallesVentas($id_venta_animales),
                 'empleados' => $this->Empleado_model->getEmpleados(),
                 'ganaderos' => $this->Ganadero_model->getGanaderosExterno(),
-                'stock_estancias_bovinos' => $this->inventario_animales_model->getInventarioAnimalesBovinos(),
+                'stock_estancias_bovinos' => $this->Inventario_animales_model->getInventarioAnimalesBovinos(),
                 'transportistas' => $this->Transportista_model->getTransportistas(),
                 'intermediarios' => $this->Intermediario_model->getIntermediarios(),
                 'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
@@ -203,7 +203,7 @@ class Venta_animales extends BaseController
                 'detalle_movimiento_animales' => $this->Venta_animales_model->getDetallesVentas($id_venta_animales),
                 'empleados' => $this->Empleado_model->getEmpleados(),
                 'ganaderos' => $this->Ganadero_model->getGanaderosExterno(),
-                'stock_estancias_bovinos' => $this->inventario_animales_model->getInventarioAnimalesBovinos(),
+                'stock_estancias_bovinos' => $this->Inventario_animales_model->getInventarioAnimalesBovinos(),
                 'transportistas' => $this->Transportista_model->getTransportistas(),
                 'intermediarios' => $this->Intermediario_model->getIntermediarios(),
                 'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
@@ -220,7 +220,7 @@ class Venta_animales extends BaseController
                 'detalle_movimiento_animales' => $this->Venta_animales_model->getDetallesVentas($id_venta_animales),
                 'empleados' => $this->Empleado_model->getEmpleados(),
                 'ganaderos' => $this->Ganadero_model->getGanaderosExterno(),
-                'stock_estancias_bovinos' => $this->inventario_animales_model->getInventarioAnimales(),
+                'stock_estancias_bovinos' => $this->Inventario_animales_model->getInventarioAnimales(),
                 'transportistas' => $this->Transportista_model->getTransportistas(),
                 'intermediarios' => $this->Intermediario_model->getIntermediarios(),
                 'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
@@ -232,7 +232,7 @@ class Venta_animales extends BaseController
                 'detalle_movimiento_animales' => $this->Venta_animales_model->getDetallesVentas($id_venta_animales),
                 'empleados' => $this->Empleado_model->getEmpleados(),
                 'ganaderos' => $this->Ganadero_model->getGanaderosExterno(),
-                'stock_estancias_bovinos' => $this->inventario_animales_model->getInventarioAnimales(),
+                'stock_estancias_bovinos' => $this->Inventario_animales_model->getInventarioAnimales(),
                 'transportistas' => $this->Transportista_model->getTransportistas(),
                 'intermediarios' => $this->Intermediario_model->getIntermediarios(),
                 'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
@@ -302,26 +302,26 @@ class Venta_animales extends BaseController
         if (!empty($categoria)) {
             $detalle_movimiento_actual = $this->Venta_animales_model->getDetallesVentas($id_venta_animales);
             foreach ($detalle_movimiento_actual as $detalle_movimiento) {
-                $animal = $this->inventario_animales_model->getInventarioAnimal($detalle_movimiento->id_animal);
+                $animal = $this->Inventario_animales_model->getInventarioAnimal($detalle_movimiento->id_animal);
                 $id_animal = $animal->id_animal;
                 $stock = (int) $animal->stock + (int) $detalle_movimiento->cantidad;
                 $datosAnimal = array(
                     'stock' => $stock,
                 );
-                $this->inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
+                $this->Inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
                 $this->Venta_animales_model->borrarDetalleMovimientos($detalle_movimiento->id_detalle_venta_animales);
             }
             for ($i = 0; $i < count($categoria); $i++) {
 
                 // actualiza o crea el inventario de animales en la estancia correspondiente.
-                if ($this->inventario_animales_model->buscarInventarioAnimal($id_estancia[$i], $id_tipo_animal[$i], $sexo[$i], $categoria[$i])) {
-                    $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia[$i], $id_tipo_animal[$i], $sexo[$i], $categoria[$i]);
+                if ($this->Inventario_animales_model->buscarInventarioAnimal($id_estancia[$i], $id_tipo_animal[$i], $sexo[$i], $categoria[$i])) {
+                    $animal = $this->Inventario_animales_model->buscarInventarioAnimal($id_estancia[$i], $id_tipo_animal[$i], $sexo[$i], $categoria[$i]);
                     $id_animal = $animal->id_animal;
                     $stock = (int) $animal->stock - (int) $cantidad[$i];
                     $datosAnimal = array(
                         'stock' => $stock,
                     );
-                    $this->inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
+                    $this->Inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_venta_animales' => $id_venta_animales,
@@ -342,8 +342,8 @@ class Venta_animales extends BaseController
                         'categoria' => $categoria[$i],
                         'estado' => '1',
                     );
-                    $this->inventario_animales_model->guardarInventario($datosAnimal);
-                    $id_animal = $this->inventario_animales_model->ultimoID();
+                    $this->Inventario_animales_model->guardarInventario($datosAnimal);
+                    $id_animal = $this->Inventario_animales_model->ultimoID();
                     $datosDetalle = array(
                         'id_animal' => $id_animal,
                         'id_venta_animales' => $id_venta_animales,
@@ -360,14 +360,14 @@ class Venta_animales extends BaseController
         } else {
             $detalle_movimiento_actual = $this->Venta_animales_model->getDetallesVentas($id_venta_animales);
             foreach ($detalle_movimiento_actual as $detalle_movimiento) {
-                $animal = $this->inventario_animales_model->getInventarioAnimal($detalle_movimiento->id_animal);
+                $animal = $this->Inventario_animales_model->getInventarioAnimal($detalle_movimiento->id_animal);
                 $id_animal = $animal->id_animal;
                 $restastock = $detalle_movimiento->cantidad;
                 $stock = (int) $animal->stock + (int) $restastock;
                 $datosAnimal = array(
                     'stock' => $stock,
                 );
-                $this->inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
+                $this->Inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
                 $this->Venta_animales_model->borrarDetalleMovimientos($detalle_movimiento->id_detalle_venta_animales);
             }
         }
@@ -382,14 +382,14 @@ class Venta_animales extends BaseController
         // Se borra los detalles de la venta de los animales y se lo disminuye del inventario
         $detalle_movimiento_actual = $this->Venta_animales_model->getDetallesVentas($id_venta_animal);
         foreach ($detalle_movimiento_actual as $detalle_movimiento) {
-            $animal = $this->inventario_animales_model->buscarInventarioAnimal($detalle_movimiento->id_estancia, $detalle_movimiento->id_tipo_animal, $detalle_movimiento->sexo, $detalle_movimiento->categoria);
+            $animal = $this->Inventario_animales_model->buscarInventarioAnimal($detalle_movimiento->id_estancia, $detalle_movimiento->id_tipo_animal, $detalle_movimiento->sexo, $detalle_movimiento->categoria);
             $id_animal = $animal->id_animal;
             $restarstock = $detalle_movimiento->cantidad;
             $stock = $animal->stock + $restarstock;
             $datosAnimal = array(
                 'stock' => $stock,
             );
-            $this->inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
+            $this->Inventario_animales_model->actualizarInventario($id_animal, $datosAnimal);
             $this->Venta_animales_model->borrarDetalleMovimientos($detalle_movimiento->id_detalle_venta_animales);
         }
 

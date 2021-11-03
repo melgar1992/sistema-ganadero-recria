@@ -44,8 +44,8 @@ class Control_animales extends BaseController
         $this->form_validation->set_rules('sexo', 'sexo', 'required');
 
         if ($this->form_validation->run()) {
-            if ($this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria)) {
-                $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria);
+            if ($this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria)) {
+                $animal = $this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria);
                 switch ($tipo_movimiento) {
                     case "Muerte":
                         if ($cantidad < $animal->stock) {
@@ -112,8 +112,8 @@ class Control_animales extends BaseController
                         'stock' => $cantidad,
                         'estado' => '1',
                     );
-                    $this->inventario_animales_model->guardarInventario($datosAnimal);
-                    $id_animal = $this->inventario_animales_model->ultimoID();
+                    $this->Inventario_animales_model->guardarInventario($datosAnimal);
+                    $id_animal = $this->Inventario_animales_model->ultimoID();
                     $data = array(
                         'id_animal' => $id_animal,
                         'cantidad' => $cantidad,
@@ -170,7 +170,7 @@ class Control_animales extends BaseController
         $this->form_validation->set_rules('id_detalle_venta_animales', 'id_detalle_venta_animales', 'required');
 
         if ($this->form_validation->run()) {
-            $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria);
+            $animal = $this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria);
             $controlActual = $this->Animales_model->getControlAnimalBovino($id_detalle_venta_animales);
             switch ($tipo_movimiento) {
                 case "Muerte":
@@ -246,8 +246,8 @@ class Control_animales extends BaseController
         $this->form_validation->set_rules('sexo', 'sexo', 'required');
 
         if ($this->form_validation->run()) {
-            if ($this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria)) {
-                $animal = $this->inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria);
+            if ($this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria)) {
+                $animal = $this->Inventario_animales_model->buscarInventarioAnimal($id_estancia, $id_tipo_animal, $sexo, $categoria);
                 switch ($tipo_movimiento) {
                     case "Muerte":
                         if ($cantidad < $animal->stock) {
@@ -314,8 +314,8 @@ class Control_animales extends BaseController
                         'stock' => $cantidad,
                         'estado' => '1',
                     );
-                    $this->inventario_animales_model->guardarInventario($datosAnimal);
-                    $id_animal = $this->inventario_animales_model->ultimoID();
+                    $this->Inventario_animales_model->guardarInventario($datosAnimal);
+                    $id_animal = $this->Inventario_animales_model->ultimoID();
                     $data = array(
                         'id_animal' => $id_animal,
                         'cantidad' => $cantidad,
@@ -339,7 +339,7 @@ class Control_animales extends BaseController
     public function borrar($id_detalle_venta_animales)
     {
         $controlActual = $this->Animales_model->getControlAnimalBovino($id_detalle_venta_animales);
-        $animal = $this->inventario_animales_model->buscarInventarioAnimal($controlActual->id_estancia, $controlActual->id_tipo_animal, $controlActual->sexo, $controlActual->categoria);
+        $animal = $this->Inventario_animales_model->buscarInventarioAnimal($controlActual->id_estancia, $controlActual->id_tipo_animal, $controlActual->sexo, $controlActual->categoria);
         switch ($controlActual->tipo_movimiento) {
             case "Muerte":
                 if ($controlActual->cantidad < $animal->stock) {

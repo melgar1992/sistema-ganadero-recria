@@ -15,7 +15,7 @@ class Dashboard extends BaseController
     $datos = array(
       'ingresos' => $this->Ingreso_model->getIngresoAnual(),
       'egresos' => $this->Egreso_model->getEgresoAnual(),
-      'inventario' => $this->inventario_animales_model->getSumatoriaInventarioBovinoAnual(),
+      'inventario' => $this->Inventario_animales_model->getSumatoriaInventarioBovinoAnual(),
       'years' => $this->Reportes_model->getYears(),
       'ingresos_por_meses' => $this->Reportes_model->getIngresosPorMeses(date("y")),
     );
