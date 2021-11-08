@@ -10,7 +10,7 @@ class Inventario_animales extends BaseController
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
 
         );
-        $this->loadView('Inventario_animales', 'form/formulario_animales/Inventario_animales/listbovinos', $data);
+        $this->loadView('Inventario_animales', 'form/formulario_animales/inventario_animales/listbovinos', $data);
     }
     public function listAnimales()
     {
@@ -20,7 +20,7 @@ class Inventario_animales extends BaseController
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
 
         );
-        $this->loadView('Inventario_animales', 'form/formulario_animales/Inventario_animales/listanimales', $data);
+        $this->loadView('Inventario_animales', 'form/formulario_animales/inventario_animales/listanimales', $data);
     }
     public function guardarBovino()
     {
