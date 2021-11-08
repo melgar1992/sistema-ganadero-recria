@@ -27,7 +27,7 @@ $(document).ready(function () {
                 var id = $(this).val();
 
                 $.ajax({
-                    url: base_url + 'Formulario_Animales/inventario_animales/borrar/' + id,
+                    url: base_url + 'Formulario_Animales/Inventario_animales/borrar/' + id,
                     type: 'POST',
                     success: function (resp) {
                         window.location.href = base_url + resp;
@@ -53,7 +53,7 @@ $(document).ready(function () {
             if (result.value) {
                 
                 $.ajax({
-                    url: base_url + 'Formulario_Animales/inventario_animales/cambioCategoria',
+                    url: base_url + 'Formulario_Animales/Inventario_animales/cambioCategoria',
                     type: 'POST',
                     success: function (resp) {
                         window.location.href = base_url + resp;

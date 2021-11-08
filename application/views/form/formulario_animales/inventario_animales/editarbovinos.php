@@ -29,7 +29,7 @@
                 <?php endif; ?>
 
 
-                <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/inventario_animales/actualizarBovino" id="inventario_animal" class="form-horizontal form-label-left">
+                <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Inventario_animales/actualizarBovino" id="inventario_animal" class="form-horizontal form-label-left">
                     <input type="text" hidden name="id_animal" value="<?php echo $animal->id_animal ?>" id="id_animal">
                     <div class='form-group'>
                         <label for="estancia" class="control-label col-md-3 col-sm-3 col-xs-12">Estancia: *</label>
@@ -93,7 +93,7 @@
                     <div class="form-group">
 
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                            <a href="<?php echo site_url("Formulario_Animales/inventario_animales") ?>" class="btn btn-primary btn-flat">Volver</a>
+                            <a href="<?php echo site_url("Formulario_Animales/Inventario_animales") ?>" class="btn btn-primary btn-flat">Volver</a>
                             <button type="submit" id="guardar" class="btn btn-warning">Editar</button>
 
                         </div>

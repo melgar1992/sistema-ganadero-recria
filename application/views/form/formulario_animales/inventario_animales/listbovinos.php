@@ -31,7 +31,7 @@
                 <?php endif; ?>
 
 
-                <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/inventario_animales/guardarBovino" id="inventario_animal" class="form-horizontal form-label-left">
+                <form method="POST" action="<?php echo base_url(); ?>Formulario_Animales/Inventario_animales/guardarBovino" id="inventario_animal" class="form-horizontal form-label-left">
 
                     <div class='form-group'>
                         <label for="estancia" class="control-label col-md-3 col-sm-3 col-xs-12">Estancia: *</label>
@@ -128,7 +128,7 @@
                                             <td><?php echo $stock_estancia_bovinos->stock; ?></td>
                                             <?php $data_stock_estancia_bovinos = $stock_estancia_bovinos->id_animal . "*" . $stock_estancia_bovinos->id_estancia . "*" . $stock_estancia_bovinos->id_tipo_animal . "*" . $stock_estancia_bovinos->nombre_estancia . "*" . $stock_estancia_bovinos->categoria . "*" . $stock_estancia_bovinos->raza . "*" . $stock_estancia_bovinos->sexo . "*" . $stock_estancia_bovinos->stock; ?>
                                             <td>
-                                                <a href="<?php echo base_url() ?>Formulario_Animales/inventario_animales/editarbovinos/<?php echo $stock_estancia_bovinos->id_animal; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
+                                                <a href="<?php echo base_url() ?>Formulario_Animales/Inventario_animales/editarbovinos/<?php echo $stock_estancia_bovinos->id_animal; ?>" class="btn btn-warning"><span class="fa fa-pencil"></span></a>
                                                 <button type="button" value="<?php echo $stock_estancia_bovinos->id_animal; ?>" class="btn btn-danger btn-borrar"><span class="fa fa-remove"></span></button>
                                             </td>
 

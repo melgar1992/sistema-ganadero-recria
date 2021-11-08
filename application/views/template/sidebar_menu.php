@@ -38,8 +38,8 @@
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/control_animales/listBovino"><i class="fa fa-circle-o"></i>Control animales bovinos</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/control_animales/listAnimales"><i class="fa fa-circle-o"></i>Control animales otros</a></li>
                             <?php if ($this->session->userdata('rol') == 'Admin') : ?>
-                                <li><a href="<?php echo base_url(); ?>Formulario_Animales/inventario_animales"><i class="fa fa-circle-o"></i> Inventario Animales Bovinos</a></li>
-                                <li><a href="<?php echo base_url(); ?>Formulario_Animales/inventario_animales/listAnimales"><i class="fa fa-circle-o"></i> Inventario Animales</a></li>
+                                <li><a href="<?php echo base_url(); ?>Formulario_Animales/Inventario_animales"><i class="fa fa-circle-o"></i> Inventario Animales Bovinos</a></li>
+                                <li><a href="<?php echo base_url(); ?>Formulario_Animales/Inventario_animales/listAnimales"><i class="fa fa-circle-o"></i> Inventario Animales</a></li>
                             <?php endif; ?>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Venta_animales"><i class="fa fa-circle-o"></i> Ventas de Animales</a></li>
                             <li><a href="<?php echo base_url(); ?>Formulario_Animales/Compra_animales"><i class="fa fa-circle-o"></i> Compra de Animales</a></li>

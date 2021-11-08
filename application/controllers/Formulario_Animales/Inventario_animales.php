@@ -1,6 +1,6 @@
 <?php
 
-class inventario_animales extends BaseController
+class Inventario_animales extends BaseController
 {
     public function index()
     {
@@ -10,7 +10,7 @@ class inventario_animales extends BaseController
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
 
         );
-        $this->loadView('inventario_animales', 'form/formulario_animales/inventario_animales/listbovinos', $data);
+        $this->loadView('Inventario_animales', 'form/formulario_animales/Inventario_animales/listbovinos', $data);
     }
     public function listAnimales()
     {
@@ -20,7 +20,7 @@ class inventario_animales extends BaseController
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos()
 
         );
-        $this->loadView('inventario_animales', 'form/formulario_animales/inventario_animales/listanimales', $data);
+        $this->loadView('Inventario_animales', 'form/formulario_animales/Inventario_animales/listanimales', $data);
     }
     public function guardarBovino()
     {
@@ -97,7 +97,7 @@ class inventario_animales extends BaseController
             'tipo_animales' => $this->Categoria_animales_model->getCategoriaAnimalBovinos(),
 
         );
-        $this->loadView('inventario_animales', 'form/formulario_animales/inventario_animales/editarbovinos', $data);
+        $this->loadView('Inventario_animales', 'form/formulario_animales/Inventario_animales/editarbovinos', $data);
     }
     public function editarAnimal($id_animal)
     {
@@ -105,7 +105,7 @@ class inventario_animales extends BaseController
             'animal' => $this->Inventario_animales_model->getInventarioAnimal($id_animal),
 
         );
-        $this->loadView('inventario_animales', 'form/formulario_animales/inventario_animales/editaranimal', $data);
+        $this->loadView('Inventario_animales', 'form/formulario_animales/Inventario_animales/editaranimal', $data);
     }
     public function actualizarBovino()
     {
@@ -154,13 +154,13 @@ class inventario_animales extends BaseController
          );
          $this->Inventario_animales_model->borrar($id_animal,$data);
 
-         echo 'Formulario_Animales/inventario_animales';
+         echo 'Formulario_Animales/Inventario_animales';
     }
     public function cambioCategoria()
     {
         $this->Inventario_animales_model->cambioCategoriaBovinos();
        
-        echo 'Formulario_Animales/inventario_animales';
+        echo 'Formulario_Animales/Inventario_animales';
 
     }
 }
