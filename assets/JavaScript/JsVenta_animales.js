@@ -179,7 +179,7 @@ $(document).ready(function () {
                 html += "<td><input type='hidden' readonly class='sexo form-control' name= 'sexo[]' value ='" + info_estancia_stock[6] + "'><p>" + info_estancia_stock[6] + "</p></td>";
                 html += "<td><input type='hidden' readonly class='stock form-control' name= 'id_animal[]' value ='" + info_estancia_stock[0] + "'><p>" + nuevostock + "</p></td>";
                 html += "<td><input type = 'hidden' class='cantidad form-control' min = '0' max = '" + info_estancia_stock[7] + "' name = 'cantidad[]'  value ='" + $('#canti').val() + "'><p>" + $('#canti').val() + "</p></td>";
-                html += "<td><input type = 'number' class='precio_unitario form-control' min = '0' name = 'precio_unitario[]'  value =''></td>";
+                html += "<td><input step= '0.01' type = 'number' class='precio_unitario form-control' min = '0' name = 'precio_unitario[]'  value =''></td>";
                 html += "<td><input type = 'number' class='precio_transporte form-control' min = '0' name = 'precio_transporte[]'  value =''></td>";
                 html += "<td><input type='text'  class='placa_camion form-control' name= 'placa_camion[]' value =''></td>";
                 html += "<td><input type ='number' readonly class = 'form-control' name = 'sub_total[]' value =''></td>";

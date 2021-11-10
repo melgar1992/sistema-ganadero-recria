@@ -53,7 +53,7 @@
                           <div class='col-md-3 col-sm-6 col-xs-12'>
                               <div class='input-group'>
                                   <label for="comision" class="">Comision:</label>
-                                  <input type="number" min="0" max='10' class='form-control' name="comision" id="comision" placeholder="%">
+                                  <input type="number" step= '0.01' min="0" max='10' class='form-control' name="comision" id="comision" placeholder="%">
                               </div>
                           </div>
                       </div>

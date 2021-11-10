@@ -54,7 +54,7 @@ $(document).ready(function () {
             html += "<td><input type='hidden' readonly class='raza form-control' name= 'raza[]' value ='" + $('#raz').val() + "'><p class= 'form-control'>" + $('select[name="raz"] option:selected').text() + "</p></td>";
             html += "<td><input type='text' readonly class='sexo form-control' name= 'sexo[]' value ='" + $('#sex').val() + "'></td>";
             html += "<td><input type = 'number' class='cantidad form-control' name = 'cantidad[]'  value ='0'></td>";
-            html += "<td><input type = 'number' class='precio_unitario form-control' name = 'precio_unitario[]'  value =''></td>";
+            html += "<td><input type = 'number' step= '0.01' class='precio_unitario form-control' name = 'precio_unitario[]'  value =''></td>";
             html += "<td><input type = 'number' class='precio_transporte form-control' name = 'precio_transporte[]'  value =''></td>";
             html += "<td><input type='text'  class='placa_camion form-control' name= 'placa_camion[]' value =''></td>";
             html += "<td><input type ='number' readonly class = 'form-control' name = 'sub_total[]' value =''></td>";

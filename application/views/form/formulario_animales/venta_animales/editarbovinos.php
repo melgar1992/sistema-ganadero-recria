@@ -173,7 +173,7 @@
                                                       <p><?php echo $detalle_movimiento_animal->cantidad ?></p>
                                                   </td>
                                                   <td>
-                                                      <input type='number' class='precio_unitario form-control' name='precio_unitario[]' value='<?php echo $detalle_movimiento_animal->precio_unitario; ?>'>
+                                                      <input type='number' step= '0.01' class='precio_unitario form-control' name='precio_unitario[]' value='<?php echo $detalle_movimiento_animal->precio_unitario; ?>'>
                                                   </td>
                                                   <td>
                                                       <input type='number' class='precio_transporte form-control' name='precio_transporte[]' value='<?php echo $detalle_movimiento_animal->precio_transporte; ?>'>
