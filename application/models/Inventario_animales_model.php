@@ -77,6 +77,7 @@ class Inventario_animales_model extends CI_Model
         $this->db->from('animal a');
         $this->db->join('tipo_animal tp', 'tp.id_tipo_animal = a.id_tipo_animal');
         $this->db->where('tp.nombre', 'Bovino');
+        $this->db->where('a.estado','1');
         return $this->db->get()->row_array();
     }
     public function cambioCategoriaBovinos()

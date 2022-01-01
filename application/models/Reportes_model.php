@@ -6,6 +6,7 @@ class Reportes_model extends CI_Model
         $this->db->select('categoria, sexo');
         $this->db->select_sum('stock');
         $this->db->group_by('categoria, sexo');
+        $this->db->where('estado', '1');
         $this->db->or_where('categoria', '12');
         $this->db->or_where('categoria', '12 - 24 ');
         $this->db->or_where('categoria', '24 - 36');
@@ -19,6 +20,7 @@ class Reportes_model extends CI_Model
         $this->db->select('e.nombre');
         $this->db->from('animal a');
         $this->db->join('estancias e', 'e.id_estancia = a.id_estancia');
+        $this->db->where('a.estado', '1');
         $this->db->or_where('categoria', '12');
         $this->db->or_where('categoria', '12 - 24 ');
         $this->db->or_where('categoria', '24 - 36');
@@ -33,6 +35,7 @@ class Reportes_model extends CI_Model
         $this->db->select('categoria, sexo');
         $this->db->select_sum('stock');
         $this->db->group_by('categoria, sexo');
+        $this->db->where('estado', '1');
         $this->db->or_where('categoria', 'Equino');
         $this->db->or_where('categoria', 'Familia Cerdos');
         $this->db->or_where('categoria', 'Aves');
@@ -44,6 +47,7 @@ class Reportes_model extends CI_Model
         $this->db->select('e.nombre');
         $this->db->from('animal a');
         $this->db->join('estancias e', 'e.id_estancia= a.id_estancia');
+        $this->db->where('a.estado', '1');
         $this->db->or_where('categoria', 'Equino');
         $this->db->or_where('categoria', 'Familia Cerdos');
         $this->db->or_where('categoria', 'Aves');
