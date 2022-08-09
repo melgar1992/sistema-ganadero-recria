@@ -110,7 +110,7 @@
                             <ul class="treeview-menu">
                                 <li><a href="<?php echo base_url(); ?>Administrador/Usuarios"><i class="fa fa-circle-o"></i> Administracion de usuarios</a></li>
                         
-                                <li><a href="<?php echo base_url(); ?>"><i class="fa fa-circle-o"></i> Datos de la empresa</a></li>
+                                <li><a href="<?php echo base_url(); ?>Formulario_empresa/Empresa"><i class="fa fa-circle-o"></i> Datos de la empresa</a></li>
                             </ul>
                         </li>
                     <?php endif; ?>
