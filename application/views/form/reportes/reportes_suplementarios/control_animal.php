@@ -1,15 +1,16 @@
 <div class="row">
     <div class="col-xs-12 text-center">
-        <b>Laguna Seca</b><br>
-        Tel. 69050003 <br>
-        Email:nicolas@hotmail.com
+        <b><?php echo $empresa['nombre']; ?></b><br>
+        Telefono: <?php echo $empresa['telefono']; ?> <br>
     </div>
 </div> <br>
 
 <div class="row">
     <div class="col-xs-12">
+        <p class="text-center">
+            <?php echo $empresa['descripcion']; ?>
 
-        En el siguiente reporte se mostrara los datos actuales del año presente de todos los tipos de controles realizados en las distintas estancias.
+        </p>
     </div>
     <div class="col-xs-12">
         <br>

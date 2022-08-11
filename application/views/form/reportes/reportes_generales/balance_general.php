@@ -1,9 +1,7 @@
 <div class="row">
     <div class="col-xs-12 text-center">
-        <b>Empresa de Ventas</b><br>
-        Calle Moquegua 430 <br>
-        Tel. 481890 <br>
-        Email:yonybrondy17@gmail.com
+        <b><?php echo $empresa['nombre']; ?></b><br>
+        Telefono: <?php echo $empresa['telefono']; ?> <br>
     </div>
 </div> <br>
 
@@ -47,7 +45,7 @@
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>
-               
+
                 <tr>
                     <td><strong>Gastos fijos</strong></td>
                     <td colspan="2"></td>

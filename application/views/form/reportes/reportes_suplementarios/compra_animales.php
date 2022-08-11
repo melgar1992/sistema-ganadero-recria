@@ -1,15 +1,16 @@
 <div class="row">
-<div class="col-xs-12 text-center">
-        <b>Laguna Seca</b><br>
-        Tel. 69050003 <br>
-        Email:nicolas@hotmail.com
+    <div class="col-xs-12 text-center">
+        <b><?php echo $empresa['nombre']; ?></b><br>
+        Telefono: <?php echo $empresa['telefono']; ?> <br>
     </div>
 </div> <br>
+
 <div class="row">
     <div class="col-xs-12">
+        <p class="text-center">
+            <?php echo $empresa['descripcion']; ?>
 
-        En el siguiente reporte se mostrara los datos de las cantidades  de las compras realizadas en el año presente asi como tambien los ingresos de forma monetaria.
-
+        </p>
     </div>
 </div>
 </br>
@@ -39,10 +40,10 @@
             <tfoot>
                 <tr>
                     <td colspan="2" class="text-left"><strong>Total:</strong></td>
-                    <td colspan="0" class="text-left"><strong><?php echo number_format($totales_compras->cantidad,2); ?></strong></td>
-                    <td colspan="0" class="text-left"><strong><?php echo number_format($totales_compras->sub_total,2); ?></strong></td>
+                    <td colspan="0" class="text-left"><strong><?php echo number_format($totales_compras->cantidad, 2); ?></strong></td>
+                    <td colspan="0" class="text-left"><strong><?php echo number_format($totales_compras->sub_total, 2); ?></strong></td>
                 </tr>
-                
+
             </tfoot>
 
         </table>

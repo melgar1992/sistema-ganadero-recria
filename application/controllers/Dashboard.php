@@ -25,6 +25,7 @@ class Dashboard extends BaseController
   public function Reporte_categoria_bovino()
   {
     $datos = array(
+      'empresa' => $this->Empresa_model->getEmpresa(),
       'inventario_categorias' => $this->Reportes_model->getInvenarioCategoriaBovino(),
       'estancias'=>$this->Reportes_model-> getEstanciaAnimalBovino(),
      
@@ -35,6 +36,7 @@ class Dashboard extends BaseController
   public function Reporte_categoria_animal()
   {
     $datos = array(
+      'empresa' => $this->Empresa_model->getEmpresa(),
       'inventario_categorias' => $this->Reportes_model->getIventarioCategoriAnimal(),
       'estancias'=>$this->Reportes_model-> getEstanciaAnimal(),
     );
@@ -44,6 +46,7 @@ class Dashboard extends BaseController
   public function Reporte_venta_animal_bovino()
   {
     $datos = array(
+      'empresa' => $this->Empresa_model->getEmpresa(),
       'venta_animales_bovinos' => $this->Reportes_model->getReporteVentaCategoriaBovino(),
       'totales_ventas' => $this->Reportes_model->getSumaTotalesVentasAnualAnimalesBovinos(),
     );
@@ -53,6 +56,7 @@ class Dashboard extends BaseController
   public function Reporte_venta_animal()
   {
     $datos = array(
+      'empresa' => $this->Empresa_model->getEmpresa(),
       'venta_animales_bovinos' => $this->Reportes_model->getReporteVentaCategoriaAnimal(),
       'totales_ventas' => $this->Reportes_model->getSumaTotalesVentasAnualAnimales(),
     );
@@ -62,6 +66,7 @@ class Dashboard extends BaseController
   public function Reporte_compra_animal_bovino()
   {
     $datos = array(
+      'empresa' => $this->Empresa_model->getEmpresa(),
       'compra_animales_bovinos' => $this->Reportes_model->getReporteCompraCategoriaBovino(),
       'totales_compras' => $this->Reportes_model->getSumaTotalesCompraAnualBovinos(),
     );
@@ -71,6 +76,7 @@ class Dashboard extends BaseController
   public function Reporte_compra_animal()
   {
     $datos = array(
+      'empresa' => $this->Empresa_model->getEmpresa(),
       'compra_animales_bovinos' => $this->Reportes_model->getReporteCompraCategoriaAnimal(),
       'totales_compras' => $this->Reportes_model->getSumaTotalesCompraAnualAnimales(),
     );
@@ -79,6 +85,7 @@ class Dashboard extends BaseController
   public function Control_animal_bovino()
   {
     $datos = array(
+      'empresa' => $this->Empresa_model->getEmpresa(),
       'control_animales' => $this->Reportes_model->getReporteControlBovino(),
       'estancias'=>$this->Reportes_model->getReporteControlBovino(),
 
@@ -92,6 +99,7 @@ class Dashboard extends BaseController
     $fechainicio = $this->input->post('fechainicio');
 
     $datos = array(
+      'empresa' => $this->Empresa_model->getEmpresa(),
       'ingreso_venta_animal' => $this->Reportes_model->getIngresoVentaAnimalesEntreFechas($fechainicio, $fechafin),
       'comision' => $this->Reportes_model->getComisionesAnimales($fechainicio, $fechafin),
       'otros_ingresos' => $this->Reportes_model->getOtrosIngresos($fechainicio, $fechafin),
