@@ -24,6 +24,7 @@ class Usuarios extends BaseController
         $password = $this->input->post("password");
         $roles = $this->input->post("roles");
 
+        $passwordSha = sha1($password);
 
 
         $data = array(
@@ -31,7 +32,7 @@ class Usuarios extends BaseController
             'nombres' => $nombre,
             'apellidos' => $apellidos, 
             'username' => $username,
-            'password' => $password,
+            'password' => $passwordSha,
             'estado' => "1"
         );
         if ($this->Usuario_model->guardar($data)) {
