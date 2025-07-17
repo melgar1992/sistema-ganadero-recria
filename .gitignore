@@ -34,4 +34,4 @@ application/config/database.php
 application/config/database.php
 application/config/database.php
 application/config/database.php
-docker-compose.yml
+db_data/*
