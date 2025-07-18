@@ -8,15 +8,12 @@
 -- Schema sistema-ganadero-recria
 -- -----------------------------------------------------
 
--- -----------------------------------------------------
--- Schema sistema-ganadero-recria
--- -----------------------------------------------------
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`roles`
+-- Table `roles`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`roles` (
+CREATE TABLE IF NOT EXISTS `roles` (
   `id_roles` INT NOT NULL AUTO_INCREMENT,
   `nombres` VARCHAR(45) NULL,
   `descripcion` VARCHAR(100) NULL,
@@ -26,9 +23,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`usuarios`
+-- Table `usuarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`usuarios` (
+CREATE TABLE IF NOT EXISTS `usuarios` (
   `id_usuarios` INT NOT NULL AUTO_INCREMENT,
   `id_roles` INT NOT NULL,
   `nombres` VARCHAR(45) NULL,
@@ -41,16 +38,16 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`usuarios` (
   INDEX `fk_usuarios_roles_idx` (`id_roles` ASC),
   CONSTRAINT `fk_usuarios_roles`
     FOREIGN KEY (`id_roles`)
-    REFERENCES `sistema-ganadero-recria`.`roles` (`id_roles`)
+    REFERENCES `roles` (`id_roles`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`persona`
+-- Table `persona`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`persona` (
+CREATE TABLE IF NOT EXISTS `persona` (
   `id_persona` INT NOT NULL AUTO_INCREMENT,
   `nombres` VARCHAR(45) NULL,
   `apellidos` VARCHAR(45) NULL,
@@ -61,9 +58,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`ganadero`
+-- Table `ganadero`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`ganadero` (
+CREATE TABLE IF NOT EXISTS `ganadero` (
   `id_ganadero` INT NOT NULL AUTO_INCREMENT,
   `id_persona` INT NOT NULL,
   `tipo_ganadero` VARCHAR(45) NULL,
@@ -72,16 +69,16 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`ganadero` (
   INDEX `fk_ganadero_persona1_idx` (`id_persona` ASC),
   CONSTRAINT `fk_ganadero_persona1`
     FOREIGN KEY (`id_persona`)
-    REFERENCES `sistema-ganadero-recria`.`persona` (`id_persona`)
+    REFERENCES `persona` (`id_persona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`marca`
+-- Table `marca`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`marca` (
+CREATE TABLE IF NOT EXISTS `marca` (
   `id_marca` INT NOT NULL AUTO_INCREMENT,
   `id_ganadero` INT NOT NULL,
   `marca` VARCHAR(100) NULL,
@@ -90,16 +87,16 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`marca` (
   INDEX `fk_marca_ganadero1_idx` (`id_ganadero` ASC),
   CONSTRAINT `fk_marca_ganadero1`
     FOREIGN KEY (`id_ganadero`)
-    REFERENCES `sistema-ganadero-recria`.`ganadero` (`id_ganadero`)
+    REFERENCES `ganadero` (`id_ganadero`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`intermediario`
+-- Table `intermediario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`intermediario` (
+CREATE TABLE IF NOT EXISTS `intermediario` (
   `id_intermediario` INT NOT NULL AUTO_INCREMENT,
   `id_persona` INT NOT NULL,
   `estado` TINYINT NULL,
@@ -107,16 +104,16 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`intermediario` (
   INDEX `fk_intermediario_persona1_idx` (`id_persona` ASC),
   CONSTRAINT `fk_intermediario_persona1`
     FOREIGN KEY (`id_persona`)
-    REFERENCES `sistema-ganadero-recria`.`persona` (`id_persona`)
+    REFERENCES `persona` (`id_persona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`tipo_transporte`
+-- Table `tipo_transporte`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`tipo_transporte` (
+CREATE TABLE IF NOT EXISTS `tipo_transporte` (
   `id_tipo_transporte` INT NOT NULL AUTO_INCREMENT,
   `nombres` VARCHAR(45) NULL,
   `estado` TINYINT NULL,
@@ -125,9 +122,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`transportista`
+-- Table `transportista`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`transportista` (
+CREATE TABLE IF NOT EXISTS `transportista` (
   `id_transportista` INT NOT NULL AUTO_INCREMENT,
   `id_persona` INT NOT NULL,
   `id_tipo_transporte` INT NOT NULL,
@@ -138,21 +135,21 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`transportista` (
   INDEX `fk_transportista_tipo_transporte1_idx` (`id_tipo_transporte` ASC),
   CONSTRAINT `fk_transportista_persona1`
     FOREIGN KEY (`id_persona`)
-    REFERENCES `sistema-ganadero-recria`.`persona` (`id_persona`)
+    REFERENCES `persona` (`id_persona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_transportista_tipo_transporte1`
     FOREIGN KEY (`id_tipo_transporte`)
-    REFERENCES `sistema-ganadero-recria`.`tipo_transporte` (`id_tipo_transporte`)
+    REFERENCES `tipo_transporte` (`id_tipo_transporte`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`empleado`
+-- Table `empleado`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`empleado` (
+CREATE TABLE IF NOT EXISTS `empleado` (
   `id_empleado` INT NOT NULL AUTO_INCREMENT,
   `id_persona` INT NOT NULL,
   `direccion` VARCHAR(45) NULL,
@@ -160,16 +157,16 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`empleado` (
   INDEX `fk_empleado_persona1_idx` (`id_persona` ASC),
   CONSTRAINT `fk_empleado_persona1`
     FOREIGN KEY (`id_persona`)
-    REFERENCES `sistema-ganadero-recria`.`persona` (`id_persona`)
+    REFERENCES `persona` (`id_persona`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`estancias`
+-- Table `estancias`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`estancias` (
+CREATE TABLE IF NOT EXISTS `estancias` (
   `id_estancia` INT NOT NULL AUTO_INCREMENT,
   `id_empleado` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
@@ -182,16 +179,16 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`estancias` (
   INDEX `fk_estancias_empleado1_idx` (`id_empleado` ASC),
   CONSTRAINT `fk_estancias_empleado1`
     FOREIGN KEY (`id_empleado`)
-    REFERENCES `sistema-ganadero-recria`.`empleado` (`id_empleado`)
+    REFERENCES `empleado` (`id_empleado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`tipos_cargos`
+-- Table `tipos_cargos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`tipos_cargos` (
+CREATE TABLE IF NOT EXISTS `tipos_cargos` (
   `id_tipos_cargos` INT NOT NULL AUTO_INCREMENT,
   `cargo` VARCHAR(45) NULL,
   `area` VARCHAR(50) NULL,
@@ -201,9 +198,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`contrato_empleado`
+-- Table `contrato_empleado`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`contrato_empleado` (
+CREATE TABLE IF NOT EXISTS `contrato_empleado` (
   `id_contrato_empleado` INT NOT NULL AUTO_INCREMENT,
   `id_tipos_cargos` INT NOT NULL,
   `id_empleado` INT NOT NULL,
@@ -223,21 +220,21 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`contrato_empleado` (
   INDEX `fk_contrato_empleado_tipo_contrato1_idx` (`id_tipos_cargos` ASC),
   CONSTRAINT `fk_contrato_empleado_empleado1`
     FOREIGN KEY (`id_empleado`)
-    REFERENCES `sistema-ganadero-recria`.`empleado` (`id_empleado`)
+    REFERENCES `empleado` (`id_empleado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_contrato_empleado_tipo_contrato1`
     FOREIGN KEY (`id_tipos_cargos`)
-    REFERENCES `sistema-ganadero-recria`.`tipos_cargos` (`id_tipos_cargos`)
+    REFERENCES `tipos_cargos` (`id_tipos_cargos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`tipo_pago`
+-- Table `tipo_pago`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`tipo_pago` (
+CREATE TABLE IF NOT EXISTS `tipo_pago` (
   `id_tipo_pago` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(55) NULL,
   PRIMARY KEY (`id_tipo_pago`))
@@ -245,9 +242,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`boleta_pago`
+-- Table `boleta_pago`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`boleta_pago` (
+CREATE TABLE IF NOT EXISTS `boleta_pago` (
   `id_boleta_pago` INT NOT NULL AUTO_INCREMENT,
   `id_tipo_pago` INT NOT NULL,
   `id_contrato_empleado` INT NOT NULL,
@@ -259,21 +256,21 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`boleta_pago` (
   INDEX `fk_boleta_pago_contrato_empleado1_idx` (`id_contrato_empleado` ASC),
   CONSTRAINT `fk_boleta_pago_tipo_pago1`
     FOREIGN KEY (`id_tipo_pago`)
-    REFERENCES `sistema-ganadero-recria`.`tipo_pago` (`id_tipo_pago`)
+    REFERENCES `tipo_pago` (`id_tipo_pago`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_boleta_pago_contrato_empleado1`
     FOREIGN KEY (`id_contrato_empleado`)
-    REFERENCES `sistema-ganadero-recria`.`contrato_empleado` (`id_contrato_empleado`)
+    REFERENCES `contrato_empleado` (`id_contrato_empleado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`gastos_fijos`
+-- Table `gastos_fijos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`gastos_fijos` (
+CREATE TABLE IF NOT EXISTS `gastos_fijos` (
   `id_gastos_fijos` INT NOT NULL AUTO_INCREMENT,
   `id_usuarios` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
@@ -283,16 +280,16 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`gastos_fijos` (
   INDEX `fk_gastos_fijos_usuarios1_idx` (`id_usuarios` ASC),
   CONSTRAINT `fk_gastos_fijos_usuarios1`
     FOREIGN KEY (`id_usuarios`)
-    REFERENCES `sistema-ganadero-recria`.`usuarios` (`id_usuarios`)
+    REFERENCES `usuarios` (`id_usuarios`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`pago_gasto_fijo`
+-- Table `pago_gasto_fijo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`pago_gasto_fijo` (
+CREATE TABLE IF NOT EXISTS `pago_gasto_fijo` (
   `id_pago_gasto_fijo` INT NOT NULL AUTO_INCREMENT,
   `id_gastos_fijos` INT NOT NULL,
   `id_usuarios` INT NOT NULL,
@@ -307,26 +304,26 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`pago_gasto_fijo` (
   INDEX `fk_pago_gasto_fijo_empleado1_idx` (`id_empleado` ASC),
   CONSTRAINT `fk_pago_gasto_fijo_gastos_fijos1`
     FOREIGN KEY (`id_gastos_fijos`)
-    REFERENCES `sistema-ganadero-recria`.`gastos_fijos` (`id_gastos_fijos`)
+    REFERENCES `gastos_fijos` (`id_gastos_fijos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_pago_gasto_fijo_usuarios1`
     FOREIGN KEY (`id_usuarios`)
-    REFERENCES `sistema-ganadero-recria`.`usuarios` (`id_usuarios`)
+    REFERENCES `usuarios` (`id_usuarios`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_pago_gasto_fijo_empleado1`
     FOREIGN KEY (`id_empleado`)
-    REFERENCES `sistema-ganadero-recria`.`empleado` (`id_empleado`)
+    REFERENCES `empleado` (`id_empleado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`tipo_gastos_variables`
+-- Table `tipo_gastos_variables`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`tipo_gastos_variables` (
+CREATE TABLE IF NOT EXISTS `tipo_gastos_variables` (
   `id_tipo_gastos_variables` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NULL,
   `estado` TINYINT NULL,
@@ -335,9 +332,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`gastos_variables`
+-- Table `gastos_variables`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`gastos_variables` (
+CREATE TABLE IF NOT EXISTS `gastos_variables` (
   `id_gastos_variables` INT NOT NULL AUTO_INCREMENT,
   `id_tipo_gastos_variables` INT NOT NULL,
   `id_usuarios` INT NOT NULL,
@@ -352,26 +349,26 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`gastos_variables` (
   INDEX `fk_gastos_variables_empleado1_idx` (`id_empleado` ASC),
   CONSTRAINT `fk_gastos_variables_tipo_gastos_variables1`
     FOREIGN KEY (`id_tipo_gastos_variables`)
-    REFERENCES `sistema-ganadero-recria`.`tipo_gastos_variables` (`id_tipo_gastos_variables`)
+    REFERENCES `tipo_gastos_variables` (`id_tipo_gastos_variables`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_gastos_variables_usuarios1`
     FOREIGN KEY (`id_usuarios`)
-    REFERENCES `sistema-ganadero-recria`.`usuarios` (`id_usuarios`)
+    REFERENCES `usuarios` (`id_usuarios`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_gastos_variables_empleado1`
     FOREIGN KEY (`id_empleado`)
-    REFERENCES `sistema-ganadero-recria`.`empleado` (`id_empleado`)
+    REFERENCES `empleado` (`id_empleado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`detalle_gastos`
+-- Table `detalle_gastos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`detalle_gastos` (
+CREATE TABLE IF NOT EXISTS `detalle_gastos` (
   `id_detalle_gastos` INT NOT NULL AUTO_INCREMENT,
   `id_gastos_variables` INT NOT NULL,
   `cantidad` FLOAT NULL,
@@ -382,16 +379,16 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`detalle_gastos` (
   INDEX `fk_detalle_gastos_gastos_variables1_idx` (`id_gastos_variables` ASC),
   CONSTRAINT `fk_detalle_gastos_gastos_variables1`
     FOREIGN KEY (`id_gastos_variables`)
-    REFERENCES `sistema-ganadero-recria`.`gastos_variables` (`id_gastos_variables`)
+    REFERENCES `gastos_variables` (`id_gastos_variables`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`venta_animales`
+-- Table `venta_animales`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`venta_animales` (
+CREATE TABLE IF NOT EXISTS `venta_animales` (
   `id_venta_animales` INT NOT NULL AUTO_INCREMENT,
   `id_usuarios` INT NOT NULL,
   `id_empleado` INT NOT NULL,
@@ -411,26 +408,26 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`venta_animales` (
   INDEX `fk_venta_animales_estancias1_idx` (`id_estancia` ASC),
   CONSTRAINT `fk_egresos_animales_usuarios1`
     FOREIGN KEY (`id_usuarios`)
-    REFERENCES `sistema-ganadero-recria`.`usuarios` (`id_usuarios`)
+    REFERENCES `usuarios` (`id_usuarios`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_egresos_animales_empleado1`
     FOREIGN KEY (`id_empleado`)
-    REFERENCES `sistema-ganadero-recria`.`empleado` (`id_empleado`)
+    REFERENCES `empleado` (`id_empleado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_egresos_animales_estancias1`
     FOREIGN KEY (`id_estancia`)
-    REFERENCES `sistema-ganadero-recria`.`estancias` (`id_estancia`)
+    REFERENCES `estancias` (`id_estancia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`categoria_ingresos`
+-- Table `categoria_ingresos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`categoria_ingresos` (
+CREATE TABLE IF NOT EXISTS `categoria_ingresos` (
   `id_categoria_ingresos` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NULL,
   `estado` TINYINT NULL,
@@ -439,9 +436,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`otros_ingresos`
+-- Table `otros_ingresos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`otros_ingresos` (
+CREATE TABLE IF NOT EXISTS `otros_ingresos` (
   `id_otros_ingresos` INT NOT NULL AUTO_INCREMENT,
   `id_categoria_ingresos` INT NOT NULL,
   `id_empleado` INT NOT NULL,
@@ -456,26 +453,26 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`otros_ingresos` (
   INDEX `fk_otros_ingresos_usuarios1_idx` (`id_usuarios` ASC),
   CONSTRAINT `fk_otros_ingresos_categoria_ingresos1`
     FOREIGN KEY (`id_categoria_ingresos`)
-    REFERENCES `sistema-ganadero-recria`.`categoria_ingresos` (`id_categoria_ingresos`)
+    REFERENCES `categoria_ingresos` (`id_categoria_ingresos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_otros_ingresos_empleado1`
     FOREIGN KEY (`id_empleado`)
-    REFERENCES `sistema-ganadero-recria`.`empleado` (`id_empleado`)
+    REFERENCES `empleado` (`id_empleado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_otros_ingresos_usuarios1`
     FOREIGN KEY (`id_usuarios`)
-    REFERENCES `sistema-ganadero-recria`.`usuarios` (`id_usuarios`)
+    REFERENCES `usuarios` (`id_usuarios`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`detalle_ingresos`
+-- Table `detalle_ingresos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`detalle_ingresos` (
+CREATE TABLE IF NOT EXISTS `detalle_ingresos` (
   `id_detalle_ingresos` INT NOT NULL AUTO_INCREMENT,
   `id_otros_ingresos` INT NOT NULL,
   `cantidad` DECIMAL NULL,
@@ -486,16 +483,16 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`detalle_ingresos` (
   INDEX `fk_detalle_ingresos_otros_ingresos1_idx` (`id_otros_ingresos` ASC),
   CONSTRAINT `fk_detalle_ingresos_otros_ingresos1`
     FOREIGN KEY (`id_otros_ingresos`)
-    REFERENCES `sistema-ganadero-recria`.`otros_ingresos` (`id_otros_ingresos`)
+    REFERENCES `otros_ingresos` (`id_otros_ingresos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`tipo_animal`
+-- Table `tipo_animal`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`tipo_animal` (
+CREATE TABLE IF NOT EXISTS `tipo_animal` (
   `id_tipo_animal` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NULL,
   `raza` VARCHAR(45) NULL,
@@ -505,9 +502,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`animal`
+-- Table `animal`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`animal` (
+CREATE TABLE IF NOT EXISTS `animal` (
   `id_animal` INT NOT NULL AUTO_INCREMENT,
   `id_tipo_animal` INT NOT NULL,
   `id_estancia` INT NOT NULL,
@@ -520,21 +517,21 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`animal` (
   INDEX `fk_animal_estancias1_idx` (`id_estancia` ASC),
   CONSTRAINT `fk_animal_tipo_animal1`
     FOREIGN KEY (`id_tipo_animal`)
-    REFERENCES `sistema-ganadero-recria`.`tipo_animal` (`id_tipo_animal`)
+    REFERENCES `tipo_animal` (`id_tipo_animal`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_animal_estancias1`
     FOREIGN KEY (`id_estancia`)
-    REFERENCES `sistema-ganadero-recria`.`estancias` (`id_estancia`)
+    REFERENCES `estancias` (`id_estancia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`compra_animales`
+-- Table `compra_animales`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`compra_animales` (
+CREATE TABLE IF NOT EXISTS `compra_animales` (
   `id_compra_animales` INT NOT NULL AUTO_INCREMENT,
   `id_usuarios` INT NOT NULL,
   `id_empleado` INT NOT NULL,
@@ -553,26 +550,26 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`compra_animales` (
   INDEX `fk_compra_animales_estancias1_idx` (`id_estancia` ASC),
   CONSTRAINT `fk_compra_animales_usuarios1`
     FOREIGN KEY (`id_usuarios`)
-    REFERENCES `sistema-ganadero-recria`.`usuarios` (`id_usuarios`)
+    REFERENCES `usuarios` (`id_usuarios`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_compra_animales_empleado1`
     FOREIGN KEY (`id_empleado`)
-    REFERENCES `sistema-ganadero-recria`.`empleado` (`id_empleado`)
+    REFERENCES `empleado` (`id_empleado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_compra_animales_estancias1`
     FOREIGN KEY (`id_estancia`)
-    REFERENCES `sistema-ganadero-recria`.`estancias` (`id_estancia`)
+    REFERENCES `estancias` (`id_estancia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`detalle_movimiento_animales`
+-- Table `detalle_movimiento_animales`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`detalle_movimiento_animales` (
+CREATE TABLE IF NOT EXISTS `detalle_movimiento_animales` (
   `id_detalle_venta_animales` INT NOT NULL AUTO_INCREMENT,
   `id_animal` INT NOT NULL,
   `id_compra_animales` INT NULL,
@@ -591,26 +588,26 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`detalle_movimiento_animale
   INDEX `fk_detalle_movimiento_animales_compra_animales1_idx` (`id_compra_animales` ASC),
   CONSTRAINT `fk_detalle_venta_animales_animal1`
     FOREIGN KEY (`id_animal`)
-    REFERENCES `sistema-ganadero-recria`.`animal` (`id_animal`)
+    REFERENCES `animal` (`id_animal`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_detalle_venta_animales_venta_animales1`
     FOREIGN KEY (`id_venta_animales`)
-    REFERENCES `sistema-ganadero-recria`.`venta_animales` (`id_venta_animales`)
+    REFERENCES `venta_animales` (`id_venta_animales`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_detalle_movimiento_animales_compra_animales1`
     FOREIGN KEY (`id_compra_animales`)
-    REFERENCES `sistema-ganadero-recria`.`compra_animales` (`id_compra_animales`)
+    REFERENCES `compra_animales` (`id_compra_animales`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `sistema-ganadero-recria`.`datos_empresa`
+-- Table `datos_empresa`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`datos_empresa` (
+CREATE TABLE IF NOT EXISTS `datos_empresa` (
   `id_datos_empresa` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NULL,
   `telefono` INT NULL,
@@ -618,7 +615,3 @@ CREATE TABLE IF NOT EXISTS `sistema-ganadero-recria`.`datos_empresa` (
   PRIMARY KEY (`id_datos_empresa`))
 ENGINE = InnoDB;
 
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
